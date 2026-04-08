@@ -1,0 +1,67 @@
+import Script from "next/script"
+
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-5S2LZ9G7"
+const gaId = process.env.NEXT_PUBLIC_GA_ID
+const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT ?? "ca-pub-1311778233901465"
+
+export default function GoogleScripts() {
+    return (
+        <>
+            {gtmId && (
+                <Script id="google-tag-manager" strategy="afterInteractive">
+                    {`
+                        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                        })(window,document,'script','dataLayer','${gtmId}');
+                    `}
+                </Script>
+            )}
+
+            {gaId && (
+                <>
+                    <Script
+                        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+                        strategy="afterInteractive"
+                    />
+                    <Script id="google-analytics" strategy="afterInteractive">
+                        {`
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+                            gtag('config', '${gaId}');
+                        `}
+                    </Script>
+                </>
+            )}
+
+            {adsenseClient && (
+                <Script
+                    id="google-adsense"
+                    strategy="afterInteractive"
+                    async
+                    crossOrigin="anonymous"
+                    src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
+                />
+            )}
+        </>
+    )
+}
+
+export function GoogleTagManagerNoScript() {
+    if (!gtmId) {
+        return null
+    }
+
+    return (
+        <noscript>
+            <iframe
+                src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+                height="0"
+                width="0"
+                style={{ display: "none", visibility: "hidden" }}
+            />
+        </noscript>
+    )
+}

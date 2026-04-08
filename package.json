@@ -6,12 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:setup": "node scripts/setup-mongodb.mjs",
+    "db:testimonials": "node scripts/review-testimonials.mjs"
   },
   "dependencies": {
+    "daisyui": "^5.5.19",
+    "lucide-react": "^0.577.0",
+    "mongodb": "^7.1.1",
     "next": "16.2.0",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "react-feather": "^2.0.10",
+    "swiper": "^12.1.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
