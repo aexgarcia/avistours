@@ -7,13 +7,13 @@ import WhatsAppLink from "@/components/whatsapp/WhatsAppLink"
 import { absoluteUrl } from "@/data/site"
 
 const company = {
-    name: "AviTours Operador Turistico E.I.R.L.",
-    tradeName: "AviTours",
+    name: "Avistours Operador Turistico E.I.R.L.",
+    tradeName: "Avistours",
     ruc: "20612345678",
     address: "Muelle turistico de Puerto Pizarro, Tumbes, Peru",
     phone: "+51 999 000 000",
     whatsapp: "51999000000",
-    email: "reservas@avitours.pe",
+    email: "reservas@avistours.pe",
     schedule: "Lunes a domingo, 8:00 a.m. - 6:00 p.m.",
 }
 
@@ -51,13 +51,13 @@ const contactCards = [
 ]
 
 export const metadata: Metadata = {
-    title: "Contacto | AviTours",
-    description: "Contacta a AviTours para reservar paseos por Puerto Pizarro, Tumbes: manglares, islas, aves y cocodrilos.",
+    title: "Contacto | Avistours",
+    description: "Contacta a Avistours para reservar paseos por Puerto Pizarro, Tumbes: manglares, islas, aves y cocodrilos.",
     alternates: {
         canonical: "/contact",
     },
     openGraph: {
-        title: "Contacto AviTours | Tours en Puerto Pizarro",
+        title: "Contacto Avistours | Tours en Puerto Pizarro",
         description: "Consulta disponibilidad para paseos por manglares, islas, aves y cocodrilos en Puerto Pizarro, Tumbes.",
         url: "/contact",
         images: [
@@ -77,7 +77,7 @@ export default function ContactPage() {
             <section className="relative overflow-hidden bg-slate-950 pt-32 text-white md:pt-40">
                 <Image
                     src="/images/hero/hero2.jpg"
-                    alt="Paseo en Puerto Pizarro con AviTours"
+                    alt="Paseo en Puerto Pizarro con Avistours"
                     fill
                     priority
                     sizes="100vw"
@@ -89,7 +89,7 @@ export default function ContactPage() {
                     <div>
                         <span className="inline-flex items-center gap-2 rounded-md bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-green-300 backdrop-blur">
                             <Anchor size={14} />
-                            Contacto AviTours
+                            Contacto Avistours
                         </span>
                         <h1 className="mt-5 max-w-3xl text-3xl font-semibold leading-tight md:text-5xl">
                             Planifica tu paseo por Puerto Pizarro con guia local
@@ -163,7 +163,7 @@ export default function ContactPage() {
                                 </p>
                                 <WhatsAppLink
                                     number={company.whatsapp}
-                                    message="Hola AviTours, quiero consultar disponibilidad para un paseo en Puerto Pizarro."
+                                    message="Hola Avistours, quiero consultar disponibilidad para un paseo en Puerto Pizarro."
                                     className="mt-4 inline-flex rounded-md bg-green-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-600"
                                 >
                                     Consultar disponibilidad
@@ -190,7 +190,7 @@ export default function ContactPage() {
                         </p>
                     </div>
 
-                    <PackageGallery images={contactGallery} title="Puerto Pizarro con AviTours" />
+                    <PackageGallery images={contactGallery} title="Puerto Pizarro con Avistours" />
                 </div>
             </section>
         </div>

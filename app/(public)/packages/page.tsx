@@ -14,13 +14,13 @@ type PackagesPageProps = {
 }
 
 export const metadata: Metadata = {
-    title: "Tours en Puerto Pizarro | AviTours",
-    description: "Busca paquetes, promociones y guias de AviTours para paseos en Puerto Pizarro, Tumbes.",
+    title: "Tours en Puerto Pizarro | Avistours",
+    description: "Busca paquetes, promociones y guias de Avistours para paseos en Puerto Pizarro, Tumbes.",
     alternates: {
         canonical: "/packages",
     },
     openGraph: {
-        title: "Tours en Puerto Pizarro y manglares de Tumbes | AviTours",
+        title: "Tours en Puerto Pizarro y manglares de Tumbes | Avistours",
         description: "Paquetes por islas, manglares, Isla de los Pajaros, cocodrilos y boca del mar en Puerto Pizarro.",
         url: "/packages",
         images: [
@@ -104,7 +104,7 @@ export default async function PackagesPage({ searchParams }: PackagesPageProps) 
                 <div className="relative mx-auto max-w-6xl px-4 pb-16 md:pb-20">
                     <span className="inline-flex items-center gap-2 rounded-md bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-green-300 backdrop-blur">
                         <ShipWheel size={14} />
-                        Tours AviTours
+                        Tours Avistours
                     </span>
                     <h1 className="mt-5 max-w-3xl text-3xl font-semibold leading-tight md:text-5xl">
                         Paquetes y guias para navegar Puerto Pizarro

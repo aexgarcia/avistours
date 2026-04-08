@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-    title: "Admin | AviTours",
+    title: "Admin | AvisTours",
     robots: {
         index: false,
         follow: false,
@@ -15,7 +15,7 @@ export default function AdminPage() {
                 Panel administrativo
             </h1>
             <p className="mt-2 text-sm text-gray-600">
-                Espacio reservado para gestionar contenido, paquetes y reservas de AviTours.
+                Espacio reservado para gestionar contenido, paquetes y reservas de AvisTours.
             </p>
         </section>
     )

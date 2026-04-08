@@ -4,8 +4,8 @@ import { MessageSquareText, ShieldCheck, Star } from "lucide-react"
 import TestimonialFeedbackForm from "@/components/testimonials/TestimonialFeedbackForm"
 
 export const metadata: Metadata = {
-    title: "Califica tu tour | AviTours",
-    description: "Formulario privado para clientes que realizaron un tour con AviTours.",
+    title: "Califica tu tour | Avistours",
+    description: "Formulario privado para clientes que realizaron un tour con Avistours.",
     robots: {
         index: false,
         follow: false,
@@ -32,7 +32,7 @@ export default function FeedbackPage() {
                         Formulario para clientes
                     </span>
                     <h1 className="mt-5 max-w-3xl text-3xl font-semibold leading-tight md:text-5xl">
-                        Cuentanos como fue tu experiencia con AviTours
+                        Cuentanos como fue tu experiencia con Avistours
                     </h1>
                     <p className="mt-5 max-w-2xl text-sm leading-7 text-white/75 md:text-base">
                         Este enlace no esta pensado para buscadores. Lo compartimos con clientes que ya navegaron Puerto Pizarro para recoger comentarios reales.

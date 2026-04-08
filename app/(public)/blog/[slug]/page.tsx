@@ -90,19 +90,19 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
 
     if (!post) {
         return {
-            title: "Articulo no encontrado | AviTours",
+            title: "Articulo no encontrado | AvisTours",
         }
     }
 
     return {
-        title: `${post.title} | AviTours`,
+        title: `${post.title} | AvisTours`,
         description: post.excerpt,
         alternates: {
             canonical: `/blog/${post.slug}`,
         },
         openGraph: {
             type: "article",
-            title: `${post.title} | AviTours`,
+            title: `${post.title} | AvisTours`,
             description: post.excerpt,
             url: `/blog/${post.slug}`,
             images: [
@@ -116,7 +116,7 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
         },
         twitter: {
             card: "summary_large_image",
-            title: `${post.title} | AviTours`,
+            title: `${post.title} | AvisTours`,
             description: post.excerpt,
             images: [absoluteUrl(post.image)],
         },

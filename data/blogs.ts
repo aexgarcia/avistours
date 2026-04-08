@@ -47,7 +47,7 @@ export const legacyBlogPosts: BlogPost[] = [
         location: "Puerto Pizarro, Tumbes",
         readTime: "6 min",
         date: "18 Mar 2026",
-        author: "Equipo Avitours",
+        author: "Equipo Avistours",
         image: "/images/promotions/promotions1.jpg",
         featured: true,
         highlights: [
@@ -81,7 +81,7 @@ export const legacyBlogPosts: BlogPost[] = [
             {
                 type: "quote",
                 text: "La elegancia de un viaje no esta en correr mas, sino en elegir mejor donde detenerse.",
-                author: "Equipo Avitours",
+                author: "Equipo Avistours",
             },
             {
                 type: "list",
@@ -113,7 +113,7 @@ export const legacyBlogPosts: BlogPost[] = [
         location: "Puerto Pizarro, Tumbes",
         readTime: "4 min",
         date: "21 Mar 2026",
-        author: "Equipo Avitours",
+        author: "Equipo Avistours",
         image: "/images/promotions/promotions2.jpg",
         highlights: [
             "Hospedajes con salida temprana hacia la playa",
@@ -173,7 +173,7 @@ export const legacyBlogPosts: BlogPost[] = [
         location: "Puerto Pizarro, Tumbes",
         readTime: "7 min",
         date: "25 Mar 2026",
-        author: "Equipo Avitours",
+        author: "Equipo Avistours",
         image: "/images/promotions/promotions3.jpg",
         highlights: [
             "Lodges con recorridos guiados al amanecer",
@@ -202,7 +202,7 @@ export const legacyBlogPosts: BlogPost[] = [
             {
                 type: "quote",
                 text: "La selva no es un escenario: es un sistema vivo que exige atencion, silencio y cuidado.",
-                author: "Equipo Avitours",
+                author: "Equipo Avistours",
             },
             {
                 type: "heading",
@@ -237,7 +237,7 @@ export const blogPosts: BlogPost[] = [
         location: "Puerto Pizarro, Tumbes",
         readTime: "5 min",
         date: "07 Abr 2026",
-        author: "Equipo Avitours",
+        author: "Equipo Avistours",
         image: "/images/promotions/promotions1.jpg",
         featured: true,
         highlights: [
@@ -275,7 +275,7 @@ export const blogPosts: BlogPost[] = [
             {
                 type: "quote",
                 text: "La mejor hora para salir no siempre es la mas temprana; muchas veces es la que conversa mejor con la marea.",
-                author: "Equipo Avitours",
+                author: "Equipo Avistours",
             },
         ],
     },
@@ -287,7 +287,7 @@ export const blogPosts: BlogPost[] = [
         location: "Puerto Pizarro, Tumbes",
         readTime: "6 min",
         date: "07 Abr 2026",
-        author: "Equipo Avitours",
+        author: "Equipo Avistours",
         image: "/images/promotions/promotions3.jpg",
         highlights: [
             "Ideal para una primera visita a Puerto Pizarro",
@@ -332,7 +332,7 @@ export const blogPosts: BlogPost[] = [
         location: "Manglares de Tumbes",
         readTime: "4 min",
         date: "07 Abr 2026",
-        author: "Equipo Avitours",
+        author: "Equipo Avistours",
         image: "/images/promotions/promotions4.jpg",
         highlights: [
             "Buena opcion para viajes cortos",

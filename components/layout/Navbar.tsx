@@ -64,7 +64,7 @@ export default function Navbar() {
 
                 {/* LOGO */}
                 <Link href="/" className={`text-xl md:text-2xl font-bold ${scrolled ? "text-black" : "text-white"}`}>
-                    AviTours<span className="text-green-500">.</span>
+                    Avistours<span className="text-green-500">.</span>
                 </Link>
 
                 {/* MENU */}

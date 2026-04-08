@@ -14,7 +14,7 @@ import {
 import NewsletterForm from "@/components/newsletter/NewsletterForm"
 
 const companyLinks = [
-    { label: "AviTours", href: "#" },
+    { label: "Avistours", href: "#" },
     { label: "Tours", href: "#" },
     { label: "Mareas", href: "#" },
     { label: "Manglares", href: "#" },
@@ -37,7 +37,7 @@ export default function Footer() {
                     <div>
                         <Link href="/" className="inline-flex items-center gap-2 text-xl font-bold">
                             <Send size={18} className="text-green-500" />
-                            AviTours
+                            Avistours
                         </Link>
                         <p className="text-sm text-white/75 leading-6 mt-5 max-w-xs">
                             Informacion y paseos turisticos por Puerto Pizarro: manglares, islas, aves y cocodrilos en Tumbes.
@@ -67,7 +67,7 @@ export default function Footer() {
                         </h2>
                         <div className="mt-5 space-y-4 text-sm text-white/75">
                             <p className="font-medium text-white">
-                                AviTours Puerto Pizarro
+                                Avistours Puerto Pizarro
                             </p>
                             <div className="flex gap-3 leading-6">
                                 <MapPin size={16} className="text-green-500 mt-1 shrink-0" />
@@ -105,7 +105,7 @@ export default function Footer() {
                             Novedades
                         </h2>
                         <p className="text-sm text-white/75 leading-6 mt-5">
-                            Recibe tips sobre mareas, horarios y paseos con AviTours.
+                            Recibe tips sobre mareas, horarios y paseos con Avistours.
                         </p>
                         <NewsletterForm />
                     </div>
@@ -114,7 +114,7 @@ export default function Footer() {
 
             <div className="border-t border-white/10">
                 <div className="max-w-6xl mx-auto px-4 py-5 text-center text-sm text-white/80">
-                    (c) 2026 AviTours. Hecho con{" "}
+                    (c) 2026 Avistours. Hecho con{" "}
                     <Heart size={13} fill="currentColor" className="inline text-green-500 mx-1" />
                     para viajeros del norte peruano.
                 </div>

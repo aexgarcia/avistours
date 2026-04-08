@@ -6,13 +6,13 @@ import { blogPosts } from "@/data/blogs"
 import { absoluteUrl } from "@/data/site"
 
 export const metadata: Metadata = {
-    title: "Guia de Puerto Pizarro | AviTours",
-    description: "Articulos informativos de AviTours sobre mareas, manglares y paseos en Puerto Pizarro, Tumbes.",
+    title: "Guia de Puerto Pizarro | AvisTours",
+    description: "Articulos informativos de AvisTours sobre mareas, manglares y paseos en Puerto Pizarro, Tumbes.",
     alternates: {
         canonical: "/blog",
     },
     openGraph: {
-        title: "Guia de Puerto Pizarro, mareas y manglares | AviTours",
+        title: "Guia de Puerto Pizarro, mareas y manglares | AvisTours",
         description: "Aprende sobre mareas, manglares y rutas turisticas por Puerto Pizarro, Tumbes.",
         url: "/blog",
         images: [
@@ -44,7 +44,7 @@ export default function BlogPage() {
                 <div className="absolute inset-0 bg-slate-950/75" />
                 <div className="relative max-w-6xl mx-auto px-4 py-24 text-white">
                     <span className="inline-flex bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded">
-                        Guia AviTours
+                        Guia AvisTours
                     </span>
                     <h1 className="text-4xl lg:text-5xl font-semibold mt-5 max-w-3xl leading-tight">
                         Mareas, manglares y rutas por Tumbes

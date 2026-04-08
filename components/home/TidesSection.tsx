@@ -232,7 +232,7 @@ export default async function TidesSection() {
 
                             {tide.updatedAt && (
                                 <p className="text-xs text-gray-500 mt-3">
-                                    Lectura cercana a las {tide.updatedAt} h para AviTours.
+                                    Lectura cercana a las {tide.updatedAt} h para Avistours.
                                 </p>
                             )}
                         </div>

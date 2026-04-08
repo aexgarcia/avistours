@@ -29,18 +29,18 @@ export async function generateMetadata({ params }: PromotionDetailPageProps): Pr
 
     if (!tour) {
         return {
-            title: "Promocion no encontrada | AviTours",
+            title: "Promocion no encontrada | Avistours",
         }
     }
 
     return {
-        title: `${tour.title} | AviTours`,
+        title: `${tour.title} | Avistours`,
         description: tour.description,
         alternates: {
             canonical: `/promociones/${tour.slug}`,
         },
         openGraph: {
-            title: `${tour.title} | AviTours`,
+            title: `${tour.title} | Avistours`,
             description: tour.description,
             url: `/promociones/${tour.slug}`,
             images: [
@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: PromotionDetailPageProps): Pr
         },
         twitter: {
             card: "summary_large_image",
-            title: `${tour.title} | AviTours`,
+            title: `${tour.title} | Avistours`,
             description: tour.description,
             images: [absoluteUrl(tour.image)],
         },
@@ -295,7 +295,7 @@ export default async function PromotionDetailPage({ params }: PromotionDetailPag
                                 </p>
                                 <WhatsAppLink
                                     number="51999000000"
-                                    message={`Hola AviTours, quiero consultar por el paquete: ${tour.title}`}
+                                    message={`Hola Avistours, quiero consultar por el paquete: ${tour.title}`}
                                     className="mt-6 inline-flex w-full items-center justify-center rounded-md bg-green-500 px-4 py-3 text-sm font-semibold text-white hover:bg-green-600 transition"
                                 >
                                     Consultar por WhatsApp

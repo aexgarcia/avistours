@@ -12,13 +12,13 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "AviTours | Tours en Puerto Pizarro y manglares de Tumbes",
-    template: "%s | AviTours",
+    default: "AvisTours | Tours en Puerto Pizarro y manglares de Tumbes",
+    template: "%s | AvisTours",
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
   keywords: [
-    "AviTours",
+    "AvisTours",
     "Puerto Pizarro",
     "manglares de Tumbes",
     "tours en Tumbes",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_PE",
     siteName: siteConfig.name,
-    title: "AviTours | Tours en Puerto Pizarro y manglares de Tumbes",
+    title: "AvisTours | Tours en Puerto Pizarro y manglares de Tumbes",
     description: siteConfig.description,
     url: siteConfig.url,
     images: [
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AviTours | Tours en Puerto Pizarro y manglares de Tumbes",
+    title: "AvisTours | Tours en Puerto Pizarro y manglares de Tumbes",
     description: siteConfig.description,
     images: [absoluteUrl("/images/hero/hero1.jpg")],
   },

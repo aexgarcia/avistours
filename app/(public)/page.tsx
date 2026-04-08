@@ -10,12 +10,12 @@ import { absoluteUrl, siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
     title: "Tours en Puerto Pizarro, manglares de Tumbes e Isla de los Pajaros",
-    description: "Reserva paseos en bote por Puerto Pizarro con AviTours: manglares de Tumbes, Isla de los Pajaros, cocodrilos, islas y boca del mar.",
+    description: "Reserva paseos en bote por Puerto Pizarro con AvisTours: manglares de Tumbes, Isla de los Pajaros, cocodrilos, islas y boca del mar.",
     alternates: {
         canonical: "/",
     },
     openGraph: {
-        title: "Tours en Puerto Pizarro y manglares de Tumbes | AviTours",
+        title: "Tours en Puerto Pizarro y manglares de Tumbes | AvisTours",
         description: "Paseos turisticos por manglares, islas, aves, cocodrilos y boca del mar en Puerto Pizarro, Tumbes.",
         url: "/",
         images: [
