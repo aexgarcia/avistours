@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import type { Metadata } from "next"
+import { Suspense } from "react"
 import { ArrowRight, BookOpen, CalendarDays, MapPin, Search, ShipWheel } from "lucide-react"
 import TourCard from "@/components/home/TourCard"
 import SiteSearch from "@/components/search/SiteSearch"
@@ -55,10 +56,7 @@ function includesTerm(values: string[], query: string) {
 export default async function PackagesPage({ searchParams }: PackagesPageProps) {
     const { q } = await searchParams
     const query = (Array.isArray(q) ? q[0] : q ?? "").trim()
-    const ratingSummaries = await getTourRatingSummaries()
-    const toursWithRatings = tours.map((tour) => applyTourRating(tour, ratingSummaries))
-
-    const filteredTours = toursWithRatings.filter((tour) =>
+    const filteredTours = tours.filter((tour) =>
         includesTerm(getTourSearchTerms(tour), query),
     )
 
@@ -132,22 +130,9 @@ export default async function PackagesPage({ searchParams }: PackagesPageProps) 
                         )}
                     </div>
 
-                    {filteredTours.length > 0 ? (
-                        <div className="grid gap-5 lg:grid-cols-2">
-                            {filteredTours.map((tour) => (
-                                <TourCard key={tour.id} tour={tour} />
-                            ))}
-                        </div>
-                    ) : (
-                        <div className="rounded-lg border border-slate-200 bg-slate-50 p-8 text-center">
-                            <h3 className="text-lg font-semibold text-slate-900">
-                                No encontramos paquetes con esa busqueda
-                            </h3>
-                            <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-slate-500">
-                                Prueba con: islas, manglares, pajaros, cocodrilos o marea.
-                            </p>
-                        </div>
-                    )}
+                    <Suspense fallback={<TourCardsSkeleton />}>
+                        <TourResultsSection packageTours={filteredTours} />
+                    </Suspense>
 
                     <div className="mt-16">
                         <div className="mb-7 flex items-end justify-between gap-4">
@@ -220,6 +205,62 @@ export default async function PackagesPage({ searchParams }: PackagesPageProps) 
                     </div>
                 </div>
             </section>
+        </div>
+    )
+}
+
+function TourCardsSkeleton() {
+    return (
+        <div className="grid gap-5 lg:grid-cols-2">
+            {Array.from({ length: 4 }).map((_, index) => (
+                <div
+                    key={index}
+                    className="animate-pulse overflow-hidden rounded-lg border border-slate-200 bg-white p-3 shadow-sm sm:flex sm:gap-4 sm:p-4"
+                >
+                    <div className="h-56 w-full rounded-lg bg-slate-200 sm:h-60 sm:w-44 md:w-48" />
+                    <div className="mt-4 space-y-3 sm:mt-0 sm:flex-1">
+                        <div className="h-4 w-24 rounded bg-slate-200" />
+                        <div className="h-6 w-3/4 rounded bg-slate-200" />
+                        <div className="h-4 w-full rounded bg-slate-200" />
+                        <div className="h-4 w-5/6 rounded bg-slate-200" />
+                        <div className="flex gap-2 pt-2">
+                            <div className="h-6 w-20 rounded bg-slate-200" />
+                            <div className="h-6 w-20 rounded bg-slate-200" />
+                            <div className="h-6 w-20 rounded bg-slate-200" />
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    )
+}
+
+async function TourResultsSection({
+    packageTours,
+}: {
+    packageTours: typeof tours
+}) {
+    const ratingSummaries = await getTourRatingSummaries()
+    const toursWithRatings = packageTours.map((tour) => applyTourRating(tour, ratingSummaries))
+
+    if (toursWithRatings.length === 0) {
+        return (
+            <div className="rounded-lg border border-slate-200 bg-slate-50 p-8 text-center">
+                <h3 className="text-lg font-semibold text-slate-900">
+                    No encontramos paquetes con esa busqueda
+                </h3>
+                <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-slate-500">
+                    Prueba con: islas, manglares, pajaros, cocodrilos o marea.
+                </p>
+            </div>
+        )
+    }
+
+    return (
+        <div className="grid gap-5 lg:grid-cols-2">
+            {toursWithRatings.map((tour) => (
+                <TourCard key={tour.id} tour={tour} />
+            ))}
         </div>
     )
 }
