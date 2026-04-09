@@ -75,7 +75,7 @@ export default function Navbar() {
                         </span>
                     ) : (
                         <Image
-                            src="/logo_imagen_texto_avistours.png"
+                            src="/logo_imagen_texto_avistours.webp"
                             alt="Logo AviTours"
                             width={220}
                             height={64}

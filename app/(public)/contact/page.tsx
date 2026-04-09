@@ -91,7 +91,7 @@ export const metadata: Metadata = {
         url: "/contact",
         images: [
             {
-                url: absoluteUrl("/images/hero/bg_inicio2.webp"),
+                url: absoluteUrl("/images-optimized/hero/bg_inicio2.webp"),
                 width: 1200,
                 height: 630,
                 alt: "Contacto para paseos en Puerto Pizarro",
@@ -105,7 +105,7 @@ export default function ContactPage() {
         <div className="bg-white">
             <section className="relative overflow-hidden bg-slate-900 pt-32 text-white md:pt-40">
                 <Image
-                    src="/images/hero/bg_inicio2.webp"
+                    src="/images-optimized/hero/bg_inicio2.webp"
                     alt={`Paseo en Puerto Pizarro con ${brandName}`}
                     fill
                     priority

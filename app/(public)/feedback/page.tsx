@@ -17,7 +17,7 @@ export default function FeedbackPage() {
         <div className="bg-white">
             <section className="relative overflow-hidden bg-slate-950 pt-32 text-white md:pt-40">
                 <Image
-                    src="/images/promotions/promotions3.jpg"
+                    src="/images-optimized/promotions/promotions3.webp"
                     alt="Manglares de Puerto Pizarro"
                     fill
                     priority

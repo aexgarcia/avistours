@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         url: "/blog",
         images: [
             {
-                url: absoluteUrl("/images/promotions/promotions1.jpg"),
+                url: absoluteUrl("/images-optimized/promotions/promotions1.webp"),
                 width: 1200,
                 height: 630,
                 alt: "Guia turistica de Puerto Pizarro y manglares de Tumbes",

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
         url: "/packages",
         images: [
             {
-                url: absoluteUrl("/images/promotions/promotions1.jpg"),
+                url: absoluteUrl("/images-optimized/promotions/promotions1.webp"),
                 width: 1200,
                 height: 630,
                 alt: "Paquetes turisticos por Puerto Pizarro y manglares de Tumbes",
@@ -71,7 +71,7 @@ export default async function PackagesPage({ searchParams }: PackagesPageProps) 
         <div className="bg-white">
             <section className="relative overflow-hidden bg-slate-950/70 pt-32 text-white md:pt-40">
                 <Image
-                    src="/images/hero/hero1.jpg"
+                    src="/images-optimized/hero/hero1.webp"
                     alt="Manglares de Puerto Pizarro"
                     fill
                     priority

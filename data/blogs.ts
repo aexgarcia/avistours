@@ -48,7 +48,7 @@ export const blogPosts: BlogPost[] = [
         readTime: "5 min",
         date: "07 Abr 2026",
         author: "Equipo AvisTours",
-        image: "/images/galeria/galeria28.jpg",
+        image: "/images-optimized/galeria/galeria28.webp",
         featured: true,
         highlights: [
             "La marea influye en el ingreso a canales y zonas de manglar",
@@ -70,7 +70,7 @@ export const blogPosts: BlogPost[] = [
             },
             {
                 type: "image",
-                src: "/images/galeria/galeria31.jpg",
+                src: "/images-optimized/galeria/galeria31.webp",
                 alt: "Canales de manglar en Puerto Pizarro durante una salida en bote",
                 caption: "Los horarios exactos de marea cambian cada dia; conviene confirmarlos al coordinar el tour.",
             },
@@ -98,7 +98,7 @@ export const blogPosts: BlogPost[] = [
         readTime: "6 min",
         date: "07 Abr 2026",
         author: "Equipo AvisTours",
-        image: "/images/galeria/completo_galeria1.jpg",
+        image: "/images-optimized/galeria/completo_galeria1.webp",
         highlights: [
             "Ideal para una primera visita a Puerto Pizarro",
             "Combina naturaleza, fauna y navegacion por esteros",
@@ -124,7 +124,7 @@ export const blogPosts: BlogPost[] = [
             },
             {
                 type: "image",
-                src: "/images/galeria/completo_galeria8.jpg",
+                src: "/images-optimized/galeria/completo_galeria8.webp",
                 alt: "Paseo turistico por islas y manglares de Puerto Pizarro",
                 caption: "La ruta se ajusta segun marea, clima y condiciones del estero.",
             },
@@ -143,7 +143,7 @@ export const blogPosts: BlogPost[] = [
         readTime: "4 min",
         date: "07 Abr 2026",
         author: "Equipo AvisTours",
-        image: "/images/galeria/pajaros_manglares_galeria1.jpg",
+        image: "/images-optimized/galeria/pajaros_manglares_galeria1.webp",
         highlights: [
             "Buena opcion para viajes cortos",
             "Enfocada en aves y canales de manglar",
@@ -164,7 +164,7 @@ export const blogPosts: BlogPost[] = [
             },
             {
                 type: "image",
-                src: "/images/galeria/pajaros_manglares_galeria4.jpeg",
+                src: "/images-optimized/galeria/pajaros_manglares_galeria4.webp",
                 alt: "Manglares y aves en Puerto Pizarro",
                 caption: "La actividad de aves puede variar segun temporada, hora del dia y marea.",
             },

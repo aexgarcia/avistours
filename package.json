@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "images:optimize": "node scripts/optimize-images.mjs",
     "db:setup": "node scripts/setup-mongodb.mjs",
     "db:testimonials": "node scripts/review-testimonials.mjs"
   },

@@ -37,7 +37,7 @@ export default function Footer() {
                             className="relative inline-flex h-24 w-[168px] items-center"
                         >
                             <Image
-                                src="/logo_avistours.png"
+                                src="/logo_avistours.webp"
                                 alt="Logo AviTours"
                                 fill
                                 sizes="168px"

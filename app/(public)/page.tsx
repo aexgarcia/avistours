@@ -22,7 +22,7 @@ export const metadata: Metadata = {
         url: "/",
         images: [
             {
-                url: absoluteUrl("/images/hero/hero1.jpg"),
+                url: absoluteUrl("/images-optimized/hero/hero1.webp"),
                 width: 1200,
                 height: 630,
                 alt: "Manglares de Tumbes en Puerto Pizarro",
@@ -42,7 +42,7 @@ export default function HomePage() {
                         name: siteConfig.name,
                         legalName: siteConfig.legalName,
                         url: siteConfig.url,
-                        image: absoluteUrl("/images/hero/hero1.jpg"),
+                        image: absoluteUrl("/images-optimized/hero/hero1.webp"),
                         telephone: siteConfig.phone,
                         email: siteConfig.email,
                         address: {

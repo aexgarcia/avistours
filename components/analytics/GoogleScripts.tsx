@@ -3,12 +3,13 @@ import Script from "next/script"
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-5S2LZ9G7"
 const gaId = process.env.NEXT_PUBLIC_GA_ID
 const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT ?? "ca-pub-1311778233901465"
+const loadDirectGa = Boolean(gaId && !gtmId)
 
 export default function GoogleScripts() {
     return (
         <>
             {gtmId && (
-                <Script id="google-tag-manager" strategy="afterInteractive">
+                <Script id="google-tag-manager" strategy="lazyOnload">
                     {`
                         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -19,13 +20,13 @@ export default function GoogleScripts() {
                 </Script>
             )}
 
-            {gaId && (
+            {loadDirectGa && (
                 <>
                     <Script
                         src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-                        strategy="afterInteractive"
+                        strategy="lazyOnload"
                     />
-                    <Script id="google-analytics" strategy="afterInteractive">
+                    <Script id="google-analytics" strategy="lazyOnload">
                         {`
                             window.dataLayer = window.dataLayer || [];
                             function gtag(){dataLayer.push(arguments);}
@@ -37,13 +38,9 @@ export default function GoogleScripts() {
             )}
 
             {adsenseClient && (
-                // Next App Router supports beforeInteractive in the root layout,
-                // and AdSense verification is more reliable when the script is
-                // injected in the initial head HTML.
-                // eslint-disable-next-line @next/next/no-before-interactive-script-outside-document
                 <Script
                     id="google-adsense"
-                    strategy="beforeInteractive"
+                    strategy="lazyOnload"
                     async
                     crossOrigin="anonymous"
                     src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
