@@ -3,11 +3,12 @@
 import { MapPin, Heart, Star, ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import type { Tour } from "@/data/promotions"
+import { formatPrice, getTourPricing, type Tour } from "@/data/promotions"
 
 export default function TourCard({ tour }: { tour: Tour }) {
     const roundedRating = Math.round(tour.rating)
     const formattedRating = Number.isInteger(tour.rating) ? tour.rating.toFixed(0) : tour.rating.toFixed(1)
+    const pricing = getTourPricing(tour)
 
     return (
         <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition p-3 sm:p-4 flex flex-col sm:flex-row gap-4 sm:items-center">
@@ -21,6 +22,7 @@ export default function TourCard({ tour }: { tour: Tour }) {
                     alt={tour.title}
                     fill
                     sizes="(min-width: 640px) 192px, 100vw"
+                    quality={70}
                     className="object-cover scale-110 sm:scale-125 group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
                 />
 
@@ -110,15 +112,23 @@ export default function TourCard({ tour }: { tour: Tour }) {
                         <span className="text-gray-500 font-normal">/ Día</span>
                     </div>
 
-                    <div className="text-green-500 font-semibold">
-                        S/. {tour.price}{" "}
-                        <span className="text-gray-500 font-normal">/ persona</span>
+                    <div>
+                        <div className="text-green-500 font-semibold">
+                            {pricing.isGroupPricing ? "Desde " : ""}
+                            {formatPrice(pricing.startingPrice)}{" "}
+                            <span className="text-gray-500 font-normal">/ persona</span>
+                        </div>
+                        {pricing.isGroupPricing && (
+                            <p className="mt-1 text-xs text-gray-500">
+                                Tarifa base del grupo: {formatPrice(pricing.totalPrice)} hasta {pricing.maxPeople} personas
+                            </p>
+                        )}
                     </div>
 
                     <Link href={`/promociones/${tour.slug}`} className="text-gray-500 text-sm hover:text-green-500 transition flex items-center gap-1">
                         <span>Consultar</span>
                         <span className="hidden" aria-hidden="true">
-                        Ver más
+                            Ver más
                         </span>
                         <ArrowRight size={16} />
                     </Link>

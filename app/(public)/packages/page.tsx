@@ -90,13 +90,14 @@ export default async function PackagesPage({ searchParams }: PackagesPageProps) 
 
     return (
         <div className="bg-white">
-            <section className="relative overflow-hidden bg-slate-950 pt-32 text-white md:pt-40">
+            <section className="relative overflow-hidden bg-slate-950/70 pt-32 text-white md:pt-40">
                 <Image
                     src="/images/hero/hero1.jpg"
                     alt="Manglares de Puerto Pizarro"
                     fill
                     priority
                     sizes="100vw"
+                    quality={70}
                     className="object-cover opacity-35"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950" />
@@ -117,6 +118,7 @@ export default async function PackagesPage({ searchParams }: PackagesPageProps) 
                         initialQuery={query}
                         className="mt-8 max-w-4xl text-slate-900"
                         placeholder="Busca por manglares, cocodrilos, marea o Isla de los Pajaros"
+                        showSuggestions={hasQuery}
                     />
                 </div>
             </section>
@@ -198,6 +200,7 @@ export default async function PackagesPage({ searchParams }: PackagesPageProps) 
                                                 alt={post.title}
                                                 fill
                                                 sizes="(min-width: 768px) 33vw, 100vw"
+                                                quality={70}
                                                 className="object-cover transition duration-700 group-hover:scale-105"
                                             />
                                             <span className="absolute left-4 top-4 inline-flex items-center gap-1 rounded bg-white/90 px-3 py-1 text-xs font-semibold text-green-600">

@@ -9,9 +9,11 @@ import Image from "next/image"
 import Link from "next/link"
 
 const slides = [
-    { id: 1, image: "/images/hero/hero1.jpg" },
-    { id: 2, image: "/images/hero/hero2.jpg" },
-    { id: 3, image: "/images/hero/hero3.jpg" },
+    { id: 1, image: "/images/hero/bg_inicio.webp" },
+    { id: 2, image: "/images/hero/bg_inicio2.webp" },
+    { id: 3, image: "/images/hero/bg_inicio3.webp" },
+    { id: 4, image: "/images/hero/bg_inicio4.webp" },
+    { id: 5, image: "/images/hero/bg_inicio5.webp" },
 ]
 
 export default function Hero() {
@@ -19,14 +21,15 @@ export default function Hero() {
         <section className="h-[100svh] min-h-[560px] md:h-[calc(100vh-43px)] w-full">
             <Swiper
                 modules={[Autoplay, EffectFade]}
-                effect="slide"
+                effect="fade"
+                fadeEffect={{ crossFade: true }}
                 autoplay={{ delay: 4000 }}
                 speed={2000}
                 loop
-                className="h-full"
+                className="h-full bg-slate-950"
             >
                 {slides.map((slide) => (
-                    <SwiperSlide key={slide.id}>
+                    <SwiperSlide key={slide.id} className="!h-full">
                         <div className="relative h-full w-full">
 
                             <Image
@@ -44,8 +47,8 @@ export default function Hero() {
                                 <Image
                                     className="mx-auto w-40 sm:w-56 md:w-72 h-auto"
                                     alt=""
-                                    src="/images/hero/map-plane-CKlva6u5.png"
-                                    width={300}
+                                    src="/images/hero/line_cocodrile1.webp"
+                                    width={400}
                                     height={150}
                                 />
 

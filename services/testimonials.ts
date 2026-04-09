@@ -1,6 +1,7 @@
 import "server-only"
 
 import type { Document, WithId } from "mongodb"
+import { unstable_cache } from "next/cache"
 import { fallbackTestimonials, type PublicTestimonial } from "@/data/testimonials"
 import { getMongoDb, isMongoConfigured } from "@/services/mongodb"
 
@@ -80,20 +81,7 @@ export async function getTourRatingSummaries(): Promise<Record<string, TourRatin
     }
 
     try {
-        const db = await getMongoDb()
-        const summaries = await db
-            .collection<TestimonialDocument>("testimonials")
-            .aggregate<{ _id: string; rating: number; reviews: number }>([
-                { $match: { status: "approved" } },
-                {
-                    $group: {
-                        _id: "$tourSlug",
-                        rating: { $avg: "$rating" },
-                        reviews: { $sum: 1 },
-                    },
-                },
-            ])
-            .toArray()
+        const summaries = await getCachedTourRatingSummaries()
 
         return summaries.reduce<Record<string, TourRatingSummary>>((accumulator, item) => {
             accumulator[item._id] = {
@@ -108,6 +96,28 @@ export async function getTourRatingSummaries(): Promise<Record<string, TourRatin
         return {}
     }
 }
+
+const getCachedTourRatingSummaries = unstable_cache(
+    async () => {
+        const db = await getMongoDb()
+
+        return db
+            .collection<TestimonialDocument>("testimonials")
+            .aggregate<{ _id: string; rating: number; reviews: number }>([
+                { $match: { status: "approved" } },
+                {
+                    $group: {
+                        _id: "$tourSlug",
+                        rating: { $avg: "$rating" },
+                        reviews: { $sum: 1 },
+                    },
+                },
+            ])
+            .toArray()
+    },
+    ["tour-rating-summaries"],
+    { revalidate: 300 },
+)
 
 export function applyTourRating<T extends { slug: string; rating: number; reviews: number }>(
     tour: T,

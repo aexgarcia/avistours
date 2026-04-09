@@ -4,28 +4,53 @@ import { Anchor, Clock, FileText, Mail, MapPin, Phone, ShieldCheck } from "lucid
 import ContactWhatsAppForm from "@/components/contact/ContactWhatsAppForm"
 import PackageGallery from "@/components/gallery/PackageGallery"
 import WhatsAppLink from "@/components/whatsapp/WhatsAppLink"
+import { tours } from "@/data/promotions"
 import { absoluteUrl } from "@/data/site"
 
 const company = {
-    name: "Avistours Operador Turistico E.I.R.L.",
+    name: "Operador Turístico Avis Tours S.A.C.",
     tradeName: "Avistours",
-    ruc: "20612345678",
-    address: "Muelle turistico de Puerto Pizarro, Tumbes, Peru",
-    phone: "+51 999 000 000",
-    whatsapp: "51999000000",
-    email: "reservas@avistours.pe",
-    schedule: "Lunes a domingo, 8:00 a.m. - 6:00 p.m.",
+    ruc: "20605149082",
+    address: "Calle Rivera Del Mar 218 Puerto Pizarro, Tumbes, Tumbes, Peru",
+    phone: "+51 951 654 443",
+    whatsapp: "51951654443",
+    email: "avistourssac@gmail.com",
+    schedule: "Lunes a domingo, 8:00 a.m. - 5:00 p.m.",
 }
 
-const contactGallery = [
-    "/images/promotions/promotions1.jpg",
-    "/images/hero/hero1.jpg",
-    "/images/promotions/promotions2.jpg",
-    "/images/hero/hero2.jpg",
-    "/images/promotions/promotions3.jpg",
-    "/images/hero/hero3.jpg",
-    "/images/promotions/promotions4.jpg",
+const generalGalleryImages = [
+    "/images/galeria/galeria.jpg",
+    "/images/galeria/galeria1.jpg",
+    "/images/galeria/galeria2.jpg",
+    "/images/galeria/galeria3.jpg",
+    "/images/galeria/galeria4.jpg",
+    "/images/galeria/galeria5.jpg",
+    "/images/galeria/galeria6.jpg",
+    "/images/galeria/galeria7.jpg",
+    "/images/galeria/galeria8.jpg",
+    "/images/galeria/galeria9.jpg",
+    "/images/galeria/galeria10.jpg",
+    "/images/galeria/galeria11.jpg",
+    "/images/galeria/galeria12.jpg",
+    "/images/galeria/galeria13.jpg",
+    "/images/galeria/galeria14.jpg",
+    "/images/galeria/galeria15.jpg",
+    "/images/galeria/galeria16.jpg",
+    "/images/galeria/galeria17.jpg",
+    "/images/galeria/galeria25.jpeg",
+    "/images/galeria/galeria26.jpeg",
+    "/images/galeria/galeria27.jpeg",
+    "/images/galeria/galeria28.jpg",
+    "/images/galeria/galeria29.jpg",
+    "/images/galeria/galeria30.jpg",
+    "/images/galeria/galeria31.jpg",
 ]
+
+const contactGallery = Array.from(
+    new Set(
+        [...generalGalleryImages, ...tours.flatMap((tour) => [tour.image, ...tour.gallery])],
+    ),
+)
 
 const contactCards = [
     {
@@ -62,7 +87,7 @@ export const metadata: Metadata = {
         url: "/contact",
         images: [
             {
-                url: absoluteUrl("/images/hero/hero2.jpg"),
+                url: absoluteUrl("/images/hero/bg_inicio2.webp"),
                 width: 1200,
                 height: 630,
                 alt: "Contacto para paseos en Puerto Pizarro",
@@ -74,9 +99,9 @@ export const metadata: Metadata = {
 export default function ContactPage() {
     return (
         <div className="bg-white">
-            <section className="relative overflow-hidden bg-slate-950 pt-32 text-white md:pt-40">
+            <section className="relative overflow-hidden bg-slate-900 pt-32 text-white md:pt-40">
                 <Image
-                    src="/images/hero/hero2.jpg"
+                    src="/images/hero/bg_inicio2.webp"
                     alt="Paseo en Puerto Pizarro con Avistours"
                     fill
                     priority
@@ -186,7 +211,7 @@ export default function ContactPage() {
                             Puerto Pizarro en imagenes
                         </h2>
                         <p className="mt-4 text-sm leading-7 text-slate-500 md:text-base">
-                            Referencias visuales de los paisajes que forman parte de la experiencia: esteros, manglares, islas y rutas en bote.
+                            Una galeria general con imagenes reales de nuestros paquetes: islas, manglares, aves, cocodrilos y recorridos completos por Puerto Pizarro.
                         </p>
                     </div>
 

@@ -17,8 +17,9 @@ type TideExtreme = {
 type TideSummary = {
     status: "Marea alta" | "Marea baja" | "Llenando" | "Secando" | "Sin datos"
     currentHeight?: number
-    period?: string
-    nextChange?: string
+    processPeriod?: string
+    nextStatus?: "Marea alta" | "Marea baja"
+    nextChangeTime?: string
     updatedAt?: string
 }
 
@@ -79,39 +80,54 @@ function buildTideSummary(data: TideApiResponse): TideSummary {
     const extremes = findExtremes(times, levels)
     const currentTime = toLimaDate(times[currentIndex])
     const currentHeight = levels[currentIndex]
-    const lastExtreme = [...extremes].reverse().find((item) => toLimaDate(item.time) <= currentTime)
-    const nextExtreme = extremes.find((item) => toLimaDate(item.time) >= currentTime)
+    const previousExtreme = [...extremes].reverse().find((item) => toLimaDate(item.time) < currentTime)
+    const nextExtreme = extremes.find((item) => toLimaDate(item.time) > currentTime)
     const nearbyExtreme = extremes.find((item) => Math.abs(toLimaDate(item.time).getTime() - currentTime.getTime()) <= 45 * 60 * 1000)
 
     let status: TideSummary["status"] = "Sin datos"
+    let processStartTime: string | undefined
+    let processEndTime: string | undefined
 
     if (nearbyExtreme?.type === "high") {
         status = "Marea alta"
+        processStartTime = previousExtreme?.time
+        processEndTime = nearbyExtreme.time
     } else if (nearbyExtreme?.type === "low") {
         status = "Marea baja"
+        processStartTime = previousExtreme?.time
+        processEndTime = nearbyExtreme.time
     } else if (nextExtreme?.type === "high") {
         status = "Llenando"
+        processStartTime = previousExtreme?.time
+        processEndTime = nextExtreme.time
     } else if (nextExtreme?.type === "low") {
         status = "Secando"
+        processStartTime = previousExtreme?.time
+        processEndTime = nextExtreme.time
     } else if (levels[currentIndex + 1] > currentHeight) {
         status = "Llenando"
     } else {
         status = "Secando"
     }
 
-    const period = lastExtreme && nextExtreme
-        ? `${formatHour(lastExtreme.time)} - ${formatHour(nextExtreme.time)}`
+    const processPeriod = processStartTime && processEndTime
+        ? `${formatHour(processStartTime)} - ${formatHour(processEndTime)}`
         : undefined
 
-    const nextChange = nextExtreme
-        ? `${nextExtreme.type === "high" ? "Marea alta" : "Marea baja"} aprox. ${formatHour(nextExtreme.time)}`
+    const nextStatus = nextExtreme
+        ? nextExtreme.type === "high" ? "Marea alta" : "Marea baja"
+        : undefined
+
+    const nextChangeTime = nextExtreme
+        ? formatHour(nextExtreme.time)
         : undefined
 
     return {
         status,
         currentHeight,
-        period,
-        nextChange,
+        processPeriod,
+        nextStatus,
+        nextChangeTime,
         updatedAt: formatHour(times[currentIndex]),
     }
 }
@@ -217,16 +233,16 @@ export default async function TidesSection() {
 
                             <div className="grid sm:grid-cols-3 gap-3 mt-5 text-sm">
                                 <div className="rounded-md bg-white/80 border border-green-100 p-3">
-                                    <span className="block text-gray-500">Tramo</span>
-                                    <strong className="text-gray-800">{tide.period ?? "Por confirmar"}</strong>
+                                    <span className="block text-gray-500">Desde - Hasta</span>
+                                    <strong className="text-gray-800">{tide.processPeriod ?? "Por confirmar"}</strong>
                                 </div>
                                 <div className="rounded-md bg-white/80 border border-green-100 p-3">
-                                    <span className="block text-gray-500">Ventana actual</span>
-                                    <strong className="text-gray-800">{tide.period ?? "Por confirmar"}</strong>
+                                    <span className="block text-gray-500">Cambia aprox.</span>
+                                    <strong className="text-gray-800">{tide.nextChangeTime ?? "Por confirmar"}</strong>
                                 </div>
                                 <div className="rounded-md bg-white/80 border border-green-100 p-3">
-                                    <span className="block text-gray-500">Proxima marea</span>
-                                    <strong className="text-gray-800">{tide.nextChange ?? "Por confirmar"}</strong>
+                                    <span className="block text-gray-500">Siguiente estado</span>
+                                    <strong className="text-gray-800">{tide.nextStatus ?? "Por confirmar"}</strong>
                                 </div>
                             </div>
 

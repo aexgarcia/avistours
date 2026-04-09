@@ -5,9 +5,9 @@ import { notFound } from "next/navigation"
 import { ArrowLeft, Binoculars, CheckCircle2, Clock, Compass, MapPin, Sailboat, ShieldCheck, Star, Sun } from "lucide-react"
 import AdSlot from "@/components/ads/AdSlot"
 import PackageGallery from "@/components/gallery/PackageGallery"
+import TourPricingCard from "@/components/promotions/TourPricingCard"
 import JsonLd from "@/components/seo/JsonLd"
-import WhatsAppLink from "@/components/whatsapp/WhatsAppLink"
-import { getTour, tours } from "@/data/promotions"
+import { getTour, getTourPricing, tours } from "@/data/promotions"
 import { absoluteUrl, siteConfig } from "@/data/site"
 import { getTourRatingSummaries } from "@/services/testimonials"
 
@@ -73,6 +73,7 @@ export default async function PromotionDetailPage({ params }: PromotionDetailPag
     const ratingSummary = ratingSummaries[tour.slug]
     const liveRating = ratingSummary?.rating ?? tour.rating
     const liveReviews = ratingSummary?.reviews ?? tour.reviews
+    const pricing = getTourPricing(tour)
 
     return (
         <article className="bg-white">
@@ -98,7 +99,7 @@ export default async function PromotionDetailPage({ params }: PromotionDetailPag
                         },
                         offers: {
                             "@type": "Offer",
-                            price: tour.price,
+                            price: pricing.isGroupPricing ? pricing.totalPrice : pricing.perPersonPrice,
                             priceCurrency: "PEN",
                             availability: "https://schema.org/InStock",
                             url: absoluteUrl(`/promociones/${tour.slug}`),
@@ -283,24 +284,7 @@ export default async function PromotionDetailPage({ params }: PromotionDetailPag
                         </div>
 
                         <aside className="space-y-6 lg:sticky lg:top-24">
-                            <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-                                <span className="text-sm font-semibold text-green-500">
-                                    Precio desde
-                                </span>
-                                <div className="text-4xl font-semibold text-gray-900 mt-2">
-                                    S/. {tour.price}
-                                </div>
-                                <p className="text-sm text-gray-500 mt-1">
-                                    por persona
-                                </p>
-                                <WhatsAppLink
-                                    number="51999000000"
-                                    message={`Hola Avistours, quiero consultar por el paquete: ${tour.title}`}
-                                    className="mt-6 inline-flex w-full items-center justify-center rounded-md bg-green-500 px-4 py-3 text-sm font-semibold text-white hover:bg-green-600 transition"
-                                >
-                                    Consultar por WhatsApp
-                                </WhatsAppLink>
-                            </div>
+                            <TourPricingCard tour={tour} number="51999000000" />
 
                             <div className="rounded-lg border border-slate-200 bg-slate-50 p-6">
                                 <h2 className="text-lg font-semibold text-gray-900">

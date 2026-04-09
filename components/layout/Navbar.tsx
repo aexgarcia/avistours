@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Search, ChevronDown, Menu, X } from "lucide-react"
@@ -63,8 +64,26 @@ export default function Navbar() {
             <div className="max-w-6xl mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
 
                 {/* LOGO */}
-                <Link href="/" className={`text-xl md:text-2xl font-bold ${scrolled ? "text-black" : "text-white"}`}>
-                    Avistours<span className="text-green-500">.</span>
+                <Link
+                    href="/"
+                    aria-label="AviTours"
+                    className="inline-flex shrink-0 items-center leading-none"
+                >
+                    {scrolled ? (
+                        <span className="text-xl font-bold text-green-600 md:text-2xl">
+                            <b className="text-orange-400">Avis</b><span className="text-yellow-600">.</span>Tours
+                        </span>
+                    ) : (
+                        <Image
+                            src="/logo_imagen_texto_avistours.png"
+                            alt="Logo AviTours"
+                            width={220}
+                            height={64}
+                            priority
+                            sizes="(min-width: 768px) 220px, 170px"
+                            className="h-auto w-[95px] drop-shadow-[0_3px_12px_rgba(0,0,0,0.28)] transition md:w-[130px]"
+                        />
+                    )}
                 </Link>
 
                 {/* MENU */}

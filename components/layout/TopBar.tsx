@@ -26,7 +26,7 @@ export default function TopBar() {
                     {/* Email */}
                     <div className="flex items-center gap-2">
                         <Mail size={16} className="text-green-500" />
-                        <span>reservas@puertopizarro.pe</span>
+                        <span>avistourssac@gmail.com</span>
                     </div>
 
                     {/* Social icons */}

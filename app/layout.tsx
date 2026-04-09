@@ -56,11 +56,11 @@ export const metadata: Metadata = {
     images: [absoluteUrl("/images/hero/hero1.jpg")],
   },
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
     googleBot: {
-      index: false,
-      follow: false,
+      index: true,
+      follow: true,
     },
   },
 }

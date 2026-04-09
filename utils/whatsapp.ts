@@ -1,4 +1,4 @@
-export const defaultWhatsAppNumber = "51999000000"
+export const defaultWhatsAppNumber = "51951654443"
 
 export function getWhatsAppFallbackHref(number: string, message: string) {
     return `https://wa.me/${number}?text=${encodeURIComponent(message)}`

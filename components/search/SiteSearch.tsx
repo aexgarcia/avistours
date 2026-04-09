@@ -158,6 +158,7 @@ export default function SiteSearch({
                                                 alt={item.title}
                                                 fill
                                                 sizes="80px"
+                                                quality={60}
                                                 className="object-cover transition duration-500 group-hover:scale-105"
                                             />
                                         </div>

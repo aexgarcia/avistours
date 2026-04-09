@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import {
     ChevronRight,
@@ -8,22 +9,17 @@ import {
     Mail,
     MapPin,
     Phone,
-    Send,
-    ShoppingCart,
 } from "lucide-react"
 import NewsletterForm from "@/components/newsletter/NewsletterForm"
 
 const companyLinks = [
     { label: "Avistours", href: "#" },
-    { label: "Tours", href: "#" },
-    { label: "Mareas", href: "#" },
-    { label: "Manglares", href: "#" },
+    { label: "Tours", href: "/packages" },
     { label: "Blog", href: "/blog" },
     { label: "Contacto", href: "#" },
 ]
 
 const socialLinks = [
-    { label: "Shop", icon: ShoppingCart },
     { label: "Facebook", icon: Facebook },
     { label: "Instagram", icon: Instagram },
     { label: "Email", icon: Mail },
@@ -35,9 +31,18 @@ export default function Footer() {
             <div className="max-w-6xl mx-auto px-4 py-10 lg:py-12">
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-[1.1fr_1fr_0.8fr_1.05fr]">
                     <div>
-                        <Link href="/" className="inline-flex items-center gap-2 text-xl font-bold">
-                            <Send size={18} className="text-green-500" />
-                            Avistours
+                        <Link
+                            href="/"
+                            aria-label="AviTours"
+                            className="relative inline-flex h-24 w-[168px] items-center"
+                        >
+                            <Image
+                                src="/logo_avistours.png"
+                                alt="Logo AviTours"
+                                fill
+                                sizes="168px"
+                                className="object-contain object-left"
+                            />
                         </Link>
                         <p className="text-sm text-white/75 leading-6 mt-5 max-w-xs">
                             Informacion y paseos turisticos por Puerto Pizarro: manglares, islas, aves y cocodrilos en Tumbes.
@@ -75,11 +80,11 @@ export default function Footer() {
                             </div>
                             <Link href="mailto:contact@example.com" className="flex items-center gap-3 hover:text-white transition">
                                 <Mail size={16} className="text-green-500" />
-                                reservas@puertopizarro.pe
+                                avistourssac@gmail.com
                             </Link>
                             <Link href="tel:+152534468854" className="flex items-center gap-3 hover:text-white transition">
                                 <Phone size={16} className="text-green-500" />
-                                +51 999 000 000
+                                +51 951 654 443
                             </Link>
                         </div>
                     </div>

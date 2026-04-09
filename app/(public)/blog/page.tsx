@@ -32,7 +32,7 @@ export default function BlogPage() {
 
     return (
         <div className="bg-white">
-            <section className="relative min-h-[430px] flex items-center pt-28 overflow-hidden">
+            <section className="relative overflow-hidden bg-slate-950 pt-32 text-white md:pt-40">
                 <Image
                     src={featuredPost.image}
                     alt={featuredPost.title}
@@ -41,15 +41,15 @@ export default function BlogPage() {
                     sizes="100vw"
                     className="object-cover"
                 />
-                <div className="absolute inset-0 bg-slate-950/75" />
-                <div className="relative max-w-6xl mx-auto px-4 py-24 text-white">
-                    <span className="inline-flex bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded">
+                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950" />
+                <div className="relative mx-auto max-w-6xl px-4 pb-16 md:pb-20">
+                    <span className="inline-flex rounded-md bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-green-300 backdrop-blur">
                         Guia AvisTours
                     </span>
-                    <h1 className="text-4xl lg:text-5xl font-semibold mt-5 max-w-3xl leading-tight">
+                    <h1 className="mt-5 max-w-3xl text-4xl font-semibold leading-tight lg:text-5xl">
                         Mareas, manglares y rutas por Tumbes
                     </h1>
-                    <p className="text-white/75 mt-5 max-w-2xl leading-relaxed">
+                    <p className="mt-5 max-w-2xl leading-relaxed text-white/75">
                         Informacion clara para planificar paseos por Puerto Pizarro, elegir horarios y conocer mejor el estero antes de zarpar.
                     </p>
                 </div>

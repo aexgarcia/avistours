@@ -5,7 +5,7 @@ import type { FormEvent } from "react"
 import { MessageCircle, Send } from "lucide-react"
 import { openWhatsApp } from "@/utils/whatsapp"
 
-const whatsappNumber = "51999000000"
+const whatsappNumber = "51951654443"
 
 export default function ContactWhatsAppForm() {
     const [name, setName] = useState("")
