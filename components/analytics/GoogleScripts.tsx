@@ -37,9 +37,13 @@ export default function GoogleScripts() {
             )}
 
             {adsenseClient && (
+                // Next App Router supports beforeInteractive in the root layout,
+                // and AdSense verification is more reliable when the script is
+                // injected in the initial head HTML.
+                // eslint-disable-next-line @next/next/no-before-interactive-script-outside-document
                 <Script
                     id="google-adsense"
-                    strategy="afterInteractive"
+                    strategy="beforeInteractive"
                     async
                     crossOrigin="anonymous"
                     src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
