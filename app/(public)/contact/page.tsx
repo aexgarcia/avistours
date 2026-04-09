@@ -5,11 +5,12 @@ import ContactWhatsAppForm from "@/components/contact/ContactWhatsAppForm"
 import PackageGallery from "@/components/gallery/PackageGallery"
 import WhatsAppLink from "@/components/whatsapp/WhatsAppLink"
 import { tours } from "@/data/promotions"
+import { brandName, contactKeywords } from "@/data/seo"
 import { absoluteUrl } from "@/data/site"
 
 const company = {
     name: "Operador Turístico Avis Tours S.A.C.",
-    tradeName: "Avistours",
+    tradeName: brandName,
     ruc: "20605149082",
     address: "Calle Rivera Del Mar 218 Puerto Pizarro, Tumbes, Tumbes, Peru",
     phone: "+51 951 654 443",
@@ -17,6 +18,8 @@ const company = {
     email: "avistourssac@gmail.com",
     schedule: "Lunes a domingo, 8:00 a.m. - 5:00 p.m.",
 }
+
+const companyDisplayName = "Operador Turistico Avis Tours S.A.C."
 
 const generalGalleryImages = [
     "/images/galeria/galeria.jpg",
@@ -76,13 +79,14 @@ const contactCards = [
 ]
 
 export const metadata: Metadata = {
-    title: "Contacto | Avistours",
-    description: "Contacta a Avistours para reservar paseos por Puerto Pizarro, Tumbes: manglares, islas, aves y cocodrilos.",
+    title: `Contacto | ${brandName}`,
+    description: `Contacta a ${brandName} para reservar paseos por Puerto Pizarro, Tumbes: manglares, islas, aves y cocodrilos.`,
+    keywords: contactKeywords,
     alternates: {
         canonical: "/contact",
     },
     openGraph: {
-        title: "Contacto Avistours | Tours en Puerto Pizarro",
+        title: `Contacto ${brandName} | Tours en Puerto Pizarro`,
         description: "Consulta disponibilidad para paseos por manglares, islas, aves y cocodrilos en Puerto Pizarro, Tumbes.",
         url: "/contact",
         images: [
@@ -102,7 +106,7 @@ export default function ContactPage() {
             <section className="relative overflow-hidden bg-slate-900 pt-32 text-white md:pt-40">
                 <Image
                     src="/images/hero/bg_inicio2.webp"
-                    alt="Paseo en Puerto Pizarro con Avistours"
+                    alt={`Paseo en Puerto Pizarro con ${brandName}`}
                     fill
                     priority
                     sizes="100vw"
@@ -114,7 +118,7 @@ export default function ContactPage() {
                     <div>
                         <span className="inline-flex items-center gap-2 rounded-md bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-green-300 backdrop-blur">
                             <Anchor size={14} />
-                            Contacto Avistours
+                            {`Contacto ${brandName}`}
                         </span>
                         <h1 className="mt-5 max-w-3xl text-3xl font-semibold leading-tight md:text-5xl">
                             Planifica tu paseo por Puerto Pizarro con guia local
@@ -129,7 +133,7 @@ export default function ContactPage() {
                             Empresa
                         </p>
                         <h2 className="mt-2 text-xl font-semibold">
-                            {company.name}
+                            {companyDisplayName}
                         </h2>
                         <div className="mt-4 grid gap-3 text-sm text-white/75">
                             <span className="inline-flex items-start gap-2">
@@ -188,7 +192,7 @@ export default function ContactPage() {
                                 </p>
                                 <WhatsAppLink
                                     number={company.whatsapp}
-                                    message="Hola Avistours, quiero consultar disponibilidad para un paseo en Puerto Pizarro."
+                                    message={`Hola ${brandName}, quiero consultar disponibilidad para un paseo en Puerto Pizarro.`}
                                     className="mt-4 inline-flex rounded-md bg-green-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-green-600"
                                 >
                                     Consultar disponibilidad
@@ -215,7 +219,7 @@ export default function ContactPage() {
                         </p>
                     </div>
 
-                    <PackageGallery images={contactGallery} title="Puerto Pizarro con Avistours" />
+                    <PackageGallery images={contactGallery} title={`Puerto Pizarro con ${brandName}`} />
                 </div>
             </section>
         </div>

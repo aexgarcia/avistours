@@ -1,6 +1,7 @@
 import { Poppins } from "next/font/google"
 import type { Metadata } from "next"
 import GoogleScripts, { GoogleTagManagerNoScript } from "@/components/analytics/GoogleScripts"
+import { brandName, siteWideKeywords } from "@/data/seo"
 import { absoluteUrl, siteConfig } from "@/data/site"
 import "./globals.css";
 
@@ -12,21 +13,12 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "AvisTours | Tours en Puerto Pizarro y manglares de Tumbes",
-    template: "%s | AvisTours",
+    default: `${brandName} | Tours en Puerto Pizarro y manglares de Tumbes`,
+    template: `%s | ${brandName}`,
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
-  keywords: [
-    "AvisTours",
-    "Puerto Pizarro",
-    "manglares de Tumbes",
-    "tours en Tumbes",
-    "Isla de los Pajaros",
-    "zoocriadero de cocodrilos",
-    "paseos en bote Puerto Pizarro",
-    "boca del mar Tumbes",
-  ],
+  keywords: siteWideKeywords,
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
@@ -37,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_PE",
     siteName: siteConfig.name,
-    title: "AvisTours | Tours en Puerto Pizarro y manglares de Tumbes",
+    title: `${brandName} | Tours en Puerto Pizarro y manglares de Tumbes`,
     description: siteConfig.description,
     url: siteConfig.url,
     images: [
@@ -51,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AvisTours | Tours en Puerto Pizarro y manglares de Tumbes",
+    title: `${brandName} | Tours en Puerto Pizarro y manglares de Tumbes`,
     description: siteConfig.description,
     images: [absoluteUrl("/images/hero/hero1.jpg")],
   },

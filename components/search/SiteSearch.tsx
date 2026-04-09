@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation"
 import { ArrowRight, BookOpen, MapPin, Search, ShipWheel } from "lucide-react"
 import { blogPosts } from "@/data/blogs"
 import { tours } from "@/data/promotions"
+import { getBlogSearchTerms, getTourSearchTerms } from "@/data/seo"
 
 type SiteSearchProps = {
     initialQuery?: string
@@ -32,15 +33,7 @@ const results: SearchResult[] = [
         href: `/promociones/${tour.slug}`,
         image: tour.image,
         type: "Paquete" as const,
-        keywords: [
-            tour.title,
-            tour.location,
-            tour.description,
-            tour.duration,
-            ...tour.features,
-            ...tour.activities,
-            ...tour.includes,
-        ].join(" "),
+        keywords: getTourSearchTerms(tour).join(" "),
     })),
     ...blogPosts.map((post) => ({
         title: post.title,
@@ -48,13 +41,7 @@ const results: SearchResult[] = [
         href: `/blog/${post.slug}`,
         image: post.image,
         type: "Blog" as const,
-        keywords: [
-            post.title,
-            post.excerpt,
-            post.category,
-            post.location,
-            ...post.highlights,
-        ].join(" "),
+        keywords: getBlogSearchTerms(post).join(" "),
     })),
 ]
 

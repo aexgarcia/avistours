@@ -3,16 +3,18 @@ import Link from "next/link"
 import type { Metadata } from "next"
 import { ArrowRight, CalendarDays, Clock, MapPin } from "lucide-react"
 import { blogPosts } from "@/data/blogs"
+import { blogKeywords, brandName } from "@/data/seo"
 import { absoluteUrl } from "@/data/site"
 
 export const metadata: Metadata = {
-    title: "Guia de Puerto Pizarro | AvisTours",
-    description: "Articulos informativos de AvisTours sobre mareas, manglares y paseos en Puerto Pizarro, Tumbes.",
+    title: `Guia de Puerto Pizarro | ${brandName}`,
+    description: `Articulos informativos de ${brandName} sobre mareas, manglares y paseos en Puerto Pizarro, Tumbes.`,
+    keywords: blogKeywords,
     alternates: {
         canonical: "/blog",
     },
     openGraph: {
-        title: "Guia de Puerto Pizarro, mareas y manglares | AvisTours",
+        title: `Guia de Puerto Pizarro, mareas y manglares | ${brandName}`,
         description: "Aprende sobre mareas, manglares y rutas turisticas por Puerto Pizarro, Tumbes.",
         url: "/blog",
         images: [

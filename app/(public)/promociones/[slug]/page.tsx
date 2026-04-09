@@ -8,6 +8,7 @@ import PackageGallery from "@/components/gallery/PackageGallery"
 import TourPricingCard from "@/components/promotions/TourPricingCard"
 import JsonLd from "@/components/seo/JsonLd"
 import { getTour, getTourPricing, tours } from "@/data/promotions"
+import { brandName, getTourSearchTerms } from "@/data/seo"
 import { absoluteUrl, siteConfig } from "@/data/site"
 import { getTourRatingSummaries } from "@/services/testimonials"
 
@@ -29,18 +30,19 @@ export async function generateMetadata({ params }: PromotionDetailPageProps): Pr
 
     if (!tour) {
         return {
-            title: "Promocion no encontrada | Avistours",
+            title: `Promocion no encontrada | ${brandName}`,
         }
     }
 
     return {
-        title: `${tour.title} | Avistours`,
+        title: `${tour.title} | ${brandName}`,
         description: tour.description,
+        keywords: getTourSearchTerms(tour),
         alternates: {
             canonical: `/promociones/${tour.slug}`,
         },
         openGraph: {
-            title: `${tour.title} | Avistours`,
+            title: `${tour.title} | ${brandName}`,
             description: tour.description,
             url: `/promociones/${tour.slug}`,
             images: [
@@ -54,7 +56,7 @@ export async function generateMetadata({ params }: PromotionDetailPageProps): Pr
         },
         twitter: {
             card: "summary_large_image",
-            title: `${tour.title} | Avistours`,
+            title: `${tour.title} | ${brandName}`,
             description: tour.description,
             images: [absoluteUrl(tour.image)],
         },

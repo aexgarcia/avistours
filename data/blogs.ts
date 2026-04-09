@@ -47,7 +47,7 @@ export const blogPosts: BlogPost[] = [
         location: "Puerto Pizarro, Tumbes",
         readTime: "5 min",
         date: "07 Abr 2026",
-        author: "Equipo Avistours",
+        author: "Equipo AvisTours",
         image: "/images/galeria/galeria28.jpg",
         featured: true,
         highlights: [
@@ -85,7 +85,7 @@ export const blogPosts: BlogPost[] = [
             {
                 type: "quote",
                 text: "La mejor hora para salir no siempre es la mas temprana; muchas veces es la que conversa mejor con la marea.",
-                author: "Equipo Avistours",
+                author: "Equipo AvisTours",
             },
         ],
     },
@@ -97,7 +97,7 @@ export const blogPosts: BlogPost[] = [
         location: "Puerto Pizarro, Tumbes",
         readTime: "6 min",
         date: "07 Abr 2026",
-        author: "Equipo Avistours",
+        author: "Equipo AvisTours",
         image: "/images/galeria/completo_galeria1.jpg",
         highlights: [
             "Ideal para una primera visita a Puerto Pizarro",
@@ -142,7 +142,7 @@ export const blogPosts: BlogPost[] = [
         location: "Manglares de Tumbes",
         readTime: "4 min",
         date: "07 Abr 2026",
-        author: "Equipo Avistours",
+        author: "Equipo AvisTours",
         image: "/images/galeria/pajaros_manglares_galeria1.jpg",
         highlights: [
             "Buena opcion para viajes cortos",

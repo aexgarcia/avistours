@@ -2,7 +2,7 @@ import { MessageCircle } from "lucide-react"
 import WhatsAppLink from "@/components/whatsapp/WhatsAppLink"
 
 const whatsappNumber = "51951654443"
-const whatsappMessage = "Hola Avistours, quiero informacion sobre los paseos en Puerto Pizarro."
+const whatsappMessage = "Hola AvisTours, quiero informacion sobre los paseos en Puerto Pizarro."
 
 export default function FloatingWhatsApp() {
     return (

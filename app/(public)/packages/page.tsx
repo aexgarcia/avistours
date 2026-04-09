@@ -6,6 +6,7 @@ import TourCard from "@/components/home/TourCard"
 import SiteSearch from "@/components/search/SiteSearch"
 import { blogPosts } from "@/data/blogs"
 import { tours } from "@/data/promotions"
+import { brandName, getBlogSearchTerms, getTourSearchTerms, packagesKeywords } from "@/data/seo"
 import { absoluteUrl } from "@/data/site"
 import { applyTourRating, getTourRatingSummaries } from "@/services/testimonials"
 
@@ -14,13 +15,14 @@ type PackagesPageProps = {
 }
 
 export const metadata: Metadata = {
-    title: "Tours en Puerto Pizarro | Avistours",
-    description: "Busca paquetes, promociones y guias de Avistours para paseos en Puerto Pizarro, Tumbes.",
+    title: `Tours en Puerto Pizarro | ${brandName}`,
+    description: `Busca paquetes, promociones y guias de ${brandName} para paseos en Puerto Pizarro, Tumbes.`,
+    keywords: packagesKeywords,
     alternates: {
         canonical: "/packages",
     },
     openGraph: {
-        title: "Tours en Puerto Pizarro y manglares de Tumbes | Avistours",
+        title: `Tours en Puerto Pizarro y manglares de Tumbes | ${brandName}`,
         description: "Paquetes por islas, manglares, Isla de los Pajaros, cocodrilos y boca del mar en Puerto Pizarro.",
         url: "/packages",
         images: [
@@ -57,32 +59,11 @@ export default async function PackagesPage({ searchParams }: PackagesPageProps) 
     const toursWithRatings = tours.map((tour) => applyTourRating(tour, ratingSummaries))
 
     const filteredTours = toursWithRatings.filter((tour) =>
-        includesTerm(
-            [
-                tour.title,
-                tour.location,
-                tour.description,
-                tour.duration,
-                ...tour.features,
-                ...tour.activities,
-                ...tour.includes,
-                ...tour.recommendations,
-            ],
-            query,
-        ),
+        includesTerm(getTourSearchTerms(tour), query),
     )
 
     const filteredPosts = blogPosts.filter((post) =>
-        includesTerm(
-            [
-                post.title,
-                post.excerpt,
-                post.category,
-                post.location,
-                ...post.highlights,
-            ],
-            query,
-        ),
+        includesTerm(getBlogSearchTerms(post), query),
     )
 
     const hasQuery = query.length > 0
@@ -105,7 +86,7 @@ export default async function PackagesPage({ searchParams }: PackagesPageProps) 
                 <div className="relative mx-auto max-w-6xl px-4 pb-16 md:pb-20">
                     <span className="inline-flex items-center gap-2 rounded-md bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-green-300 backdrop-blur">
                         <ShipWheel size={14} />
-                        Tours Avistours
+                        Tours AvisTours
                     </span>
                     <h1 className="mt-5 max-w-3xl text-3xl font-semibold leading-tight md:text-5xl">
                         Paquetes y guias para navegar Puerto Pizarro

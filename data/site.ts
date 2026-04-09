@@ -1,8 +1,8 @@
 export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://avistours.com").replace(/\/$/, "")
 
 export const siteConfig = {
-    name: "Avistours",
-    legalName: "Avistours Operador Turistico E.I.R.L.",
+    name: "AvisTours",
+    legalName: "AvisTours Operador Turistico E.I.R.L.",
     description: "Paseos turisticos por Puerto Pizarro, manglares de Tumbes, Isla de los Pajaros, cocodrilos y boca del mar.",
     url: siteUrl,
     phone: "+51 951 654 443",

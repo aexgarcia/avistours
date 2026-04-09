@@ -6,6 +6,7 @@ import { ArrowLeft, CalendarDays, CheckCircle2, Clock, MapPin, Quote, UserRound 
 import AdSlot from "@/components/ads/AdSlot"
 import JsonLd from "@/components/seo/JsonLd"
 import { blogPosts, getBlogPost, type BlogContentBlock } from "@/data/blogs"
+import { brandName, getBlogSearchTerms } from "@/data/seo"
 import { absoluteUrl, siteConfig } from "@/data/site"
 
 type BlogDetailPageProps = {
@@ -90,19 +91,20 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
 
     if (!post) {
         return {
-            title: "Articulo no encontrado | AvisTours",
+            title: `Articulo no encontrado | ${brandName}`,
         }
     }
 
     return {
-        title: `${post.title} | AvisTours`,
+        title: `${post.title} | ${brandName}`,
         description: post.excerpt,
+        keywords: getBlogSearchTerms(post),
         alternates: {
             canonical: `/blog/${post.slug}`,
         },
         openGraph: {
             type: "article",
-            title: `${post.title} | AvisTours`,
+            title: `${post.title} | ${brandName}`,
             description: post.excerpt,
             url: `/blog/${post.slug}`,
             images: [
@@ -116,7 +118,7 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
         },
         twitter: {
             card: "summary_large_image",
-            title: `${post.title} | AvisTours`,
+            title: `${post.title} | ${brandName}`,
             description: post.excerpt,
             images: [absoluteUrl(post.image)],
         },

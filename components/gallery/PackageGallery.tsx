@@ -94,7 +94,7 @@ export default function PackageGallery({ images, title }: PackageGalleryProps) {
                             {isMain && (
                                 <span className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded bg-white/90 px-3 py-1 text-xs font-semibold text-slate-800">
                                     <Images size={14} />
-                                    Ruta Avistours
+                                    Ruta AvisTours
                                 </span>
                             )}
 
@@ -134,7 +134,7 @@ export default function PackageGallery({ images, title }: PackageGalleryProps) {
                         <div className="flex items-center justify-between gap-4 py-2">
                             <div>
                                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-green-300">
-                                    Galeria Avistours
+                                    Galeria AvisTours
                                 </p>
                                 <h2 className="mt-1 text-base font-semibold md:text-xl">
                                     {title}

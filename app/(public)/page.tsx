@@ -6,16 +6,18 @@ import BlogSection from "@/components/home/BlogSection";
 import TidesSection from "@/components/home/TidesSection";
 import type { Metadata } from "next";
 import JsonLd from "@/components/seo/JsonLd";
+import { brandName, siteWideKeywords } from "@/data/seo";
 import { absoluteUrl, siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
     title: "Tours en Puerto Pizarro, manglares de Tumbes e Isla de los Pajaros",
-    description: "Reserva paseos en bote por Puerto Pizarro con AvisTours: manglares de Tumbes, Isla de los Pajaros, cocodrilos, islas y boca del mar.",
+    description: `Reserva paseos en bote por Puerto Pizarro con ${brandName}: manglares de Tumbes, Isla de los Pajaros, cocodrilos, islas y boca del mar.`,
+    keywords: siteWideKeywords,
     alternates: {
         canonical: "/",
     },
     openGraph: {
-        title: "Tours en Puerto Pizarro y manglares de Tumbes | AvisTours",
+        title: `Tours en Puerto Pizarro y manglares de Tumbes | ${brandName}`,
         description: "Paseos turisticos por manglares, islas, aves, cocodrilos y boca del mar en Puerto Pizarro, Tumbes.",
         url: "/",
         images: [
