@@ -19,10 +19,10 @@ export default async function ToursSection() {
                         Paquetes en promoción
                     </h2>
                     <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mt-2">
-                        Paseos por islas y manglares
+                        Tours por islas, manglares y cocodrilos
                     </h2>
                     <p className="text-sm md:text-base text-gray-500 mt-3 max-w-xl mx-auto leading-7">
-                        Elige una ruta por Puerto Pizarro segun tu tiempo: islas, aves, manglares, cocodrilos y la boca del mar.
+                        Elige un tour en Puerto Pizarro segun tu tiempo y presupuesto: islas, aves, manglares, cocodrilos y la boca del mar con reserva directa.
                     </p>
                 </div>
 

@@ -47,7 +47,7 @@ export const blogPosts: BlogPost[] = [
         location: "Puerto Pizarro, Tumbes",
         readTime: "5 min",
         date: "07 Abr 2026",
-        author: "Equipo AvisTours",
+        author: "Equipo Avis Tours",
         image: "/images-optimized/galeria/galeria28.webp",
         featured: true,
         highlights: [
@@ -85,7 +85,7 @@ export const blogPosts: BlogPost[] = [
             {
                 type: "quote",
                 text: "La mejor hora para salir no siempre es la mas temprana; muchas veces es la que conversa mejor con la marea.",
-                author: "Equipo AvisTours",
+                author: "Equipo Avis Tours",
             },
         ],
     },
@@ -97,12 +97,12 @@ export const blogPosts: BlogPost[] = [
         location: "Puerto Pizarro, Tumbes",
         readTime: "6 min",
         date: "07 Abr 2026",
-        author: "Equipo AvisTours",
+        author: "Equipo Avis Tours",
         image: "/images-optimized/galeria/completo_galeria1.webp",
         highlights: [
             "Ideal para una primera visita a Puerto Pizarro",
             "Combina naturaleza, fauna y navegacion por esteros",
-            "Recomendado para familias y grupos pequenos",
+            "Recomendado para familias y grupo pequeños",
         ],
         body: [
             {
@@ -142,7 +142,7 @@ export const blogPosts: BlogPost[] = [
         location: "Manglares de Tumbes",
         readTime: "4 min",
         date: "07 Abr 2026",
-        author: "Equipo AvisTours",
+        author: "Equipo Avis Tours",
         image: "/images-optimized/galeria/pajaros_manglares_galeria1.webp",
         highlights: [
             "Buena opcion para viajes cortos",
@@ -171,6 +171,109 @@ export const blogPosts: BlogPost[] = [
             {
                 type: "quote",
                 text: "Puerto Pizarro se disfruta mejor cuando el paseo deja tiempo para mirar el movimiento del estero.",
+            },
+        ],
+    },
+    {
+        slug: "como-llegar-a-puerto-pizarro-desde-tumbes",
+        title: "Como llegar a Puerto Pizarro desde Tumbes centro o aeropuerto",
+        excerpt: "Una guia practica para ubicar el muelle turistico, calcular tiempos de traslado y llegar con margen suficiente antes de tu paseo.",
+        category: "Planificacion",
+        location: "Tumbes y Puerto Pizarro",
+        readTime: "5 min",
+        date: "10 Abr 2026",
+        author: "Equipo Avis Tours",
+        image: "/images-optimized/galeria/galeria29.webp",
+        highlights: [
+            "Ruta util para quienes llegan por primera vez a Tumbes",
+            "Ayuda a calcular el traslado desde centro o aeropuerto",
+            "Permite llegar con tiempo para validar marea y embarcacion",
+        ],
+        body: [
+            {
+                type: "paragraph",
+                text: "Si viajas por primera vez a Tumbes, conviene tener claro como llegar a Puerto Pizarro antes del dia del tour. El punto de referencia principal es el muelle turistico, desde donde salen muchas embarcaciones hacia manglares, islas y recorridos de naturaleza.",
+            },
+            {
+                type: "heading",
+                text: "Desde Tumbes centro",
+            },
+            {
+                type: "paragraph",
+                text: "Desde el centro de Tumbes, el traslado hacia Puerto Pizarro suele ser corto, pero puede variar segun hora, trafico y temporada. Lo ideal es salir con margen para llegar con calma, confirmar al operador y no depender del tiempo justo antes de zarpar.",
+            },
+            {
+                type: "heading",
+                text: "Desde el aeropuerto",
+            },
+            {
+                type: "paragraph",
+                text: "Si llegas en vuelo el mismo dia, lo mas recomendable es coordinar con anticipacion el traslado o consultar una hora de salida que deje espacio para equipaje, movilidad y cualquier ajuste por clima o marea. Eso evita perder una buena ventana de navegacion.",
+            },
+            {
+                type: "image",
+                src: "/images-optimized/galeria/galeria30.webp",
+                alt: "Acceso hacia el muelle turistico de Puerto Pizarro",
+                caption: "Llegar con anticipacion da margen para ubicar el muelle, validar tu reserva y salir con mas tranquilidad.",
+            },
+            {
+                type: "list",
+                items: [
+                    "Guarda la ubicacion del muelle turistico antes de salir.",
+                    "Pregunta al operador cuanto tiempo recomienda considerar ese dia.",
+                    "Si viajas en feriado o fin de semana, sal con mas margen.",
+                ],
+            },
+        ],
+    },
+    {
+        slug: "que-llevar-a-un-tour-por-los-manglares-de-puerto-pizarro",
+        title: "Que llevar a un tour por los manglares de Puerto Pizarro",
+        excerpt: "Recomendaciones practicas para ir comodo al bote, protegerte del sol y disfrutar mejor la experiencia en manglares, islas y observacion de aves.",
+        category: "Consejos",
+        location: "Puerto Pizarro, Tumbes",
+        readTime: "4 min",
+        date: "10 Abr 2026",
+        author: "Equipo Avis Tours",
+        image: "/images-optimized/galeria/galeria27.webp",
+        highlights: [
+            "Lista simple para turistas que visitan Puerto Pizarro por primera vez",
+            "Pensado para clima costero, sol y recorridos en bote",
+            "Ayuda a disfrutar mejor fotos, aves y paradas del recorrido",
+        ],
+        body: [
+            {
+                type: "paragraph",
+                text: "Un tour por los manglares de Puerto Pizarro se disfruta mas cuando llevas lo justo y util. No hace falta cargar demasiado, pero si conviene pensar en sol, brisa, desplazamiento en bote y tiempo al aire libre.",
+            },
+            {
+                type: "heading",
+                text: "Basicos recomendados",
+            },
+            {
+                type: "list",
+                items: [
+                    "Protector solar y gorra o sombrero.",
+                    "Agua para mantenerte hidratado.",
+                    "Celular o camara con bateria suficiente.",
+                    "Lentes de sol y ropa ligera.",
+                    "Bolso pequeño o mochila comoda.",
+                ],
+            },
+            {
+                type: "paragraph",
+                text: "Si tu ruta incluye Isla de los Pajaros, manglares o boca del mar, vale la pena llevar el celular listo para fotos y evitar equipaje innecesario. Mientras mas ligero viajes, mas comodo se vuelve subir, bajar y moverte durante el paseo.",
+            },
+            {
+                type: "image",
+                src: "/images-optimized/galeria/galeria26.webp",
+                alt: "Turistas listos para un paseo por los manglares de Puerto Pizarro",
+                caption: "La ropa comoda y una buena proteccion solar suelen marcar la diferencia durante el recorrido.",
+            },
+            {
+                type: "quote",
+                text: "Para un buen paseo por Puerto Pizarro no necesitas llevar mucho; necesitas llevar lo correcto.",
+                author: "Equipo Avis Tours",
             },
         ],
     },

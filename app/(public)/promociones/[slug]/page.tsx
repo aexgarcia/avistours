@@ -35,15 +35,15 @@ export async function generateMetadata({ params }: PromotionDetailPageProps): Pr
     }
 
     return {
-        title: `${tour.title} | ${brandName}`,
-        description: tour.description,
+        title: `${tour.title} en Puerto Pizarro | ${brandName}`,
+        description: `${tour.description} Revisa precio, actividades, galeria y reserva tu salida en Puerto Pizarro.`,
         keywords: getTourSearchTerms(tour),
         alternates: {
             canonical: `/promociones/${tour.slug}`,
         },
         openGraph: {
-            title: `${tour.title} | ${brandName}`,
-            description: tour.description,
+            title: `${tour.title} en Puerto Pizarro | ${brandName}`,
+            description: `${tour.description} Tour en Puerto Pizarro con detalles de ruta, precio y reserva.`,
             url: `/promociones/${tour.slug}`,
             images: [
                 {
@@ -56,8 +56,8 @@ export async function generateMetadata({ params }: PromotionDetailPageProps): Pr
         },
         twitter: {
             card: "summary_large_image",
-            title: `${tour.title} | ${brandName}`,
-            description: tour.description,
+            title: `${tour.title} en Puerto Pizarro | ${brandName}`,
+            description: `${tour.description} Tour en Puerto Pizarro con precio y reserva.`,
             images: [absoluteUrl(tour.image)],
         },
     }

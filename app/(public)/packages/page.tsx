@@ -5,10 +5,12 @@ import { Suspense } from "react"
 import { ArrowRight, BookOpen, CalendarDays, MapPin, Search, ShipWheel } from "lucide-react"
 import TourCard from "@/components/home/TourCard"
 import SiteSearch from "@/components/search/SiteSearch"
+import FaqSection from "@/components/seo/FaqSection"
+import JsonLd from "@/components/seo/JsonLd"
 import { blogPosts } from "@/data/blogs"
 import { tours } from "@/data/promotions"
-import { brandName, getBlogSearchTerms, getTourSearchTerms, packagesKeywords } from "@/data/seo"
-import { absoluteUrl } from "@/data/site"
+import { brandName, getBlogSearchTerms, getTourSearchTerms, packagesFaqs, packagesKeywords } from "@/data/seo"
+import { absoluteUrl, siteConfig } from "@/data/site"
 import { applyTourRating, getTourRatingSummaries } from "@/services/testimonials"
 
 type PackagesPageProps = {
@@ -16,8 +18,8 @@ type PackagesPageProps = {
 }
 
 export const metadata: Metadata = {
-    title: `Tours en Puerto Pizarro | ${brandName}`,
-    description: `Busca paquetes, promociones y guias de ${brandName} para paseos en Puerto Pizarro, Tumbes.`,
+    title: `Tours en Puerto Pizarro: precios, rutas y reservas | ${brandName}`,
+    description: `Explora tours en Puerto Pizarro con ${brandName}: manglares, islas, Isla de los Pajaros, cocodrilos y boca del mar con precios, detalles y reserva por WhatsApp.`,
     keywords: packagesKeywords,
     alternates: {
         canonical: "/packages",
@@ -69,6 +71,33 @@ export default async function PackagesPage({ searchParams }: PackagesPageProps) 
 
     return (
         <div className="bg-white">
+            <JsonLd
+                data={[
+                    {
+                        "@context": "https://schema.org",
+                        "@type": "ItemList",
+                        name: "Tours en Puerto Pizarro",
+                        itemListElement: tours.map((tour, index) => ({
+                            "@type": "ListItem",
+                            position: index + 1,
+                            url: absoluteUrl(`/promociones/${tour.slug}`),
+                            name: tour.title,
+                        })),
+                    },
+                    {
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        mainEntity: packagesFaqs.map((item) => ({
+                            "@type": "Question",
+                            name: item.question,
+                            acceptedAnswer: {
+                                "@type": "Answer",
+                                text: item.answer,
+                            },
+                        })),
+                    },
+                ]}
+            />
             <section className="relative overflow-hidden bg-slate-950/70 pt-32 text-white md:pt-40">
                 <Image
                     src="/images-optimized/hero/hero1.webp"
@@ -84,13 +113,13 @@ export default async function PackagesPage({ searchParams }: PackagesPageProps) 
                 <div className="relative mx-auto max-w-6xl px-4 pb-16 md:pb-20">
                     <span className="inline-flex items-center gap-2 rounded-md bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-green-300 backdrop-blur">
                         <ShipWheel size={14} />
-                        Tours AvisTours
+                        Tours Avis Tours
                     </span>
                     <h1 className="mt-5 max-w-3xl text-3xl font-semibold leading-tight md:text-5xl">
-                        Paquetes y guias para navegar Puerto Pizarro
+                        Tours en Puerto Pizarro con precios, rutas y guia local
                     </h1>
                     <p className="mt-5 max-w-2xl text-sm leading-7 text-white/75 md:text-base">
-                        Encuentra rutas por islas, manglares, aves, cocodrilos y articulos utiles para elegir mejor tu salida segun la marea.
+                        Encuentra paseos en bote por manglares, islas, aves, cocodrilos y boca del mar. Compara paquetes, revisa detalles y elige la salida que mejor se adapta a tu tiempo y presupuesto.
                     </p>
 
                     <SiteSearch
@@ -205,6 +234,13 @@ export default async function PackagesPage({ searchParams }: PackagesPageProps) 
                     </div>
                 </div>
             </section>
+
+            <FaqSection
+                eyebrow="Reserva y precios"
+                title="Preguntas frecuentes sobre tours en Puerto Pizarro"
+                description={`Una base rapida para resolver dudas de precio, rutas, grupos y reserva antes de escribirle a ${siteConfig.name}.`}
+                items={packagesFaqs}
+            />
         </div>
     )
 }

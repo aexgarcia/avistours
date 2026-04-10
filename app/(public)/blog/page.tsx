@@ -7,8 +7,8 @@ import { blogKeywords, brandName } from "@/data/seo"
 import { absoluteUrl } from "@/data/site"
 
 export const metadata: Metadata = {
-    title: `Guia de Puerto Pizarro | ${brandName}`,
-    description: `Articulos informativos de ${brandName} sobre mareas, manglares y paseos en Puerto Pizarro, Tumbes.`,
+    title: `Guia de Puerto Pizarro: mareas, manglares y paseos | ${brandName}`,
+    description: `Lee articulos de ${brandName} sobre mareas en Puerto Pizarro, manglares de Tumbes, rutas en bote, Isla de los Pajaros y consejos para visitar el estero.`,
     keywords: blogKeywords,
     alternates: {
         canonical: "/blog",
@@ -46,13 +46,13 @@ export default function BlogPage() {
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950" />
                 <div className="relative mx-auto max-w-6xl px-4 pb-16 md:pb-20">
                     <span className="inline-flex rounded-md bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-green-300 backdrop-blur">
-                        Guia AvisTours
+                        Guia Avis Tours
                     </span>
                     <h1 className="mt-5 max-w-3xl text-4xl font-semibold leading-tight lg:text-5xl">
-                        Mareas, manglares y rutas por Tumbes
+                        Guia de Puerto Pizarro, mareas y manglares de Tumbes
                     </h1>
                     <p className="mt-5 max-w-2xl leading-relaxed text-white/75">
-                        Informacion clara para planificar paseos por Puerto Pizarro, elegir horarios y conocer mejor el estero antes de zarpar.
+                        Informacion clara para planificar tours en Puerto Pizarro, elegir horarios segun la marea y conocer mejor manglares, islas y aves antes de reservar.
                     </p>
                 </div>
             </section>

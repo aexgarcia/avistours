@@ -5,13 +5,14 @@ import TestimonialsSection from "@/components/home/TestimonialsSection";
 import BlogSection from "@/components/home/BlogSection";
 import TidesSection from "@/components/home/TidesSection";
 import type { Metadata } from "next";
+import FaqSection from "@/components/seo/FaqSection";
 import JsonLd from "@/components/seo/JsonLd";
-import { brandName, siteWideKeywords } from "@/data/seo";
+import { brandName, homeFaqs, siteWideKeywords } from "@/data/seo";
 import { absoluteUrl, siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
-    title: "Tours en Puerto Pizarro, manglares de Tumbes e Isla de los Pajaros",
-    description: `Reserva paseos en bote por Puerto Pizarro con ${brandName}: manglares de Tumbes, Isla de los Pajaros, cocodrilos, islas y boca del mar.`,
+    title: "Tours en Puerto Pizarro: manglares, islas y cocodrilos en Tumbes",
+    description: `Reserva tours en Puerto Pizarro con ${brandName}: manglares de Tumbes, Isla de los Pajaros, cocodrilos, islas y boca del mar con guia local y atencion por WhatsApp.`,
     keywords: siteWideKeywords,
     alternates: {
         canonical: "/",
@@ -66,6 +67,18 @@ export default function HomePage() {
                             "query-input": "required name=search_term_string",
                         },
                     },
+                    {
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        mainEntity: homeFaqs.map((item) => ({
+                            "@type": "Question",
+                            name: item.question,
+                            acceptedAnswer: {
+                                "@type": "Answer",
+                                text: item.answer,
+                            },
+                        })),
+                    },
                 ]}
             />
             <HeroCarousel />
@@ -74,6 +87,12 @@ export default function HomePage() {
             <PromotionsSection />
             <TestimonialsSection />
             <BlogSection />
+            <FaqSection
+                eyebrow="Preguntas frecuentes"
+                title="Lo que mas consultan antes de reservar"
+                description="Resolvemos dudas comunes sobre marea, horarios, tipos de paseo y reserva para que tu visita a Puerto Pizarro llegue mejor encaminada."
+                items={homeFaqs}
+            />
         </>
     )
 }

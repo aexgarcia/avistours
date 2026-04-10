@@ -12,10 +12,10 @@ export default function BlogSection() {
                         Guia local
                     </span>
                     <h2 className="text-3xl font-semibold text-gray-800 mt-3">
-                        Aprende antes de navegar Puerto Pizarro
+                        Guia para visitar Puerto Pizarro y sus manglares
                     </h2>
                     <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-                        Mareas, rutas por manglares y recomendaciones para elegir mejor tu paseo en Tumbes.
+                        Mareas, rutas por manglares, horarios y recomendaciones para elegir mejor tu tour en Puerto Pizarro, Tumbes.
                     </p>
                 </div>
 

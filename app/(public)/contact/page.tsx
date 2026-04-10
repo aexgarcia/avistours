@@ -3,10 +3,12 @@ import type { Metadata } from "next"
 import { Anchor, Clock, FileText, Mail, MapPin, Phone, ShieldCheck } from "lucide-react"
 import ContactWhatsAppForm from "@/components/contact/ContactWhatsAppForm"
 import PackageGallery from "@/components/gallery/PackageGallery"
+import FaqSection from "@/components/seo/FaqSection"
+import JsonLd from "@/components/seo/JsonLd"
 import WhatsAppLink from "@/components/whatsapp/WhatsAppLink"
 import { tours } from "@/data/promotions"
-import { brandName, contactKeywords } from "@/data/seo"
-import { absoluteUrl } from "@/data/site"
+import { brandName, contactFaqs, contactKeywords } from "@/data/seo"
+import { absoluteUrl, siteConfig } from "@/data/site"
 
 const company = {
     name: "Operador Turístico Avis Tours S.A.C.",
@@ -80,7 +82,7 @@ const contactCards = [
 
 export const metadata: Metadata = {
     title: `Contacto | ${brandName}`,
-    description: `Contacta a ${brandName} para reservar paseos por Puerto Pizarro, Tumbes: manglares, islas, aves y cocodrilos.`,
+    description: `Contacta a ${brandName} para reservar tours en Puerto Pizarro, Tumbes: manglares, islas, aves, cocodrilos y salidas segun marea.`,
     keywords: contactKeywords,
     alternates: {
         canonical: "/contact",
@@ -103,6 +105,20 @@ export const metadata: Metadata = {
 export default function ContactPage() {
     return (
         <div className="bg-white">
+            <JsonLd
+                data={{
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    mainEntity: contactFaqs.map((item) => ({
+                        "@type": "Question",
+                        name: item.question,
+                        acceptedAnswer: {
+                            "@type": "Answer",
+                            text: item.answer,
+                        },
+                    })),
+                }}
+            />
             <section className="relative overflow-hidden bg-slate-900 pt-32 text-white md:pt-40">
                 <Image
                     src="/images-optimized/hero/bg_inicio2.webp"
@@ -121,10 +137,10 @@ export default function ContactPage() {
                             {`Contacto ${brandName}`}
                         </span>
                         <h1 className="mt-5 max-w-3xl text-3xl font-semibold leading-tight md:text-5xl">
-                            Planifica tu paseo por Puerto Pizarro con guia local
+                            Reserva tu tour en Puerto Pizarro con guia local
                         </h1>
                         <p className="mt-5 max-w-2xl text-sm leading-7 text-white/75 md:text-base">
-                            Coordinamos salidas por islas, manglares, Isla de los Pajaros, zoocriadero de cocodrilos y boca del mar, ajustando la experiencia segun marea y clima.
+                            Coordinamos tours por islas, manglares, Isla de los Pajaros, zoocriadero de cocodrilos y boca del mar, ajustando la experiencia segun marea y clima.
                         </p>
                     </div>
 
@@ -222,6 +238,13 @@ export default function ContactPage() {
                     <PackageGallery images={contactGallery} title={`Puerto Pizarro con ${brandName}`} />
                 </div>
             </section>
+
+            <FaqSection
+                eyebrow="Ayuda rapida"
+                title="Preguntas frecuentes antes de escribirnos"
+                description={`Te dejamos respuestas utiles sobre horarios, punto de encuentro y reserva para que contactes a ${siteConfig.name} con mas contexto.`}
+                items={contactFaqs}
+            />
         </div>
     )
 }

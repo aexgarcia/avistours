@@ -18,7 +18,7 @@ export default function ContactWhatsAppForm() {
         event.preventDefault()
 
         const text = [
-            "Hola AvisTours, quiero informacion para reservar.",
+            "Hola Avis Tours, quiero informacion para reservar.",
             `Nombre: ${name || "Por completar"}`,
             `Telefono: ${phone || "Por completar"}`,
             `Personas: ${people}`,

@@ -13,7 +13,7 @@ import {
 import NewsletterForm from "@/components/newsletter/NewsletterForm"
 
 const companyLinks = [
-    { label: "AvisTours", href: "#" },
+    { label: "Avis Tours", href: "#" },
     { label: "Tours", href: "/packages" },
     { label: "Blog", href: "/blog" },
     { label: "Contacto", href: "#" },
@@ -72,7 +72,7 @@ export default function Footer() {
                         </h2>
                         <div className="mt-5 space-y-4 text-sm text-white/75">
                             <p className="font-medium text-white">
-                                AvisTours Puerto Pizarro
+                                Avis Tours Puerto Pizarro
                             </p>
                             <div className="flex gap-3 leading-6">
                                 <MapPin size={16} className="text-green-500 mt-1 shrink-0" />
@@ -110,7 +110,7 @@ export default function Footer() {
                             Novedades
                         </h2>
                         <p className="text-sm text-white/75 leading-6 mt-5">
-                            Recibe tips sobre mareas, horarios y paseos con AvisTours.
+                            Recibe tips sobre mareas, horarios y paseos con Avis Tours.
                         </p>
                         <NewsletterForm />
                     </div>
@@ -119,7 +119,7 @@ export default function Footer() {
 
             <div className="border-t border-white/10">
                 <div className="max-w-6xl mx-auto px-4 py-5 text-center text-sm text-white/80">
-                    (c) 2026 AvisTours. Hecho con{" "}
+                    (c) 2026 Avis Tours. Hecho con{" "}
                     <Heart size={13} fill="currentColor" className="inline text-green-500 mx-1" />
                     para viajeros del norte peruano.
                 </div>

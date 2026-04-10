@@ -96,16 +96,16 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
     }
 
     return {
-        title: `${post.title} | ${brandName}`,
-        description: post.excerpt,
+        title: `${post.title} | Guia de Puerto Pizarro | ${brandName}`,
+        description: `${post.excerpt} Consejos utiles para planificar tu visita a los manglares de Puerto Pizarro y Tumbes.`,
         keywords: getBlogSearchTerms(post),
         alternates: {
             canonical: `/blog/${post.slug}`,
         },
         openGraph: {
             type: "article",
-            title: `${post.title} | ${brandName}`,
-            description: post.excerpt,
+            title: `${post.title} | Guia de Puerto Pizarro | ${brandName}`,
+            description: `${post.excerpt} Guia local para viajar mejor por Puerto Pizarro.`,
             url: `/blog/${post.slug}`,
             images: [
                 {
@@ -118,8 +118,8 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
         },
         twitter: {
             card: "summary_large_image",
-            title: `${post.title} | ${brandName}`,
-            description: post.excerpt,
+            title: `${post.title} | Guia de Puerto Pizarro | ${brandName}`,
+            description: `${post.excerpt} Guia local para visitar manglares y rutas en Tumbes.`,
             images: [absoluteUrl(post.image)],
         },
     }
@@ -231,7 +231,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                                     return (
                                         <span
                                             key={item.label}
-                                            className="inline-flex items-center gap-2 rounded-md bg-slate-50 border border-slate-200 px-3 py-2 text-sm text-gray-600"
+                                            className="inline-flex items-center gap-2 rounded-md bg-slate-50 border border-slate-200 px-3 py-2 text-xs text-gray-600"
                                         >
                                             <Icon size={15} className="text-green-500" />
                                             {item.label}

@@ -248,7 +248,7 @@ export default async function TidesSection() {
 
                             {tide.updatedAt && (
                                 <p className="text-xs text-gray-500 mt-3">
-                                    Lectura cercana a las {tide.updatedAt} h para AvisTours.
+                                    Lectura cercana a las {tide.updatedAt} h para Avis Tours.
                                 </p>
                             )}
                         </div>
