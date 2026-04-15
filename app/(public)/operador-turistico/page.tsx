@@ -1,9 +1,12 @@
+import Image from "next/image"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { BadgeCheck, Clock3, MapPin, MessageCircleMore, ShieldCheck } from "lucide-react"
 import JsonLd from "@/components/seo/JsonLd"
 import { companyProfile, getCompanySameAs } from "@/data/company"
 import { absoluteUrl, siteConfig } from "@/data/site"
+
+const operatorHeroImage = "/images-optimized/galeria/completo_galeria1.webp"
 
 const credibilityItems = [
     {
@@ -35,7 +38,7 @@ export const metadata: Metadata = {
         url: "/operador-turistico",
         images: [
             {
-                url: absoluteUrl("/images-optimized/hero/bg_inicio2.webp"),
+                url: absoluteUrl(operatorHeroImage),
                 width: 1200,
                 height: 630,
                 alt: "Operador turistico en Puerto Pizarro",
@@ -57,7 +60,7 @@ export default function OperatorPage() {
                         name: companyProfile.tradeName,
                         legalName: companyProfile.legalName,
                         url: siteConfig.url,
-                        image: absoluteUrl("/images-optimized/hero/bg_inicio2.webp"),
+                        image: absoluteUrl(operatorHeroImage),
                         telephone: companyProfile.phone,
                         email: companyProfile.email,
                         address: {
@@ -92,9 +95,19 @@ export default function OperatorPage() {
                 ]}
             />
 
-            <section className="bg-slate-950 pt-32 text-white md:pt-40">
-                <div className="mx-auto max-w-6xl px-4 pb-16 md:pb-20">
-                    <span className="inline-flex items-center gap-2 rounded-md bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-green-300">
+            <section className="relative overflow-hidden bg-slate-900 pt-32 text-white md:pt-40">
+                <Image
+                    src={operatorHeroImage}
+                    alt="Lancha y recorrido turistico en Puerto Pizarro"
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-cover opacity-35"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950" />
+
+                <div className="relative mx-auto max-w-6xl px-4 pb-16 md:pb-20">
+                    <span className="inline-flex items-center gap-2 rounded-md bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-green-300 backdrop-blur">
                         <BadgeCheck size={14} />
                         Operador turistico
                     </span>

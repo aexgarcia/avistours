@@ -8,7 +8,7 @@ import JsonLd from "@/components/seo/JsonLd"
 import WhatsAppLink from "@/components/whatsapp/WhatsAppLink"
 import { companyProfile, getCompanySameAs } from "@/data/company"
 import { tours } from "@/data/promotions"
-import { brandName, contactFaqs, contactKeywords } from "@/data/seo"
+import { brandName, contactFaqs, contactKeywords, siteWideKeywords } from "@/data/seo"
 import { absoluteUrl, siteConfig } from "@/data/site"
 
 const company = {
@@ -84,7 +84,7 @@ const contactCards = [
 export const metadata: Metadata = {
     title: `Contacto | ${brandName}`,
     description: `Contacta a ${brandName} para reservar tours en Puerto Pizarro, Tumbes: manglares, islas, aves, cocodrilos y salidas segun marea.`,
-    keywords: contactKeywords,
+    keywords: [...siteWideKeywords, ...contactKeywords],
     alternates: {
         canonical: "/contact",
     },

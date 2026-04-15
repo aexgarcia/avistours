@@ -9,7 +9,7 @@ import FaqSection from "@/components/seo/FaqSection"
 import JsonLd from "@/components/seo/JsonLd"
 import { blogPosts } from "@/data/blogs"
 import { tours } from "@/data/promotions"
-import { brandName, getBlogSearchTerms, getTourSearchTerms, packagesFaqs, packagesKeywords } from "@/data/seo"
+import { brandName, getBlogSearchTerms, getTourSearchTerms, packagesFaqs, packagesKeywords, primaryKeywords, siteWideKeywords } from "@/data/seo"
 import { absoluteUrl, siteConfig } from "@/data/site"
 import { applyTourRating, getTourRatingSummaries } from "@/services/testimonials"
 
@@ -20,7 +20,7 @@ type PackagesPageProps = {
 export const metadata: Metadata = {
     title: `Tours en Puerto Pizarro: precios, rutas y reservas | ${brandName}`,
     description: `Explora tours en Puerto Pizarro con ${brandName}: manglares, islas, Isla de los Pajaros, cocodrilos y boca del mar con precios, detalles y reserva por WhatsApp.`,
-    keywords: packagesKeywords,
+    keywords: [...siteWideKeywords, primaryKeywords.packages, ...packagesKeywords],
     alternates: {
         canonical: "/packages",
     },

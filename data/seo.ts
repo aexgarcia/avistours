@@ -5,43 +5,23 @@ export const brandName = "Avis Tours"
 
 export const siteWideKeywords = [
     brandName,
-    "AvisTours",
     "Avis Tours",
+    "AvisTours",
     "Puerto Pizarro",
-    "Tumbes",
-    "tour manglares Puerto Pizarro",
-    "tour manglares de Puerto Pizarro y sus islas",
-    "manglares de Puerto Pizarro y sus islas",
-    "manglares de Tumbes",
-    "manglares de Puerto Pizarro",
+    "Tumbes"
+]
+
+export const homeKeywords = [
     "tours en Puerto Pizarro",
+    "manglares de Tumbes",
     "tour Puerto Pizarro",
-    "precio tour Puerto Pizarro",
-    "reserva tour Puerto Pizarro",
-    "paseos en Puerto Pizarro",
-    "paseo en bote Puerto Pizarro",
-    "islas de Puerto Pizarro",
-    "tours en Tumbes",
-    "tour manglares Tumbes",
-    "paquetes turisticos Puerto Pizarro",
-    "tour Puerto Pizarro precio",
-    "Isla de los Pajaros",
-    "isla de los pajaros Tumbes",
-    "zoocriadero de cocodrilos",
-    "zoocriadero de cocodrilos Tumbes",
-    "boca del mar Tumbes",
-    "boca del mar Puerto Pizarro",
-    "mareas en Puerto Pizarro",
-    "que hacer en Puerto Pizarro",
-    "como llegar a Puerto Pizarro",
-    "mejor hora para visitar los manglares de Tumbes",
+    "paseos en Puerto Pizarro"
 ]
 
 export const packagesKeywords = [
-    ...siteWideKeywords,
-    "tours Puerto Pizarro precios",
+    "tours en Puerto Pizarro precios",
     "tour a los manglares de Puerto Pizarro",
-    "reserva paseo en bote Puerto Pizarro",
+    "paquetes turisticos Puerto Pizarro",
     "tour isla de los pajaros Puerto Pizarro",
     "tour manglares y cocodrilos",
     "tour completo Puerto Pizarro",
@@ -49,13 +29,12 @@ export const packagesKeywords = [
 ]
 
 export const blogKeywords = [
-    ...siteWideKeywords,
     "guia Puerto Pizarro",
-    "blog Puerto Pizarro",
     "consejos para visitar Puerto Pizarro",
-    "mareas y manglares en Tumbes",
-    "como visitar los manglares de Puerto Pizarro",
-    "que hacer en Tumbes y Puerto Pizarro",
+    "que hacer en Puerto Pizarro",
+    "como llegar a Puerto Pizarro",
+    "mareas en Puerto Pizarro",
+    "mejor hora manglares Tumbes"
 ]
 
 export const contactKeywords = [
@@ -63,9 +42,98 @@ export const contactKeywords = [
     "contacto tours Puerto Pizarro",
     "reservar tour Puerto Pizarro",
     "whatsapp tours Puerto Pizarro",
-    "WhatsApp Puerto Pizarro",
     "consultar tour manglares Tumbes",
 ]
+
+export const primaryKeywords = {
+    home: "tours en Puerto Pizarro",
+    packages: "tours en Puerto Pizarro precios",
+    blog: "que hacer en Puerto Pizarro",
+}
+
+export const primaryTourKeywords: Record<string, string> = {
+    "puerto-pizarro-completo": "tour completo en Puerto Pizarro",
+    "solo-visita-a-la-isla": "tour a la isla en Puerto Pizarro",
+    "isla-pajaros-manglares": "tour isla de los pajaros Puerto Pizarro",
+    "islas-manglares-cocodrilos": "tour islas manglares y cocodrilos Puerto Pizarro",
+    "pajaros-y-manglares": "tour pajaros y manglares Puerto Pizarro",
+    "manglares-y-cocodrilos": "tour manglares y cocodrilos Puerto Pizarro",
+}
+
+export const primaryBlogKeywords: Record<string, string> = {
+    "mareas-en-puerto-pizarro": "mareas en Puerto Pizarro",
+    "ruta-completa-islas-manglares-cocodrilos": "tour completo en Puerto Pizarro",
+    "isla-de-los-pajaros-y-manglares": "isla de los pajaros Tumbes",
+    "como-llegar-a-puerto-pizarro-desde-tumbes": "como llegar a Puerto Pizarro desde Tumbes",
+    "que-llevar-a-un-tour-por-los-manglares-de-puerto-pizarro": "que llevar a un tour por los manglares de Puerto Pizarro",
+}
+
+type SeoTarget = {
+    intro: string
+    secondaryKeyword: string
+    intent: string
+}
+
+export const tourSeoTargets: Record<string, SeoTarget> = {
+    "puerto-pizarro-completo": {
+        intro: "Este tour completo en Puerto Pizarro es la mejor opcion si quieres recorrer islas, manglares, cocodrilos y la boca del mar en una sola salida bien aprovechada.",
+        secondaryKeyword: "precio tour Puerto Pizarro",
+        intent: "comparar el recorrido mas completo antes de reservar",
+    },
+    "solo-visita-a-la-isla": {
+        intro: "Este tour a la isla en Puerto Pizarro es ideal si buscas un paseo corto, facil de coordinar y con tiempo libre para disfrutar el entorno a tu ritmo.",
+        secondaryKeyword: "paseo corto Puerto Pizarro",
+        intent: "elegir una salida breve y facil de coordinar",
+    },
+    "isla-pajaros-manglares": {
+        intro: "Este tour a la Isla de los Pajaros en Puerto Pizarro combina navegacion por manglares, observacion de aves y una ruta natural muy buscada en Tumbes.",
+        secondaryKeyword: "visita a isla de los pajaros y manglares",
+        intent: "reservar una ruta natural con aves y manglar",
+    },
+    "islas-manglares-cocodrilos": {
+        intro: "Este tour por islas, manglares y cocodrilos en Puerto Pizarro funciona muy bien si quieres una ruta variada con naturaleza, fauna y paseo en lancha.",
+        secondaryKeyword: "tour cocodrilos Puerto Pizarro",
+        intent: "evaluar una ruta variada con fauna y esteros",
+    },
+    "pajaros-y-manglares": {
+        intro: "Este tour de pajaros y manglares en Puerto Pizarro es una opcion corta y tranquila para observar aves y conocer el ecosistema del manglar sin dedicar muchas horas.",
+        secondaryKeyword: "manglares de Puerto Pizarro",
+        intent: "encontrar un paseo tranquilo centrado en naturaleza",
+    },
+    "manglares-y-cocodrilos": {
+        intro: "Este tour de manglares y cocodrilos en Puerto Pizarro es perfecto si quieres una primera experiencia con navegacion por esteros y visita al zoocriadero.",
+        secondaryKeyword: "zoocriadero de cocodrilos Tumbes",
+        intent: "escoger un tour con manglares y fauna local",
+    },
+}
+
+export const blogSeoTargets: Record<string, SeoTarget> = {
+    "mareas-en-puerto-pizarro": {
+        intro: "Si estas revisando las mareas en Puerto Pizarro, esta guia te ayuda a entender cual es la mejor hora para visitar los manglares de Tumbes y aprovechar mejor tu tour.",
+        secondaryKeyword: "mejor hora para visitar los manglares de Tumbes",
+        intent: "entender cuando conviene salir segun la marea",
+    },
+    "ruta-completa-islas-manglares-cocodrilos": {
+        intro: "Si quieres saber que hacer en Puerto Pizarro en una sola salida, aqui te mostramos por que el tour completo suele ser la opcion mas recomendada para quienes visitan Tumbes.",
+        secondaryKeyword: "que hacer en Puerto Pizarro",
+        intent: "comparar si el tour completo encaja con tu viaje",
+    },
+    "isla-de-los-pajaros-y-manglares": {
+        intro: "Si te interesa la Isla de los Pajaros en Tumbes, esta guia resume que ver, como es el recorrido y por que este paseo destaca entre los tours naturales de Puerto Pizarro.",
+        secondaryKeyword: "tour aves Puerto Pizarro",
+        intent: "descubrir que ver en la Isla de los Pajaros",
+    },
+    "como-llegar-a-puerto-pizarro-desde-tumbes": {
+        intro: "Si necesitas saber como llegar a Puerto Pizarro desde Tumbes o desde el aeropuerto, aqui tienes una guia clara para ubicar el muelle turistico y organizar mejor tu visita.",
+        secondaryKeyword: "muelle turistico Puerto Pizarro",
+        intent: "resolver como llegar sin perder tiempo",
+    },
+    "que-llevar-a-un-tour-por-los-manglares-de-puerto-pizarro": {
+        intro: "Si te preguntas que llevar a un tour por los manglares de Puerto Pizarro, esta guia te ayuda a preparar ropa, accesorios y detalles practicos antes de salir.",
+        secondaryKeyword: "recomendaciones para visitar Puerto Pizarro",
+        intent: "prepararte mejor antes de tu paseo en manglares",
+    },
+}
 
 export const homeFaqs = [
     {
@@ -140,13 +208,13 @@ const tourAliasMap: Record<string, string[]> = {
         "islas manglares cocodrilos boca del mar",
         "que hacer en Puerto Pizarro",
     ],
-    "solo-ida-a-la-isla": [
+    "solo-visita-a-la-isla": [
         "solo ida a la isla",
         "traslado a la isla Puerto Pizarro",
         "paseo corto Puerto Pizarro",
         "ida a la isla en bote",
     ],
-    "isla-pajaros-y-manglares": [
+    "isla-pajaros-manglares": [
         "tour isla de los pajaros Puerto Pizarro",
         "isla de los pajaros Tumbes",
         "visita a isla de los pajaros y manglares",
@@ -210,8 +278,43 @@ function uniqueTerms(values: string[]) {
     return Array.from(new Set(values.filter(Boolean)))
 }
 
+export function getPrimaryTourKeyword(tour: Tour) {
+    return primaryTourKeywords[tour.slug] ?? tour.title
+}
+
+export function getPrimaryBlogKeyword(post: BlogPost) {
+    return primaryBlogKeywords[post.slug] ?? post.title
+}
+
+export function getTourSeoTarget(tour: Tour) {
+    const target = tourSeoTargets[tour.slug]
+
+    return {
+        intro: target?.intro ?? tour.description,
+        primaryKeyword: getPrimaryTourKeyword(tour),
+        secondaryKeyword: target?.secondaryKeyword ?? tour.location,
+        intent: target?.intent ?? "resolver si este tour encaja con tu visita",
+    }
+}
+
+export function getBlogSeoTarget(post: BlogPost) {
+    const target = blogSeoTargets[post.slug]
+
+    return {
+        intro: target?.intro ?? post.excerpt,
+        primaryKeyword: getPrimaryBlogKeyword(post),
+        secondaryKeyword: target?.secondaryKeyword ?? post.category,
+        intent: target?.intent ?? "resolver una duda util antes de viajar",
+    }
+}
+
 export function getTourSearchTerms(tour: Tour) {
+    const seoTarget = getTourSeoTarget(tour)
+
     return uniqueTerms([
+        seoTarget.primaryKeyword,
+        seoTarget.secondaryKeyword,
+        ...siteWideKeywords,
         ...packagesKeywords,
         ...(tourAliasMap[tour.slug] ?? []),
         tour.title,
@@ -235,7 +338,12 @@ export function getBlogSearchTerms(post: BlogPost) {
         return []
     })
 
+    const seoTarget = getBlogSeoTarget(post)
+
     return uniqueTerms([
+        seoTarget.primaryKeyword,
+        seoTarget.secondaryKeyword,
+        ...siteWideKeywords,
         ...blogKeywords,
         ...(blogAliasMap[post.slug] ?? []),
         post.title,

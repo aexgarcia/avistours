@@ -3,13 +3,13 @@ import Link from "next/link"
 import type { Metadata } from "next"
 import { ArrowRight, CalendarDays, Clock, MapPin } from "lucide-react"
 import { blogPosts } from "@/data/blogs"
-import { blogKeywords, brandName } from "@/data/seo"
+import { blogKeywords, brandName, primaryKeywords, siteWideKeywords } from "@/data/seo"
 import { absoluteUrl } from "@/data/site"
 
 export const metadata: Metadata = {
     title: `Guia de Puerto Pizarro: mareas, manglares y paseos | ${brandName}`,
     description: `Lee articulos de ${brandName} sobre mareas en Puerto Pizarro, manglares de Tumbes, rutas en bote, Isla de los Pajaros y consejos para visitar el estero.`,
-    keywords: blogKeywords,
+    keywords: [...siteWideKeywords, primaryKeywords.blog, ...blogKeywords],
     alternates: {
         canonical: "/blog",
     },

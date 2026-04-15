@@ -8,7 +8,7 @@ import PackageGallery from "@/components/gallery/PackageGallery"
 import TourPricingCard from "@/components/promotions/TourPricingCard"
 import JsonLd from "@/components/seo/JsonLd"
 import { getTour, getTourPricing, tours } from "@/data/promotions"
-import { brandName, getTourSearchTerms } from "@/data/seo"
+import { brandName, getTourSearchTerms, getTourSeoTarget } from "@/data/seo"
 import { absoluteUrl, siteConfig } from "@/data/site"
 import { getTourRatingSummaries } from "@/services/testimonials"
 
@@ -34,16 +34,20 @@ export async function generateMetadata({ params }: PromotionDetailPageProps): Pr
         }
     }
 
+    const seoTarget = getTourSeoTarget(tour)
+    const metaTitle = `${seoTarget.primaryKeyword} | ${brandName}`
+    const metaDescription = `${tour.description} Ideal si buscas ${seoTarget.secondaryKeyword} y quieres ${seoTarget.intent} en Puerto Pizarro.`
+
     return {
-        title: `${tour.title} en Puerto Pizarro | ${brandName}`,
-        description: `${tour.description} Revisa precio, actividades, galeria y reserva tu salida en Puerto Pizarro.`,
+        title: metaTitle,
+        description: metaDescription,
         keywords: getTourSearchTerms(tour),
         alternates: {
             canonical: `/promociones/${tour.slug}`,
         },
         openGraph: {
-            title: `${tour.title} en Puerto Pizarro | ${brandName}`,
-            description: `${tour.description} Tour en Puerto Pizarro con detalles de ruta, precio y reserva.`,
+            title: metaTitle,
+            description: metaDescription,
             url: `/promociones/${tour.slug}`,
             images: [
                 {
@@ -56,8 +60,8 @@ export async function generateMetadata({ params }: PromotionDetailPageProps): Pr
         },
         twitter: {
             card: "summary_large_image",
-            title: `${tour.title} en Puerto Pizarro | ${brandName}`,
-            description: `${tour.description} Tour en Puerto Pizarro con precio y reserva.`,
+            title: metaTitle,
+            description: metaDescription,
             images: [absoluteUrl(tour.image)],
         },
     }
@@ -76,6 +80,7 @@ export default async function PromotionDetailPage({ params }: PromotionDetailPag
     const liveRating = ratingSummary?.rating ?? tour.rating
     const liveReviews = ratingSummary?.reviews ?? tour.reviews
     const pricing = getTourPricing(tour)
+    const seoTarget = getTourSeoTarget(tour)
 
     return (
         <article className="bg-white">
@@ -157,10 +162,16 @@ export default async function PromotionDetailPage({ params }: PromotionDetailPag
                             </span>
                         )}
                     </div>
+                    <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/85 backdrop-blur">
+                        {seoTarget.primaryKeyword}
+                    </span>
                     <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mt-5 leading-tight max-w-4xl">
                         {tour.title}
                     </h1>
-                    <p className="text-base text-white/75 mt-5 max-w-3xl leading-7">
+                    <p className="text-base text-white/80 mt-5 max-w-3xl leading-7">
+                        {seoTarget.intro}
+                    </p>
+                    <p className="text-sm text-white/65 mt-4 max-w-3xl leading-6">
                         {tour.description}
                     </p>
                 </div>
@@ -286,7 +297,7 @@ export default async function PromotionDetailPage({ params }: PromotionDetailPag
                         </div>
 
                         <aside className="space-y-6 lg:sticky lg:top-24">
-                            <TourPricingCard tour={tour} number="51999000000" />
+                            <TourPricingCard tour={tour} number="51951654443" />
 
                             <div className="rounded-lg border border-slate-200 bg-slate-50 p-6">
                                 <h2 className="text-lg font-semibold text-gray-900">

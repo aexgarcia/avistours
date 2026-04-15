@@ -9,7 +9,7 @@ import WhatsAppLink from "@/components/whatsapp/WhatsAppLink"
 import { companyProfile } from "@/data/company"
 import { formatPrice, getTourPricing } from "@/data/promotions"
 import { blogPosts, getBlogPost, getBlogPrimaryTour, getBlogRelatedPosts, getBlogRelatedTours, getBlogWhatsAppMessage, type BlogContentBlock } from "@/data/blogs"
-import { brandName, getBlogSearchTerms } from "@/data/seo"
+import { brandName, getBlogSearchTerms, getBlogSeoTarget } from "@/data/seo"
 import { absoluteUrl, siteConfig } from "@/data/site"
 
 type BlogDetailPageProps = {
@@ -147,17 +147,21 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
         }
     }
 
+    const seoTarget = getBlogSeoTarget(post)
+    const metaTitle = `${seoTarget.primaryKeyword} | ${brandName}`
+    const metaDescription = `${post.excerpt} Ideal si buscas ${seoTarget.secondaryKeyword} y quieres ${seoTarget.intent} antes de visitar Puerto Pizarro.`
+
     return {
-        title: `${post.title} | Guia de Puerto Pizarro | ${brandName}`,
-        description: `${post.excerpt} Consejos utiles para planificar tu visita a los manglares de Puerto Pizarro y Tumbes.`,
+        title: metaTitle,
+        description: metaDescription,
         keywords: getBlogSearchTerms(post),
         alternates: {
             canonical: `/blog/${post.slug}`,
         },
         openGraph: {
             type: "article",
-            title: `${post.title} | Guia de Puerto Pizarro | ${brandName}`,
-            description: `${post.excerpt} Guia local para viajar mejor por Puerto Pizarro.`,
+            title: metaTitle,
+            description: metaDescription,
             url: `/blog/${post.slug}`,
             images: [
                 {
@@ -170,8 +174,8 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
         },
         twitter: {
             card: "summary_large_image",
-            title: `${post.title} | Guia de Puerto Pizarro | ${brandName}`,
-            description: `${post.excerpt} Guia local para visitar manglares y rutas en Tumbes.`,
+            title: metaTitle,
+            description: metaDescription,
             images: [absoluteUrl(post.image)],
         },
     }
@@ -189,6 +193,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
     const relatedTours = getBlogRelatedTours(post)
     const whatsappMessage = getBlogWhatsAppMessage(post)
     const primaryTour = getBlogPrimaryTour(post)
+    const seoTarget = getBlogSeoTarget(post)
     const metaItems = [
         { label: post.author, icon: UserRound },
         { label: post.date, icon: CalendarDays },
@@ -266,10 +271,16 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                             {post.category}
                         </span>
                     </div>
+                    <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/85 backdrop-blur">
+                        {seoTarget.primaryKeyword}
+                    </span>
                     <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mt-5 leading-tight max-w-4xl">
                         {post.title}
                     </h1>
-                    <p className="text-base text-white/75 mt-5 max-w-3xl leading-7">
+                    <p className="text-base text-white/80 mt-5 max-w-3xl leading-7">
+                        {seoTarget.intro}
+                    </p>
+                    <p className="text-sm text-white/65 mt-4 max-w-3xl leading-6">
                         {post.excerpt}
                     </p>
                 </div>
@@ -301,6 +312,9 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                                         Resumen
                                     </span>
                                     <p className="mt-2 text-[15px] md:text-base leading-7 text-gray-700">
+                                        {seoTarget.intro}
+                                    </p>
+                                    <p className="mt-3 text-sm leading-6 text-gray-600">
                                         {post.excerpt}
                                     </p>
                                 </div>
@@ -336,7 +350,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
 
                                 {post.body.map(renderContentBlock)}
 
-                                <section className="mt-10 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                                <section className="mt-10 rounded-xl border border-slate-200 bg-white p-6 shadow-sm hidden lg:block">
                                     <div className="flex items-center gap-2 text-green-600">
                                         <ShipWheel size={18} />
                                         <span className="text-xs font-semibold uppercase tracking-[0.16em]">
@@ -409,6 +423,25 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                                             Consultar por WhatsApp
                                         </WhatsAppLink>
                                     </div>
+                                </section>
+
+                                <section className="mt-10 rounded-xl border border-green-100 bg-green-50 p-5 shadow-sm lg:hidden">
+                                    <span className="text-xs font-semibold uppercase tracking-[0.14em] text-green-600">
+                                        Contacto directo
+                                    </span>
+                                    <h2 className="mt-2 text-xl font-semibold text-gray-900">
+                                        Consulta tu paseo por WhatsApp
+                                    </h2>
+                                    <p className="mt-2 text-sm leading-6 text-gray-700">
+                                        Si quieres una recomendacion rapida para este recorrido, escribenos y te ayudamos a elegir mejor segun marea, tiempo disponible y tipo de viaje.
+                                    </p>
+                                    <WhatsAppLink
+                                        number={companyProfile.whatsapp}
+                                        message={whatsappMessage}
+                                        className="mt-4 inline-flex items-center rounded-md bg-green-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-green-600"
+                                    >
+                                        Hablar por WhatsApp
+                                    </WhatsAppLink>
                                 </section>
                             </div>
                         </div>

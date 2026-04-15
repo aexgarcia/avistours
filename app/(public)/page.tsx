@@ -9,13 +9,13 @@ import type { Metadata } from "next";
 import FaqSection from "@/components/seo/FaqSection";
 import JsonLd from "@/components/seo/JsonLd";
 import { companyProfile, getCompanySameAs } from "@/data/company";
-import { brandName, homeFaqs, siteWideKeywords } from "@/data/seo";
+import { brandName, homeFaqs, homeKeywords, primaryKeywords, siteWideKeywords } from "@/data/seo";
 import { absoluteUrl, siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
-    title: "Tours en Puerto Pizarro y manglares de Tumbes | Avis Tours",
+    title: `${primaryKeywords.home} y manglares de Tumbes | Avis Tours`,
     description: `Vive tours en Puerto Pizarro con ${brandName}: manglares de Tumbes, Isla de los Pajaros, cocodrilos, islas y boca del mar con guia local y reserva por WhatsApp.`,
-    keywords: siteWideKeywords,
+    keywords: [...siteWideKeywords, ...homeKeywords],
     alternates: {
         canonical: "/",
     },
