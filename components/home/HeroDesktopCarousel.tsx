@@ -29,12 +29,12 @@ function HeroContent() {
                 quality={60}
             />
 
-            <h1 className="mt-5 mb-4 max-w-4xl text-3xl leading-tight font-semibold text-white sm:text-4xl md:mb-6 lg:text-6xl">
-                Descubre Puerto Pizarro <br /> entre manglares e islas
+            <h1 className="mt-5 mb-4 max-w-5xl text-3xl leading-tight font-semibold text-white sm:text-4xl md:mb-6 lg:text-6xl">
+                Tours en Puerto Pizarro y manglares de Tumbes
             </h1>
 
-            <p className="mt-2 max-w-xl text-sm leading-7 text-gray-200 sm:text-base md:mt-4">
-                Paseos en bote por Tumbes, Isla de los Pajaros, zoocriadero de cocodrilos y la boca del mar.
+            <p className="mt-2 max-w-2xl text-sm leading-7 text-gray-200 sm:text-base md:mt-4">
+                Recorre manglares, islas, aves y cocodrilos con atencion local, horarios coordinados segun marea y reserva directa con Avis Tours.
             </p>
 
             <Link href="/packages" className="btn mt-6 mb-10 border-green-500 bg-green-500 text-white md:mb-20">

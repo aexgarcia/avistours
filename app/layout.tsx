@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     url: siteConfig.url,
     images: [
       {
-        url: absoluteUrl("/images-optimized/hero/hero1.webp"),
+        url: absoluteUrl("/images-optimized/hero/bg_inicio2.webp"),
         width: 1200,
         height: 630,
         alt: "Paseo turistico por manglares de Puerto Pizarro en Tumbes",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${brandName} | Tours en Puerto Pizarro y manglares de Tumbes`,
     description: siteConfig.description,
-    images: [absoluteUrl("/images-optimized/hero/hero1.webp")],
+    images: [absoluteUrl("/images-optimized/hero/bg_inicio2.webp")],
   },
   robots: {
     index: true,

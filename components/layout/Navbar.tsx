@@ -10,6 +10,7 @@ const navLinks = [
     { label: "Inicio", href: "/" },
     { label: "Tours", href: "/packages" },
     { label: "Blog", href: "/blog" },
+    { label: "Operador", href: "/operador-turistico" },
     { label: "Contacto", href: "/contact" },
 ]
 
@@ -177,8 +178,8 @@ export default function Navbar() {
                                 Mas informacion <ChevronDown size={16} />
                             </div>
                             <div className="mt-3 grid gap-2 text-sm text-gray-500">
-                                <Link href="#" onClick={closeMenu} className="hover:text-green-600 transition">Mareas</Link>
-                                <Link href="#" onClick={closeMenu} className="hover:text-green-600 transition">Manglares</Link>
+                                <Link href="/blog/mareas-en-puerto-pizarro" onClick={closeMenu} className="hover:text-green-600 transition">Mareas</Link>
+                                <Link href="/blog/isla-de-los-pajaros-y-manglares" onClick={closeMenu} className="hover:text-green-600 transition">Manglares</Link>
                             </div>
                         </div>
                     </nav>

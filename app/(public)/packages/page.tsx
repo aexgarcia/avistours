@@ -100,7 +100,7 @@ export default async function PackagesPage({ searchParams }: PackagesPageProps) 
             />
             <section className="relative overflow-hidden bg-slate-950/70 pt-32 text-white md:pt-40">
                 <Image
-                    src="/images-optimized/hero/hero1.webp"
+                    src="/images-optimized/hero/bg_inicio2.webp"
                     alt="Manglares de Puerto Pizarro"
                     fill
                     priority

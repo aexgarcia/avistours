@@ -2,15 +2,67 @@ import Image from "next/image"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import { ArrowLeft, CalendarDays, CheckCircle2, Clock, MapPin, Quote, UserRound } from "lucide-react"
+import { ArrowLeft, ArrowRight, CalendarDays, CheckCircle2, Clock, MapPin, Quote, ShipWheel, UserRound } from "lucide-react"
 import AdSlot from "@/components/ads/AdSlot"
 import JsonLd from "@/components/seo/JsonLd"
-import { blogPosts, getBlogPost, type BlogContentBlock } from "@/data/blogs"
+import WhatsAppLink from "@/components/whatsapp/WhatsAppLink"
+import { companyProfile } from "@/data/company"
+import { formatPrice, getTourPricing } from "@/data/promotions"
+import { blogPosts, getBlogPost, getBlogPrimaryTour, getBlogRelatedPosts, getBlogRelatedTours, getBlogWhatsAppMessage, type BlogContentBlock } from "@/data/blogs"
 import { brandName, getBlogSearchTerms } from "@/data/seo"
 import { absoluteUrl, siteConfig } from "@/data/site"
 
 type BlogDetailPageProps = {
     params: Promise<{ slug: string }>
+}
+
+function TourShowcaseCard({
+    slug,
+    title,
+    image,
+    duration,
+    priceLabel,
+    compact = false,
+}: {
+    slug: string
+    title: string
+    image: string
+    duration: string
+    priceLabel: string
+    compact?: boolean
+}) {
+    return (
+        <Link
+            href={`/promociones/${slug}`}
+            className={`group relative block overflow-hidden rounded-2xl ${compact ? "min-h-[320px]" : "min-h-[360px]"} shadow-[0_22px_60px_rgba(15,23,42,0.16)] transition hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(15,23,42,0.22)]`}
+        >
+            <Image
+                src={image}
+                alt={title}
+                fill
+                sizes={compact ? "(min-width: 1024px) 330px, 100vw" : "(min-width: 768px) 50vw, 100vw"}
+                className="object-cover transition duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/10 via-slate-950/30 to-slate-950/85" />
+
+            <div className="absolute left-4 top-4 rounded-full bg-green-500 px-3 py-1 text-xs font-semibold text-white/95 shadow-sm">
+                {priceLabel}
+            </div>
+
+            <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
+                <span className="inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-medium backdrop-blur">
+                    {duration}
+                </span>
+                <h3 className={`${compact ? "mt-3 text-xl" : "mt-3 text-2xl"} max-w-[18rem] font-semibold leading-tight`}>
+                    {title}
+                </h3>
+                <span className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-white/90 transition group-hover:text-white">
+                    Ver tour
+                    <ArrowRight size={16} />
+                </span>
+            </div>
+        </Link>
+    )
 }
 
 function renderContentBlock(block: BlogContentBlock, index: number) {
@@ -133,7 +185,10 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
         notFound()
     }
 
-    const relatedPosts = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 2)
+    const relatedPosts = getBlogRelatedPosts(post)
+    const relatedTours = getBlogRelatedTours(post)
+    const whatsappMessage = getBlogWhatsAppMessage(post)
+    const primaryTour = getBlogPrimaryTour(post)
     const metaItems = [
         { label: post.author, icon: UserRound },
         { label: post.date, icon: CalendarDays },
@@ -249,11 +304,137 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                                         {post.excerpt}
                                     </p>
                                 </div>
+
+                                {(primaryTour || relatedPosts[0]) && (
+                                    <div className="mb-8 rounded-lg border border-slate-200 bg-slate-50 px-5 py-4 text-[15px] leading-7 text-gray-700">
+                                        <span className="text-xs font-semibold uppercase tracking-[0.16em] text-green-600">
+                                            Sigue explorando
+                                        </span>
+                                        <p className="mt-2">
+                                            {primaryTour && (
+                                                <>
+                                                    Si este tema te interesa, puedes ver nuestro{" "}
+                                                    <Link href={`/promociones/${primaryTour.slug}`} className="font-semibold text-green-600 transition hover:text-green-700">
+                                                        tour {primaryTour.title.toLowerCase()}
+                                                    </Link>
+                                                    {" "}para llevar esta idea a una experiencia real en Puerto Pizarro.
+                                                </>
+                                            )}
+                                            {primaryTour && relatedPosts[0] ? " " : ""}
+                                            {relatedPosts[0] && (
+                                                <>
+                                                    Tambien te puede servir la guia{" "}
+                                                    <Link href={`/blog/${relatedPosts[0].slug}`} className="font-semibold text-green-600 transition hover:text-green-700">
+                                                        {relatedPosts[0].title}
+                                                    </Link>
+                                                    {" "}si quieres seguir planificando tu visita.
+                                                </>
+                                            )}
+                                        </p>
+                                    </div>
+                                )}
+
                                 {post.body.map(renderContentBlock)}
+
+                                <section className="mt-10 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                                    <div className="flex items-center gap-2 text-green-600">
+                                        <ShipWheel size={18} />
+                                        <span className="text-xs font-semibold uppercase tracking-[0.16em]">
+                                            Sigue planificando
+                                        </span>
+                                    </div>
+                                    <h2 className="mt-3 text-2xl font-semibold text-gray-900">
+                                        Tu siguiente paso para visitar Puerto Pizarro
+                                    </h2>
+                                    <p className="mt-3 text-sm leading-6 text-gray-600">
+                                        Si ya tienes una idea mas clara de tu viaje, aqui puedes dar el siguiente paso: revisar una guia relacionada o escribirnos por WhatsApp para ayudarte a elegir mejor tu paseo en Puerto Pizarro.
+                                    </p>
+
+                                    {relatedTours.length > 0 && (
+                                        <div className="mt-6 hidden lg:grid lg:grid-cols-2 lg:gap-4">
+                                            {relatedTours.map((tour) => {
+                                                const pricing = getTourPricing(tour)
+                                                const priceLabel = `${pricing.isGroupPricing ? "Desde " : ""}${formatPrice(pricing.startingPrice)}`
+
+                                                return (
+                                                    <TourShowcaseCard
+                                                        key={tour.slug}
+                                                        slug={tour.slug}
+                                                        title={tour.title}
+                                                        image={tour.image}
+                                                        duration={tour.duration}
+                                                        priceLabel={`${priceLabel} / persona`}
+                                                    />
+                                                )
+                                            })}
+                                        </div>
+                                    )}
+
+                                    {relatedPosts.length > 0 && (
+                                        <div className="mt-6 hidden lg:block">
+                                            <span className="text-xs font-semibold uppercase tracking-[0.14em] text-green-600">
+                                                Guias relacionadas
+                                            </span>
+                                            <div className="mt-3 grid gap-3 md:grid-cols-2">
+                                                {relatedPosts.map((relatedPost) => (
+                                                    <Link
+                                                        key={relatedPost.slug}
+                                                        href={`/blog/${relatedPost.slug}`}
+                                                        className="rounded-lg border border-slate-200 bg-slate-50 p-4 transition hover:border-green-400 hover:bg-green-50"
+                                                    >
+                                                        <span className="text-xs font-semibold text-green-600">
+                                                            {relatedPost.category}
+                                                        </span>
+                                                        <span className="mt-2 block text-sm font-semibold leading-snug text-gray-900">
+                                                            {relatedPost.title}
+                                                        </span>
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    <div className="mt-6 rounded-lg bg-green-50 p-5">
+                                        <span className="text-xs font-semibold uppercase tracking-[0.14em] text-green-600">
+                                            Resolver tu viaje
+                                        </span>
+                                        <p className="mt-2 text-sm leading-6 text-gray-700">
+                                            Si ya leiste la guia y quieres una recomendacion concreta, escribenos y te ayudamos a elegir la mejor ruta segun marea, tiempo disponible y tipo de viaje.
+                                        </p>
+                                        <WhatsAppLink
+                                            number={companyProfile.whatsapp}
+                                            message={whatsappMessage}
+                                            className="mt-4 inline-flex items-center rounded-md bg-green-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-green-600"
+                                        >
+                                            Consultar por WhatsApp
+                                        </WhatsAppLink>
+                                    </div>
+                                </section>
                             </div>
                         </div>
 
                         <aside className="space-y-6 lg:sticky lg:top-24">
+                            {primaryTour && (
+                                <div className="hidden rounded-lg border border-slate-200 bg-white p-6 lg:block">
+                                    <h2 className="text-lg font-semibold text-gray-800">
+                                        Tour recomendado
+                                    </h2>
+                                    <p className="mt-3 text-sm leading-6 text-gray-600">
+                                        Este articulo conecta mejor con este recorrido:
+                                    </p>
+                                    <div className="mt-4">
+                                        <TourShowcaseCard
+                                            slug={primaryTour.slug}
+                                            title={primaryTour.title}
+                                            image={primaryTour.image}
+                                            duration={primaryTour.duration}
+                                            priceLabel={`${getTourPricing(primaryTour).isGroupPricing ? "Desde " : ""}${formatPrice(getTourPricing(primaryTour).startingPrice)} / persona`}
+                                            compact
+                                        />
+                                    </div>
+                                </div>
+                            )}
+
                             <div className="rounded-lg border border-slate-200 bg-slate-50 p-6">
                                 <h2 className="text-lg font-semibold text-gray-800">
                                     Lo esencial del recorrido

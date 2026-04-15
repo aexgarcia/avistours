@@ -1,0 +1,219 @@
+"use client"
+
+import Link from "next/link"
+import { useMemo, useState } from "react"
+import { Loader2, MessageCircleMore, Send, Sparkles, X } from "lucide-react"
+
+type AssistantSuggestion = {
+    label: string
+    href: string
+}
+
+type ChatMessage = {
+    id: string
+    role: "assistant" | "user"
+    content: string
+    suggestions?: AssistantSuggestion[]
+}
+
+const quickPrompts = [
+    "Que tour me recomiendas si voy con familia?",
+    "Cual incluye cocodrilos?",
+    "Como esta la marea ahora?",
+    "Como llego a Puerto Pizarro?",
+]
+
+const initialMessage: ChatMessage = {
+    id: "welcome",
+    role: "assistant",
+    content:
+        "Hola, soy el asistente de Avis Tours. Puedo ayudarte con tours, marea, precios, blogs y recomendaciones para visitar Puerto Pizarro.",
+    suggestions: [
+        { label: "Ver tours", href: "/packages" },
+        { label: "Leer blog", href: "/blog" },
+        { label: "Contactar", href: "/contact" },
+    ],
+}
+
+export default function AvisToursAssistant() {
+    const [open, setOpen] = useState(false)
+    const [input, setInput] = useState("")
+    const [loading, setLoading] = useState(false)
+    const [messages, setMessages] = useState<ChatMessage[]>([initialMessage])
+
+    const apiMessages = useMemo(
+        () => messages.map(({ role, content }) => ({ role, content })),
+        [messages],
+    )
+
+    async function sendMessage(text: string) {
+        const cleanText = text.trim()
+        if (!cleanText || loading) {
+            return
+        }
+
+        const userMessage: ChatMessage = {
+            id: `${Date.now()}-user`,
+            role: "user",
+            content: cleanText,
+        }
+
+        setMessages((current) => [...current, userMessage])
+        setInput("")
+        setLoading(true)
+
+        try {
+            const response = await fetch("/api/assistant", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    messages: [...apiMessages, { role: "user", content: cleanText }],
+                }),
+            })
+
+            const payload = await response.json()
+            const assistantMessage: ChatMessage = {
+                id: `${Date.now()}-assistant`,
+                role: "assistant",
+                content: typeof payload.message === "string"
+                    ? payload.message
+                    : "No pude responder bien esta vez. Intenta con otra pregunta.",
+                suggestions: Array.isArray(payload.suggestions) ? payload.suggestions : undefined,
+            }
+
+            setMessages((current) => [...current, assistantMessage])
+        } catch {
+            setMessages((current) => [
+                ...current,
+                {
+                    id: `${Date.now()}-assistant-error`,
+                    role: "assistant",
+                    content: "No pude responder en este momento. Intenta otra vez en unos segundos.",
+                },
+            ])
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    return (
+        <>
+            <button
+                type="button"
+                onClick={() => setOpen((current) => !current)}
+                className="fixed bottom-5 left-5 z-50 inline-flex h-12 w-12 items-center justify-center rounded-full bg-slate-900 text-white shadow-[0_12px_30px_rgba(15,23,42,0.28)] transition hover:bg-slate-800 md:h-14 md:w-14"
+                aria-label={open ? "Cerrar asistente" : "Abrir asistente"}
+            >
+                {open ? <X size={22} /> : <MessageCircleMore size={22} />}
+            </button>
+
+            {open && (
+                <div className="fixed inset-x-4 bottom-20 z-50 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_24px_60px_rgba(15,23,42,0.18)] md:bottom-6 md:left-6 md:right-auto md:w-[390px]">
+                    <div className="border-b border-slate-200 bg-slate-900 px-4 py-4 text-white">
+                        <div className="flex items-start justify-between gap-3">
+                            <div>
+                                <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-green-300">
+                                    <Sparkles size={14} />
+                                    Avis Tours IA
+                                </p>
+                                <h2 className="mt-2 text-lg font-semibold">
+                                    Te ayudo a elegir mejor tu paseo
+                                </h2>
+                            </div>
+                            <button
+                                type="button"
+                                onClick={() => setOpen(false)}
+                                className="rounded-md border border-white/15 p-2 text-white/80 transition hover:bg-white/10 hover:text-white"
+                                aria-label="Cerrar asistente"
+                            >
+                                <X size={18} />
+                            </button>
+                        </div>
+                    </div>
+
+                    <div className="max-h-[55vh] space-y-4 overflow-y-auto bg-slate-50 px-4 py-4">
+                        {messages.map((message) => (
+                            <div
+                                key={message.id}
+                                className={message.role === "user" ? "flex justify-end" : "flex justify-start"}
+                            >
+                                <div
+                                    className={`max-w-[88%] rounded-lg px-4 py-3 text-sm leading-6 shadow-sm ${
+                                        message.role === "user"
+                                            ? "bg-green-500 text-white"
+                                            : "border border-slate-200 bg-white text-slate-700"
+                                    }`}
+                                >
+                                    <p className="whitespace-pre-line">{message.content}</p>
+
+                                    {message.suggestions && message.suggestions.length > 0 && (
+                                        <div className="mt-3 flex flex-wrap gap-2">
+                                            {message.suggestions.map((suggestion) => (
+                                                <Link
+                                                    key={`${message.id}-${suggestion.href}`}
+                                                    href={suggestion.href}
+                                                    className="rounded-md bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:bg-green-50 hover:text-green-700"
+                                                >
+                                                    {suggestion.label}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        ))}
+
+                        {loading && (
+                            <div className="flex justify-start">
+                                <div className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-600 shadow-sm">
+                                    <Loader2 size={16} className="animate-spin text-green-500" />
+                                    Pensando la mejor respuesta...
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    <div className="border-t border-slate-200 bg-white px-4 py-4">
+                        <div className="mb-3 flex flex-wrap gap-2">
+                            {quickPrompts.map((prompt) => (
+                                <button
+                                    key={prompt}
+                                    type="button"
+                                    onClick={() => sendMessage(prompt)}
+                                    className="rounded-md border border-slate-200 px-3 py-1.5 text-xs font-medium text-slate-600 transition hover:border-green-200 hover:bg-green-50 hover:text-green-700"
+                                >
+                                    {prompt}
+                                </button>
+                            ))}
+                        </div>
+
+                        <form
+                            onSubmit={(event) => {
+                                event.preventDefault()
+                                void sendMessage(input)
+                            }}
+                            className="flex gap-2"
+                        >
+                            <input
+                                value={input}
+                                onChange={(event) => setInput(event.target.value)}
+                                placeholder="Pregunta por tours, marea, precios o blogs"
+                                className="h-11 flex-1 rounded-md border border-slate-200 bg-slate-50 px-3 text-sm text-slate-700 outline-none transition focus:border-green-400 focus:bg-white"
+                            />
+                            <button
+                                type="submit"
+                                disabled={loading || input.trim().length === 0}
+                                className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-green-500 text-white transition hover:bg-green-600 disabled:cursor-not-allowed disabled:bg-slate-300"
+                                aria-label="Enviar mensaje"
+                            >
+                                <Send size={17} />
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            )}
+        </>
+    )
+}

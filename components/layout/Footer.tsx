@@ -11,18 +11,21 @@ import {
     Phone,
 } from "lucide-react"
 import NewsletterForm from "@/components/newsletter/NewsletterForm"
+import { companyProfile, getCompanySameAs } from "@/data/company"
 
 const companyLinks = [
-    { label: "Avis Tours", href: "#" },
+    { label: "Inicio", href: "/" },
     { label: "Tours", href: "/packages" },
     { label: "Blog", href: "/blog" },
-    { label: "Contacto", href: "#" },
+    { label: "Operador turistico", href: "/operador-turistico" },
+    { label: "Contacto", href: "/contact" },
 ]
 
+const sameAsLinks = getCompanySameAs()
 const socialLinks = [
-    { label: "Facebook", icon: Facebook },
-    { label: "Instagram", icon: Instagram },
-    { label: "Email", icon: Mail },
+    ...(companyProfile.social.facebook ? [{ label: "Facebook", href: companyProfile.social.facebook, icon: Facebook }] : []),
+    ...(companyProfile.social.instagram ? [{ label: "Instagram", href: companyProfile.social.instagram, icon: Instagram }] : []),
+    { label: "Email", href: `mailto:${companyProfile.email}`, icon: Mail },
 ]
 
 export default function Footer() {
@@ -45,7 +48,7 @@ export default function Footer() {
                             />
                         </Link>
                         <p className="text-sm text-white/75 leading-6 mt-5 max-w-xs">
-                            Informacion y paseos turisticos por Puerto Pizarro: manglares, islas, aves y cocodrilos en Tumbes.
+                            Tours en Puerto Pizarro, manglares de Tumbes, islas, aves y cocodrilos con atencion local y reserva por WhatsApp.
                         </p>
 
                         <div className="flex flex-wrap gap-2 mt-5">
@@ -55,8 +58,10 @@ export default function Footer() {
                                 return (
                                     <Link
                                         key={item.label}
-                                        href="#"
+                                        href={item.href}
                                         aria-label={item.label}
+                                        target={item.href.startsWith("http") ? "_blank" : undefined}
+                                        rel={item.href.startsWith("http") ? "noreferrer" : undefined}
                                         className="h-8 w-8 rounded-md border border-white/10 text-white/65 flex items-center justify-center hover:text-white hover:border-green-500 hover:bg-green-500 transition"
                                     >
                                         <Icon size={14} />
@@ -72,20 +77,25 @@ export default function Footer() {
                         </h2>
                         <div className="mt-5 space-y-4 text-sm text-white/75">
                             <p className="font-medium text-white">
-                                Avis Tours Puerto Pizarro
+                                {companyProfile.legalName}
                             </p>
                             <div className="flex gap-3 leading-6">
                                 <MapPin size={16} className="text-green-500 mt-1 shrink-0" />
-                                <span>Muelle turistico de Puerto Pizarro<br />Tumbes, Peru</span>
+                                <span>{companyProfile.streetAddress}<br />{companyProfile.region}, Peru</span>
                             </div>
-                            <Link href="mailto:contact@example.com" className="flex items-center gap-3 hover:text-white transition">
+                            <Link href={`mailto:${companyProfile.email}`} className="flex items-center gap-3 hover:text-white transition">
                                 <Mail size={16} className="text-green-500" />
-                                avistourssac@gmail.com
+                                {companyProfile.email}
                             </Link>
-                            <Link href="tel:+152534468854" className="flex items-center gap-3 hover:text-white transition">
+                            <Link href={`tel:${companyProfile.phone.replace(/\s+/g, "")}`} className="flex items-center gap-3 hover:text-white transition">
                                 <Phone size={16} className="text-green-500" />
-                                +51 951 654 443
+                                {companyProfile.phone}
                             </Link>
+                            {sameAsLinks.length === 0 && (
+                                <p className="text-xs leading-5 text-white/55">
+                                    Reserva y consultas por correo o WhatsApp mientras activamos perfiles sociales oficiales.
+                                </p>
+                            )}
                         </div>
                     </div>
 

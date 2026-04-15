@@ -3,9 +3,8 @@
 import { useState } from "react"
 import type { FormEvent } from "react"
 import { MessageCircle, Send } from "lucide-react"
+import { companyProfile } from "@/data/company"
 import { openWhatsApp } from "@/utils/whatsapp"
-
-const whatsappNumber = "51951654443"
 
 export default function ContactWhatsAppForm() {
     const [name, setName] = useState("")
@@ -28,7 +27,7 @@ export default function ContactWhatsAppForm() {
             .filter(Boolean)
             .join("\n")
 
-        openWhatsApp(whatsappNumber, text)
+        openWhatsApp(companyProfile.whatsapp, text)
     }
 
     return (

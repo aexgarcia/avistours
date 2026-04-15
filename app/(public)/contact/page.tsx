@@ -6,6 +6,7 @@ import PackageGallery from "@/components/gallery/PackageGallery"
 import FaqSection from "@/components/seo/FaqSection"
 import JsonLd from "@/components/seo/JsonLd"
 import WhatsAppLink from "@/components/whatsapp/WhatsAppLink"
+import { companyProfile, getCompanySameAs } from "@/data/company"
 import { tours } from "@/data/promotions"
 import { brandName, contactFaqs, contactKeywords } from "@/data/seo"
 import { absoluteUrl, siteConfig } from "@/data/site"
@@ -13,15 +14,15 @@ import { absoluteUrl, siteConfig } from "@/data/site"
 const company = {
     name: "Operador Turístico Avis Tours S.A.C.",
     tradeName: brandName,
-    ruc: "20605149082",
-    address: "Calle Rivera Del Mar 218 Puerto Pizarro, Tumbes, Tumbes, Peru",
-    phone: "+51 951 654 443",
-    whatsapp: "51951654443",
-    email: "avistourssac@gmail.com",
-    schedule: "Lunes a domingo, 8:00 a.m. - 5:00 p.m.",
+    ruc: companyProfile.ruc,
+    address: companyProfile.address,
+    phone: companyProfile.phone,
+    whatsapp: companyProfile.whatsapp,
+    email: companyProfile.email,
+    schedule: companyProfile.schedule,
 }
 
-const companyDisplayName = "Operador Turistico Avis Tours S.A.C."
+const companyDisplayName = companyProfile.legalName
 
 const generalGalleryImages = [
     "/images/galeria/galeria.jpg",
@@ -103,21 +104,45 @@ export const metadata: Metadata = {
 }
 
 export default function ContactPage() {
+    const sameAs = getCompanySameAs()
+
     return (
         <div className="bg-white">
             <JsonLd
-                data={{
-                    "@context": "https://schema.org",
-                    "@type": "FAQPage",
-                    mainEntity: contactFaqs.map((item) => ({
-                        "@type": "Question",
-                        name: item.question,
-                        acceptedAnswer: {
-                            "@type": "Answer",
-                            text: item.answer,
+                data={[
+                    {
+                        "@context": "https://schema.org",
+                        "@type": "LocalBusiness",
+                        name: companyProfile.tradeName,
+                        legalName: companyProfile.legalName,
+                        url: siteConfig.url,
+                        image: absoluteUrl("/images-optimized/hero/bg_inicio2.webp"),
+                        telephone: companyProfile.phone,
+                        email: companyProfile.email,
+                        address: {
+                            "@type": "PostalAddress",
+                            streetAddress: companyProfile.streetAddress,
+                            addressLocality: companyProfile.locality,
+                            addressRegion: companyProfile.region,
+                            addressCountry: companyProfile.country,
                         },
-                    })),
-                }}
+                        openingHours: "Mo-Su 08:00-17:00",
+                        areaServed: companyProfile.serviceArea,
+                        sameAs,
+                    },
+                    {
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        mainEntity: contactFaqs.map((item) => ({
+                            "@type": "Question",
+                            name: item.question,
+                            acceptedAnswer: {
+                                "@type": "Answer",
+                                text: item.answer,
+                            },
+                        })),
+                    },
+                ]}
             />
             <section className="relative overflow-hidden bg-slate-900 pt-32 text-white md:pt-40">
                 <Image
