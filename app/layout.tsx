@@ -5,6 +5,8 @@ import { brandName, siteWideKeywords } from "@/data/seo"
 import { absoluteUrl, siteConfig } from "@/data/site"
 import "./globals.css";
 
+const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "600", "700"],
@@ -55,6 +57,11 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
+  verification: googleSiteVerification
+    ? {
+        google: googleSiteVerification,
+      }
+    : undefined,
 }
 
 export default function RootLayout({

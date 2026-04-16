@@ -2,6 +2,7 @@ import Script from "next/script"
 
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-5S2LZ9G7"
 const gaId = process.env.NEXT_PUBLIC_GA_ID
+const clarityProjectId = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID ?? "w9lus4o8np"
 const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT ?? "ca-pub-1311778233901465"
 const loadDirectGa = Boolean(gaId && !gtmId)
 
@@ -9,7 +10,7 @@ export default function GoogleScripts() {
     return (
         <>
             {gtmId && (
-                <Script id="google-tag-manager" strategy="lazyOnload">
+                <Script id="google-tag-manager" strategy="afterInteractive">
                     {`
                         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -24,9 +25,9 @@ export default function GoogleScripts() {
                 <>
                     <Script
                         src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-                        strategy="lazyOnload"
+                        strategy="afterInteractive"
                     />
-                    <Script id="google-analytics" strategy="lazyOnload">
+                    <Script id="google-analytics" strategy="afterInteractive">
                         {`
                             window.dataLayer = window.dataLayer || [];
                             function gtag(){dataLayer.push(arguments);}
@@ -35,6 +36,18 @@ export default function GoogleScripts() {
                         `}
                     </Script>
                 </>
+            )}
+
+            {clarityProjectId && (
+                <Script id="microsoft-clarity" strategy="afterInteractive">
+                    {`
+                        (function(c,l,a,r,i,t,y){
+                            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                        })(window, document, "clarity", "script", "${clarityProjectId}");
+                    `}
+                </Script>
             )}
 
             {adsenseClient && (
