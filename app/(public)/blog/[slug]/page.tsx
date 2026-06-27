@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import { ArrowLeft, ArrowRight, CalendarDays, CheckCircle2, Clock, MapPin, Quote, ShipWheel, UserRound } from "lucide-react"
+import { ArrowLeft, ArrowRight, CalendarDays, CheckCircle2, Clock, MapPin, MessageCircle, Quote, ShipWheel, UserRound } from "lucide-react"
 import AdSlot from "@/components/ads/AdSlot"
 import JsonLd from "@/components/seo/JsonLd"
 import WhatsAppLink from "@/components/whatsapp/WhatsAppLink"
@@ -261,7 +261,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                 <div className="absolute inset-0 bg-slate-950/70" />
                 <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white to-transparent" />
 
-                <div className="relative max-w-5xl mx-auto px-4 pb-20 text-white">
+                <div className="relative mx-auto w-full max-w-6xl px-4 pb-20 text-white">
                     <div className="mb-6 flex flex-wrap items-center gap-2">
                         <Link href="/blog" className="inline-flex h-8 items-center gap-2 text-sm text-white/75 hover:text-white transition">
                             <ArrowLeft size={16} />
@@ -274,13 +274,13 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                     <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/85 backdrop-blur">
                         {seoTarget.primaryKeyword}
                     </span>
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mt-5 leading-tight max-w-4xl">
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mt-5 leading-tight max-w-4xl drop-shadow-[0_2px_14px_rgba(15,23,42,0.65)]">
                         {post.title}
                     </h1>
-                    <p className="text-base text-white/80 mt-5 max-w-3xl leading-7">
+                    <p className="text-base text-white/95 mt-5 max-w-3xl leading-7 drop-shadow-[0_2px_12px_rgba(15,23,42,0.65)]">
                         {seoTarget.intro}
                     </p>
-                    <p className="text-sm text-white/65 mt-4 max-w-3xl leading-6">
+                    <p className="text-sm text-white/85 mt-4 max-w-3xl leading-7 drop-shadow-[0_2px_12px_rgba(15,23,42,0.65)]">
                         {post.excerpt}
                     </p>
                 </div>
@@ -384,30 +384,6 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                                         </div>
                                     )}
 
-                                    {relatedPosts.length > 0 && (
-                                        <div className="mt-6 hidden lg:block">
-                                            <span className="text-xs font-semibold uppercase tracking-[0.14em] text-green-600">
-                                                Guias relacionadas
-                                            </span>
-                                            <div className="mt-3 grid gap-3 md:grid-cols-2">
-                                                {relatedPosts.map((relatedPost) => (
-                                                    <Link
-                                                        key={relatedPost.slug}
-                                                        href={`/blog/${relatedPost.slug}`}
-                                                        className="rounded-lg border border-slate-200 bg-slate-50 p-4 transition hover:border-green-400 hover:bg-green-50"
-                                                    >
-                                                        <span className="text-xs font-semibold text-green-600">
-                                                            {relatedPost.category}
-                                                        </span>
-                                                        <span className="mt-2 block text-sm font-semibold leading-snug text-gray-900">
-                                                            {relatedPost.title}
-                                                        </span>
-                                                    </Link>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    )}
-
                                     <div className="mt-6 rounded-lg bg-green-50 p-5">
                                         <span className="text-xs font-semibold uppercase tracking-[0.14em] text-green-600">
                                             Resolver tu viaje
@@ -418,8 +394,9 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                                         <WhatsAppLink
                                             number={companyProfile.whatsapp}
                                             message={whatsappMessage}
-                                            className="mt-4 inline-flex items-center rounded-md bg-green-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-green-600"
+                                            className="mt-4 inline-flex items-center gap-2 rounded-md bg-green-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-green-600"
                                         >
+                                            <MessageCircle size={18} aria-hidden="true" />
                                             Consultar por WhatsApp
                                         </WhatsAppLink>
                                     </div>
@@ -438,8 +415,9 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                                     <WhatsAppLink
                                         number={companyProfile.whatsapp}
                                         message={whatsappMessage}
-                                        className="mt-4 inline-flex items-center rounded-md bg-green-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-green-600"
+                                        className="mt-4 inline-flex items-center gap-2 rounded-md bg-green-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-green-600"
                                     >
+                                        <MessageCircle size={18} aria-hidden="true" />
                                         Hablar por WhatsApp
                                     </WhatsAppLink>
                                 </section>
@@ -515,7 +493,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                                 </div>
                             </div>
 
-                            <AdSlot label="Anuncio lateral para articulos de Puerto Pizarro" slot="blog-sidebar" />
+                            {/* <AdSlot label="Anuncio lateral para articulos de Puerto Pizarro" slot="blog-sidebar" /> */}
                         </aside>
                     </div>
                 </div>

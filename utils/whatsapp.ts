@@ -1,4 +1,6 @@
-export const defaultWhatsAppNumber = "51951654443"
+import { companyProfile } from "@/data/company"
+
+export const defaultWhatsAppNumber = companyProfile.whatsapp
 
 export function getWhatsAppFallbackHref(number: string, message: string) {
     return `https://wa.me/${number}?text=${encodeURIComponent(message)}`

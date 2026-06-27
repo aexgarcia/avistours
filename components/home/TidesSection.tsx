@@ -4,12 +4,12 @@ import { getTideSummary } from "@/services/tides"
 const tideNotes = [
     {
         title: "Marea alta",
-        text: "Favorece la navegacion por los canales y puede hacer mas comodo el ingreso hacia zonas de manglar.",
+        text: "Mejor navegación por canales y manglares.",
         icon: Waves,
     },
     {
         title: "Marea baja",
-        text: "Deja ver mejor orillas, raices del manglar y aves alimentandose; algunas rutas pueden ajustarse segun el nivel del agua.",
+        text: "Mejor vista de raíces, orillas y aves en su entorno natural.",
         icon: Compass,
     },
     // {
@@ -34,7 +34,7 @@ export default async function TidesSection() {
                             La marea tambien decide el ritmo del paseo
                         </h2>
                         <p className="text-gray-500 leading-7 mt-4">
-                            En Puerto Pizarro, las mareas influyen en la navegacion por los manglares, la observacion de aves y el ingreso hacia las islas. Por eso recomendamos confirmar el horario antes de zarpar.
+                            La marea define el mejor momento para vivir Puerto Pizarro. Coordinamos tu salida según el nivel del agua para que disfrutes mejor los manglares, las islas y el avistamiento de aves.
                         </p>
 
                         <div className="grid sm:grid-cols-2 gap-4 mt-4">

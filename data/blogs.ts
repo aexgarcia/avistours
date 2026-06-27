@@ -553,6 +553,169 @@ export const blogPosts: BlogPost[] = [
                 text: "Contáctanos por WhatsApp para consultar disponibilidad y recibir recomendaciones personalizadas antes de tu paseo."
             }
         ]
+    },
+    {
+        slug: "que-hacer-en-tumbes-en-1-dia",
+        title: "Qué hacer en Tumbes en 1 día: guía completa con Puerto Pizarro",
+        excerpt: "Descubre qué hacer en Tumbes en un día, incluyendo playas, manglares y tours en Puerto Pizarro para aprovechar al máximo tu visita.",
+        category: "Guía",
+        location: "Tumbes, Perú",
+        readTime: "8 min",
+        date: "15 Abr 2026",
+        author: "Equipo Avis Tours",
+        image: "/images-optimized/promotions/solo_ida_isla.webp",
+        highlights: [
+            "Guía ideal para viajes cortos a Tumbes",
+            "Incluye Puerto Pizarro y manglares",
+            "Perfecto para organizar tu itinerario en un día"
+        ],
+        body: [
+            {
+                type: "paragraph",
+                text: "Si tienes poco tiempo y te preguntas qué hacer en Tumbes en 1 día, la clave está en organizar bien tu recorrido. Este destino del norte del Perú combina playas, naturaleza y tours en Puerto Pizarro que puedes disfrutar en una sola jornada."
+            },
+            {
+                type: "heading",
+                text: "Mañana: visita a Puerto Pizarro"
+            },
+            {
+                type: "paragraph",
+                text: "Empieza el día temprano visitando Puerto Pizarro, uno de los principales atractivos turísticos de Tumbes. Desde aquí podrás realizar un tour por los manglares, recorrer islas y disfrutar de un paseo en lancha."
+            },
+            {
+                type: "list",
+                items: [
+                    "Tour por manglares de Tumbes.",
+                    "Visita a la Isla de los Pájaros.",
+                    "Recorrido en lancha por canales naturales.",
+                    "Observación de fauna."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Tarde: playas y gastronomía"
+            },
+            {
+                type: "paragraph",
+                text: "Después del tour en Puerto Pizarro, puedes continuar tu recorrido visitando playas cercanas o disfrutar de la gastronomía local. Tumbes es conocido por sus mariscos frescos y platos típicos del norte."
+            },
+            {
+                type: "heading",
+                text: "Consejos para aprovechar tu día"
+            },
+            {
+                type: "list",
+                items: [
+                    "Empieza temprano para aprovechar mejor el tiempo.",
+                    "Coordina tu tour en Puerto Pizarro con anticipación.",
+                    "Consulta horarios según la marea.",
+                    "Lleva ropa ligera y protector solar."
+                ]
+            },
+            {
+                type: "image",
+                src: "/images-optimized/galeria/solo_isla_galeria4.webp",
+                alt: "Aves en la Isla de los Pájaros en Puerto Pizarro Tumbes",
+                caption: "La presencia de aves puede variar según la hora del día, la temporada y la marea."
+            },
+            {
+                type: "heading",
+                text: "Reserva tu tour en Puerto Pizarro"
+            },
+            {
+                type: "paragraph",
+                text: "En AvisTours te ayudamos a organizar tu visita a Tumbes para que aproveches al máximo tu día. Nuestros tours en Puerto Pizarro se adaptan a tu tiempo y condiciones del día."
+            },
+            {
+                type: "paragraph",
+                text: "Contáctanos por WhatsApp y planifica tu experiencia en los manglares de Tumbes."
+            }
+        ]
+    },
+    {
+        slug: "puerto-pizarro-o-mancora",
+        title: "Puerto Pizarro o Máncora: cuál visitar en Tumbes",
+        excerpt: "Descubre si es mejor visitar Puerto Pizarro o Máncora según tu tipo de viaje, presupuesto y experiencia que buscas.",
+        category: "Comparativa",
+        location: "Tumbes, Perú",
+        readTime: "7 min",
+        date: "15 Abr 2026",
+        author: "Equipo Avis Tours",
+        image: "/images-optimized/galeria/completo_galeria3.webp",
+        highlights: [
+            "Comparativa clara entre dos destinos turísticos",
+            "Ideal para planificar tu viaje a Tumbes",
+            "Te ayuda a elegir según tu estilo de viaje"
+        ],
+        body: [
+            {
+                type: "paragraph",
+                text: "Si estás planeando un viaje al norte del Perú, probablemente te preguntes si visitar Puerto Pizarro o Máncora. Ambos destinos ofrecen experiencias distintas, por lo que elegir depende del tipo de viaje que estés buscando."
+            },
+            {
+                type: "heading",
+                text: "Puerto Pizarro: naturaleza y manglares"
+            },
+            {
+                type: "paragraph",
+                text: "Puerto Pizarro es ideal para quienes buscan naturaleza, tranquilidad y tours organizados. Aquí puedes recorrer los manglares de Tumbes, visitar islas y disfrutar de paseos en lancha."
+            },
+            {
+                type: "list",
+                items: [
+                    "Tours en manglares.",
+                    "Observación de aves.",
+                    "Visita a islas.",
+                    "Ambiente tranquilo."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Máncora: playa y vida nocturna"
+            },
+            {
+                type: "paragraph",
+                text: "Máncora es más conocido por sus playas, ambiente turístico y vida nocturna. Es ideal para quienes buscan diversión, surf y actividades en la playa."
+            },
+            {
+                type: "heading",
+                text: "¿Cuál elegir?"
+            },
+            {
+                type: "list",
+                items: [
+                    "Elige Puerto Pizarro si buscas naturaleza y tours.",
+                    "Elige Máncora si prefieres playa y entretenimiento.",
+                    "Puedes combinar ambos si tienes más tiempo."
+                ]
+            },
+            {
+                type: "heading",
+                text: "Recomendación final"
+            },
+            {
+                type: "paragraph",
+                text: "Si es tu primera vez en Tumbes, visitar Puerto Pizarro es una excelente opción para conocer los manglares y vivir una experiencia única en contacto con la naturaleza."
+            },
+            {
+                type: "image",
+                src: "/images-optimized/galeria/galeria17.webp",
+                alt: "Aves en la Isla de los Pájaros en Puerto Pizarro Tumbes",
+                caption: "La presencia de aves puede variar según la hora del día, la temporada y la marea."
+            },
+            {
+                type: "heading",
+                text: "Reserva tu experiencia en Puerto Pizarro"
+            },
+            {
+                type: "paragraph",
+                text: "En AvisTours organizamos tours en Puerto Pizarro adaptados a tu tipo de viaje. Te ayudamos a elegir la mejor opción según tu tiempo y preferencias."
+            },
+            {
+                type: "paragraph",
+                text: "Escríbenos por WhatsApp y planifica tu visita a los manglares de Tumbes."
+            }
+        ]
     }
 ]
 
@@ -587,6 +750,32 @@ const blogConnections: Record<string, BlogConnection> = {
         relatedPostSlugs: ["mareas-en-puerto-pizarro", "como-llegar-a-puerto-pizarro-desde-tumbes"],
         whatsappMessage: "Hola Avis Tours, lei su guia sobre que llevar a un tour y quiero consultar que recorrido me recomiendan.",
     },
+    "que-hacer-en-tumbes-en-1-dia": {
+        primaryTourSlug: "puerto-pizarro-completo",
+        relatedTourSlugs: [
+            "puerto-pizarro-completo",
+            "islas-manglares-cocodrilos",
+        ],
+        relatedPostSlugs: [
+            "como-llegar-a-puerto-pizarro-desde-tumbes",
+            "que-llevar-a-un-tour-por-los-manglares-de-puerto-pizarro",
+            "ruta-completa-islas-manglares-cocodrilos"
+        ],
+        whatsappMessage: "Hola Avis Tours, voy a visitar Tumbes por 1 día y quiero ayuda para organizar un tour en Puerto Pizarro."
+    },
+    "puerto-pizarro-o-mancora": {
+        primaryTourSlug: "puerto-pizarro-completo",
+        relatedTourSlugs: [
+            "isla-pajaros-manglares",
+            "manglares-y-cocodrilos"
+        ],
+        relatedPostSlugs: [
+            "que-hacer-en-tumbes-en-1-dia",
+            "isla-de-los-pajaros-y-manglares",
+            "mareas-en-puerto-pizarro"
+        ],
+        whatsappMessage: "Hola Avis Tours, estoy decidiendo entre Puerto Pizarro y Máncora y quiero información sobre sus tours."
+    }
 }
 
 export function getBlogPost(slug: string) {

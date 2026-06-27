@@ -7,6 +7,7 @@ import AdSlot from "@/components/ads/AdSlot"
 import PackageGallery from "@/components/gallery/PackageGallery"
 import TourPricingCard from "@/components/promotions/TourPricingCard"
 import JsonLd from "@/components/seo/JsonLd"
+import { companyProfile } from "@/data/company"
 import { getTour, getTourPricing, tours } from "@/data/promotions"
 import { brandName, getTourSearchTerms, getTourSeoTarget } from "@/data/seo"
 import { absoluteUrl, siteConfig } from "@/data/site"
@@ -150,7 +151,7 @@ export default async function PromotionDetailPage({ params }: PromotionDetailPag
                 <div className="absolute inset-0 bg-slate-950/70" />
                 <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white to-transparent" />
 
-                <div className="relative max-w-6xl mx-auto px-4 pb-20 text-white">
+                <div className="relative mx-auto w-full max-w-6xl px-4 pb-20 text-white">
                     <div className="mb-6 flex flex-wrap items-center gap-2">
                         <Link href="/packages" className="inline-flex h-8 items-center gap-2 text-sm text-white/75 hover:text-white transition">
                             <ArrowLeft size={16} />
@@ -165,13 +166,13 @@ export default async function PromotionDetailPage({ params }: PromotionDetailPag
                     <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/85 backdrop-blur">
                         {seoTarget.primaryKeyword}
                     </span>
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mt-5 leading-tight max-w-4xl">
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mt-5 leading-tight max-w-4xl drop-shadow-[0_2px_14px_rgba(15,23,42,0.65)]">
                         {tour.title}
                     </h1>
-                    <p className="text-base text-white/80 mt-5 max-w-3xl leading-7">
+                    <p className="text-base text-white/95 mt-5 max-w-3xl leading-7 drop-shadow-[0_2px_12px_rgba(15,23,42,0.65)]">
                         {seoTarget.intro}
                     </p>
-                    <p className="text-sm text-white/65 mt-4 max-w-3xl leading-6">
+                    <p className="text-sm text-white/85 mt-4 max-w-3xl leading-7 drop-shadow-[0_2px_12px_rgba(15,23,42,0.65)]">
                         {tour.description}
                     </p>
                 </div>
@@ -297,7 +298,7 @@ export default async function PromotionDetailPage({ params }: PromotionDetailPag
                         </div>
 
                         <aside className="space-y-6 lg:sticky lg:top-24">
-                            <TourPricingCard tour={tour} number="51951654443" />
+                            <TourPricingCard tour={tour} number={companyProfile.whatsapp} />
 
                             <div className="rounded-lg border border-slate-200 bg-slate-50 p-6">
                                 <h2 className="text-lg font-semibold text-gray-900">
@@ -312,7 +313,7 @@ export default async function PromotionDetailPage({ params }: PromotionDetailPag
                                 </div>
                             </div>
 
-                            <AdSlot label="Anuncio lateral para paquetes turisticos" slot="tour-sidebar" />
+                            {/* <AdSlot label="Anuncio lateral para paquetes turisticos" slot="tour-sidebar" /> */}
                         </aside>
                     </div>
                 </div>

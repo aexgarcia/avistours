@@ -1,6 +1,7 @@
 "use client"
 
 import { useMemo, useState } from "react"
+import { MessageCircle } from "lucide-react"
 import WhatsAppLink from "@/components/whatsapp/WhatsAppLink"
 import { formatPrice, getTourPricing, type Tour } from "@/data/promotions"
 
@@ -80,8 +81,9 @@ export default function TourPricingCard({ tour, number }: TourPricingCardProps) 
             <WhatsAppLink
                 number={number}
                 message={message}
-                className="mt-6 inline-flex w-full items-center justify-center rounded-md bg-green-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-green-600"
+                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-green-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-green-600"
             >
+                <MessageCircle size={18} aria-hidden="true" />
                 Consultar por WhatsApp
             </WhatsAppLink>
         </div>
