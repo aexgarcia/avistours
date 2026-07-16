@@ -153,7 +153,7 @@ export default function ContactPage() {
                     sizes="100vw"
                     className="object-cover opacity-35"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950" />
+                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-800/55 to-slate-950/70" />
 
                 <div className="relative mx-auto grid max-w-6xl gap-10 px-4 pb-16 md:pb-20 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-end">
                     <div>

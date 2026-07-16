@@ -4,7 +4,7 @@ export default function PromotionDetailLoading() {
     return (
         <div className="bg-white">
             <section className="relative overflow-hidden bg-slate-950 pt-32 text-white md:pt-40">
-                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950" />
+                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/55 to-slate-950/70" />
 
                 <div className="relative mx-auto max-w-6xl px-4 pb-20">
                     <div className="mb-6 flex gap-2">

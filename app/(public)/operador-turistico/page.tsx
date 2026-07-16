@@ -104,7 +104,7 @@ export default function OperatorPage() {
                     sizes="100vw"
                     className="object-cover opacity-35"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950" />
+                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-800/55 to-slate-950/70" />
 
                 <div className="relative mx-auto max-w-6xl px-4 pb-16 md:pb-20">
                     <span className="inline-flex items-center gap-2 rounded-md bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-green-300 backdrop-blur">

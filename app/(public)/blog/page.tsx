@@ -19,7 +19,7 @@ export const metadata: Metadata = {
         url: "/blog",
         images: [
             {
-                url: absoluteUrl("/images-optimized/promotions/promotions1.webp"),
+                url: absoluteUrl("/images-optimized/galeria/galeria17.webp"),
                 width: 1200,
                 height: 630,
                 alt: "Guia turistica de Puerto Pizarro y manglares de Tumbes",
@@ -43,7 +43,7 @@ export default function BlogPage() {
                     sizes="100vw"
                     className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950" />
+                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/55 to-slate-950/70" />
                 <div className="relative mx-auto max-w-6xl px-4 pb-16 md:pb-20">
                     <span className="inline-flex rounded-md bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-green-300 backdrop-blur">
                         Guia Avis Tours
