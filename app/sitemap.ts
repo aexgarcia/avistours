@@ -30,12 +30,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: "monthly",
             priority: 0.7,
         },
-        {
-            url: absoluteUrl("/operador-turistico"),
-            lastModified: now,
-            changeFrequency: "monthly",
-            priority: 0.7,
-        },
     ]
 
     const tourRoutes: MetadataRoute.Sitemap = tours.map((tour) => ({

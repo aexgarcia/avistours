@@ -49,7 +49,7 @@ export default function HomeTrustSection() {
                         <Link href="/packages" className="rounded-md bg-green-500 px-5 py-3 text-white transition hover:bg-green-600">
                             Ver tours disponibles
                         </Link>
-                        <Link href="/operador-turistico" className="rounded-md border border-white/35 px-5 py-3 text-white transition hover:border-green-300 hover:text-green-200">
+                        <Link href="/contact" className="rounded-md border border-white/35 px-5 py-3 text-white transition hover:border-green-300 hover:text-green-200">
                             Conoce al operador
                         </Link>
                         <Link href="/blog" className="rounded-md border border-white/35 px-5 py-3 text-white transition hover:border-green-300 hover:text-green-200">

@@ -39,6 +39,8 @@ export const blogKeywords = [
 
 export const contactKeywords = [
     brandName,
+    "operador turistico Puerto Pizarro",
+    "operador tours Puerto Pizarro",
     "contacto tours Puerto Pizarro",
     "reservar tour Puerto Pizarro",
     "whatsapp tours Puerto Pizarro",
@@ -154,7 +156,7 @@ export const homeFaqs = [
     {
         question: "Como reservar un paseo en Puerto Pizarro?",
         answer:
-            "Puedes reservar por WhatsApp o desde la pagina de contacto. Lo ideal es escribir con fecha tentativa, numero de personas y el tour que te interesa para confirmar disponibilidad y marea.",
+            "Puedes reservar por WhatsApp o desde la pagina del operador. Lo ideal es escribir con fecha tentativa, numero de personas y el tour que te interesa para confirmar disponibilidad y marea.",
     },
 ]
 

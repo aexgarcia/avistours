@@ -31,7 +31,7 @@ const initialMessage: ChatMessage = {
     suggestions: [
         { label: "Ver tours", href: "/packages" },
         { label: "Leer blog", href: "/blog" },
-        { label: "Contactar", href: "/contact" },
+        { label: "Operador", href: "/contact" },
     ],
 }
 

@@ -10,8 +10,7 @@ const navLinks = [
     { label: "Inicio", href: "/" },
     { label: "Tours", href: "/packages" },
     { label: "Blog", href: "/blog" },
-    { label: "Operador", href: "/operador-turistico" },
-    { label: "Contacto", href: "/contact" },
+    { label: "Operador", href: "/contact" },
 ]
 
 export default function Navbar() {

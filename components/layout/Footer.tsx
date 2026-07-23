@@ -17,8 +17,7 @@ const companyLinks = [
     { label: "Inicio", href: "/" },
     { label: "Tours", href: "/packages" },
     { label: "Blog", href: "/blog" },
-    { label: "Operador turistico", href: "/operador-turistico" },
-    { label: "Contacto", href: "/contact" },
+    { label: "Operador", href: "/contact" },
 ]
 
 const sameAsLinks = getCompanySameAs()

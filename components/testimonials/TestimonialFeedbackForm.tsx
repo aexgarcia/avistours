@@ -55,7 +55,7 @@ export default function TestimonialFeedbackForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="rounded-lg border border-slate-200 bg-white p-5 shadow-[0_18px_60px_rgba(15,23,42,0.08)] md:p-7">
+        <form onSubmit={handleSubmit} className="">
             <div>
                 <span className="text-sm font-semibold uppercase tracking-[0.18em] text-green-500">
                     Tu experiencia
