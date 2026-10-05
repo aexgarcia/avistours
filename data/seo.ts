@@ -84,6 +84,7 @@ export const primaryTourKeywords: Record<string, string> = {
 }
 
 export const primaryBlogKeywords: Record<string, string> = {
+    "isla-del-amor-tumbes": "Isla del Amor en Tumbes",
     "mareas-en-puerto-pizarro": "Mareas en Puerto Pizarro",
     "ruta-completa-islas-manglares-cocodrilos": "Tour completo en Puerto Pizarro",
     "isla-de-los-pajaros-y-manglares": "Isla de los Pájaros Tumbes",
@@ -147,6 +148,12 @@ export const tourSeoTargets: Record<string, SeoTarget> = {
 }
 
 export const blogSeoTargets: Record<string, SeoTarget> = {
+    "isla-del-amor-tumbes": {
+        intro: "La Isla del Amor se visita en bote desde Puerto Pizarro, en Tumbes. Compara una visita a la isla con una ruta de aves y manglares, y coordina el regreso antes de salir.",
+        secondaryKeyword: "cómo llegar a la Isla del Amor",
+        intent: "organizar una visita a la Isla del Amor desde Puerto Pizarro",
+        metaDescription: "Isla del Amor en Tumbes: dónde queda, cómo llegar en bote desde Puerto Pizarro, qué hacer y cómo elegir un tour con regreso coordinado.",
+    },
     "mareas-en-puerto-pizarro": {
         intro: "Si estás revisando las mareas en Puerto Pizarro, esta guía te ayuda a entender cuál es la mejor hora para visitar los manglares de Tumbes y aprovechar mejor tu tour.",
         secondaryKeyword: "mejor hora para visitar los manglares de Tumbes",
@@ -165,14 +172,14 @@ export const blogSeoTargets: Record<string, SeoTarget> = {
         intro: "¿Dónde queda la Isla de los Pájaros en Tumbes? Se visita desde Puerto Pizarro, dentro de los manglares. Descubre qué ver y cómo es el recorrido en lancha.",
         secondaryKeyword: "dónde queda la Isla de los Pájaros",
         intent: "ubicar y descubrir qué ver en la Isla de los Pájaros",
-        metaDescription: "Isla de los Pájaros en Tumbes: conoce dónde queda, qué ver y cómo es el paseo en lancha desde Puerto Pizarro por los manglares.",
+        metaDescription: "Isla de los Pájaros en Tumbes: ubicación, observación de aves desde el bote, mejor hora para visitar y tours desde Puerto Pizarro.",
     },
 
     "zoocriadero-cocodrilos-puerto-pizarro": {
         intro: "Si quieres visitar el zoocriadero de cocodrilos de Puerto Pizarro, esta guía explica qué ver y cómo incluirlo en un recorrido por los manglares de Tumbes.",
         secondaryKeyword: "tour cocodrilos Puerto Pizarro",
         intent: "organizar una visita al zoocriadero y los manglares",
-        metaDescription: "Zoocriadero de cocodrilos de Puerto Pizarro: qué ver, cómo visitarlo y qué tour elegir para combinarlo con manglares e islas.",
+        metaDescription: "Visita el zoocriadero de cocodrilos desde Puerto Pizarro: cómo organizar el paseo y qué confirmar sobre entradas, horarios e inclusiones del tour.",
     },
 
     "manglares-de-puerto-pizarro": {

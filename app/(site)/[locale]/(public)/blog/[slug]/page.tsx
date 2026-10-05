@@ -8,10 +8,11 @@ import WhatsAppLink from "@/components/whatsapp/WhatsAppLink"
 import { companyProfile } from "@/data/company"
 import { formatPrice, getLocalizedTour, getTourPricing } from "@/data/promotions"
 import { Link } from "@/i18n/navigation"
-import { blogPosts, getBlogPost, getBlogPrimaryTour, getBlogRelatedPosts, getBlogRelatedTours, getBlogWhatsAppMessage, getLocalizedBlogPost, type BlogContentBlock } from "@/data/blogs"
+import { getLocalizedBlogPosts, getBlogPost, getBlogPrimaryTour, getBlogRelatedPosts, getBlogRelatedTours, getBlogWhatsAppMessage, getLocalizedBlogPost, type BlogContentBlock } from "@/data/blogs"
 import { brandName, getBlogMetaDescription, getBlogSearchTerms, getBlogSeoTarget } from "@/data/seo"
 import { absoluteUrl, siteConfig } from "@/data/site"
-import { getTranslationLocale, resolveLocale } from "@/i18n/locales"
+import { getBlogPublicationDate } from "@/data/blog-dates"
+import { appLocales, getTranslationLocale, resolveLocale } from "@/i18n/locales"
 import { getLocalizedPath } from "@/i18n/urls"
 
 type BlogDetailPageProps = {
@@ -70,6 +71,20 @@ function TourShowcaseCard({
 }
 
 function renderContentBlock(block: BlogContentBlock, index: number) {
+    if (block.type === "link") {
+        const className = "mb-5 block text-[15px] font-semibold text-green-700 underline decoration-green-200 underline-offset-4 hover:text-green-800"
+        if (block.href.startsWith("https://")) {
+            return <a key={`link-${index}`} href={block.href} className={className} target="_blank" rel="noopener noreferrer">{block.text}</a>
+        }
+        const blogSlug = block.href.startsWith("/blog/") ? block.href.slice(6) : undefined
+        const tourSlug = block.href.startsWith("/promociones/") ? block.href.slice(13) : undefined
+        const href = blogSlug
+            ? { pathname: "/blog/[slug]" as const, params: { slug: blogSlug } }
+            : tourSlug
+                ? { pathname: "/promociones/[slug]" as const, params: { slug: tourSlug } }
+                : "/packages" as const
+        return <Link key={`link-${index}`} href={href} className={className}>{block.text}</Link>
+    }
     if (block.type === "heading") {
         return (
             <h2 key={`${block.type}-${index}`} className="text-xl md:text-2xl font-semibold text-gray-900 mt-10 mb-4 leading-tight">
@@ -135,8 +150,8 @@ function renderContentBlock(block: BlogContentBlock, index: number) {
     )
 }
 
-export function generateStaticParams() {
-    return blogPosts.map((post) => ({
+export function generateStaticParams({ params }: { params: { locale: string } }) {
+    return getLocalizedBlogPosts(resolveLocale(params.locale)).map((post) => ({
         slug: post.slug,
     }))
 }
@@ -158,8 +173,7 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
         }
     }
 
-    const seoTarget = getBlogSeoTarget(post)
-    const metaTitle = isEnglish ? post.title : seoTarget.primaryKeyword
+    const metaTitle = post.title
     const metaDescription = isEnglish ? post.excerpt : getBlogMetaDescription(post)
     const socialTitle = `${metaTitle} | ${brandName}`
     const canonical = getLocalizedPath(activeLocale, "/blog/[slug]", { slug: post.slug })
@@ -170,9 +184,14 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
         keywords: isEnglish ? undefined : getBlogSearchTerms(post),
         alternates: {
             canonical,
+            languages: Object.fromEntries(appLocales
+                .filter((candidate) => sourcePost && getLocalizedBlogPost(sourcePost, candidate))
+                .map((candidate) => [candidate, getLocalizedPath(candidate, "/blog/[slug]", { slug: post.slug })])),
         },
         openGraph: {
             type: "article",
+            publishedTime: getBlogPublicationDate(sourcePost!.date),
+            modifiedTime: post.updatedAt,
             title: socialTitle,
             description: metaDescription,
             url: canonical,
@@ -238,6 +257,9 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                         headline: post.title,
                         description: post.excerpt,
                         image: absoluteUrl(post.image),
+                        datePublished: getBlogPublicationDate(sourcePost!.date),
+                        dateModified: post.updatedAt ?? getBlogPublicationDate(sourcePost!.date),
+                        inLanguage: activeLocale,
                         author: {
                             "@type": "Organization",
                             name: siteConfig.name,
@@ -365,6 +387,12 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                                     </div>
                                 )}
 
+                                {post.updatedAt && (
+                                    <p className="mb-5 text-sm text-gray-500">
+                                        {isEnglish ? "Updated: " : "Actualizado: "}
+                                        <time dateTime={post.updatedAt}>{post.updatedAt.split("-").reverse().join("/")}</time>
+                                    </p>
+                                )}
                                 {post.body.map(renderContentBlock)}
 
                                 <section className="mt-10 rounded-xl border border-slate-200 bg-white p-6 shadow-sm hidden lg:block">

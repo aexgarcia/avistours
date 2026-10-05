@@ -6,6 +6,7 @@ import { MessageCircle, Send } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { companyProfile } from "@/data/company"
 import { openWhatsApp } from "@/utils/whatsapp"
+import { trackWhatsAppClick } from "@/utils/analytics"
 
 export default function ContactWhatsAppForm() {
     const t = useTranslations("ContactForm")
@@ -29,6 +30,7 @@ export default function ContactWhatsAppForm() {
             .filter(Boolean)
             .join("\n")
 
+        trackWhatsAppClick()
         openWhatsApp(companyProfile.whatsapp, text)
     }
 

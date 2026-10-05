@@ -7,7 +7,10 @@ import { resolveLocale } from "@/i18n/locales"
 
 export default async function BlogSection({ locale }: { locale: string }) {
     const t = await getTranslations({ locale, namespace: "Blog" })
-    const posts = getLocalizedBlogPosts(resolveLocale(locale)).slice(0, 3)
+    const prioritySlugs = ["isla-de-los-pajaros-y-manglares", "como-llegar-a-puerto-pizarro-desde-tumbes", "isla-del-amor-tumbes"]
+    const localizedPosts = getLocalizedBlogPosts(resolveLocale(locale))
+    const featuredPosts = prioritySlugs.flatMap((slug) => localizedPosts.filter((post) => post.slug === slug))
+    const posts = [...featuredPosts, ...localizedPosts.filter((post) => !prioritySlugs.includes(post.slug))].slice(0, 3)
 
     if (posts.length === 0) {
         return null

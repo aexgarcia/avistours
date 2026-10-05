@@ -21,6 +21,11 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      ...["isla-de-pajaros-y-manglares", "isla-de-os-pajaros-y-manglares"].map((slug) => ({
+        source: `/blog/${slug}`,
+        destination: "/blog/isla-de-los-pajaros-y-manglares",
+        permanent: true,
+      })),
       {
         source: "/index.html",
         destination: "/",

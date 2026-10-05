@@ -1,8 +1,14 @@
 import { getTour, type Tour } from "./promotions"
 import { englishBlogTranslations, type BlogPostTranslation } from "./blog-translations"
 import { getTranslationLocale, type AppLocale } from "@/i18n/locales"
+import { islaDelAmorPost } from "./isla-del-amor"
 
 export type BlogContentBlock =
+    | {
+        type: "link"
+        text: string
+        href: `https://${string}` | `/blog/${string}` | `/promociones/${string}` | "/packages"
+    }
     | {
         type: "heading"
         text: string
@@ -35,6 +41,7 @@ export type BlogPost = {
     location: string
     readTime: string
     date: string
+    updatedAt?: string
     author: string
     image: string
     featured?: boolean
@@ -50,6 +57,7 @@ type BlogConnection = {
 }
 
 export const blogPosts: BlogPost[] = [
+    islaDelAmorPost,
     {
         slug: "mareas-en-puerto-pizarro",
         title: "Mareas en Puerto Pizarro: mejor hora para un tour en los manglares",
@@ -243,7 +251,8 @@ export const blogPosts: BlogPost[] = [
     },
     {
         slug: "isla-de-los-pajaros-y-manglares",
-        title: "Isla de los Pájaros en Tumbes: tour por manglares en Puerto Pizarro",
+        title: "Isla de los Pájaros en Tumbes: ubicación y visita en bote",
+        updatedAt: "2026-10-05",
         excerpt: "Descubre la Isla de los Pájaros en Puerto Pizarro y disfruta un tour por los manglares de Tumbes con observación de aves y paisajes naturales.",
         category: "Naturaleza",
         location: "Manglares de Tumbes",
@@ -306,8 +315,14 @@ export const blogPosts: BlogPost[] = [
             },
             {
                 type: "paragraph",
-                text: "Este tipo de tour en Puerto Pizarro suele ser más corto en comparación con la ruta completa, lo que lo convierte en una excelente opción si cuentas con poco tiempo o prefieres una experiencia más ligera dentro de los manglares de Tumbes."
+                text: "La ruta de Avis Tours que combina Isla del Amor, Isla de los Pájaros y manglares tiene una duración publicada de 1 a 2 horas. Ese tiempo corresponde al recorrido completo, no solo a la observación de aves. Confirma la hora de salida según la marea y revisa la ficha del tour para conocer el itinerario."
             },
+            { type: "link", href: "/promociones/isla-pajaros-manglares", text: "Ver precio, duración e inclusiones del tour de islas y manglares" },
+            { type: "heading", text: "¿Se puede desembarcar en la Isla de los Pájaros?" },
+            { type: "paragraph", text: "La observación se realiza desde la embarcación, sin desembarcar en la isla, para proteger el hábitat. Mantén distancia de las aves, evita hacer ruido y no las alimentes. Lleva una cámara con zoom o binoculares si quieres observarlas con más detalle." },
+            { type: "heading", text: "¿Cuál es la mejor hora para observar aves?" },
+            { type: "paragraph", text: "Perú Travel recomienda la tarde, cuando las aves regresan a sus nidos. Coordina el horario con el operador: la navegación también depende de la marea y del clima. La cantidad de aves cambia y no se garantiza el avistamiento de una especie concreta." },
+            { type: "link", href: "https://www.peru.travel/es/atractivos/puerto-pizarro", text: "Información oficial de Perú Travel sobre las islas de Puerto Pizarro" },
             {
                 type: "heading",
                 text: "¿Para quién es ideal este recorrido?"
@@ -356,6 +371,7 @@ export const blogPosts: BlogPost[] = [
     {
         slug: "como-llegar-a-puerto-pizarro-desde-tumbes",
         title: "¿Dónde queda Puerto Pizarro? Cómo llegar desde Tumbes y el aeropuerto",
+        updatedAt: "2026-10-05",
         excerpt: "Puerto Pizarro queda cerca de la ciudad de Tumbes, en el norte del Perú. Conoce cómo llegar desde Tumbes o el aeropuerto y cómo ubicar el muelle turístico.",
         category: "Planificación",
         location: "Tumbes y Puerto Pizarro",
@@ -393,8 +409,9 @@ export const blogPosts: BlogPost[] = [
             },
             {
                 type: "paragraph",
-                text: "Desde el centro de Tumbes, llegar a Puerto Pizarro es relativamente sencillo. El trayecto suele ser corto, aunque puede variar según el tráfico y la hora del día. Es recomendable salir con anticipación para evitar contratiempos antes de tu tour."
+                text: "Puedes llegar en taxi o transporte local. Indica como destino el muelle turístico de Puerto Pizarro y acuerda el costo del traslado antes de subir. Si eliges transporte local, confirma dónde se toma y dónde te deja: la última parte hasta el punto de encuentro puede requerir un traslado adicional."
             },
+            { type: "link", href: "https://www.google.com/maps/dir/?api=1&destination=Muelle+turistico+Puerto+Pizarro+Tumbes+Peru", text: "Ver la ruta al muelle turístico de Puerto Pizarro en Google Maps" },
             {
                 type: "list",
                 items: [
@@ -410,8 +427,14 @@ export const blogPosts: BlogPost[] = [
             },
             {
                 type: "paragraph",
-                text: "Si llegas a Tumbes en avión, también puedes trasladarte directamente a Puerto Pizarro. En este caso, es importante coordinar bien los tiempos, especialmente si planeas tomar un tour el mismo día de tu llegada."
+                text: "Desde el aeropuerto de Tumbes puedes coordinar un taxi o traslado al muelle turístico de Puerto Pizarro. Comparte con el operador la hora de llegada del vuelo y considera la recogida del equipaje antes de fijar la salida del bote. El traslado terrestre y el tour son servicios distintos: confirma si tu reserva incluye transporte o si debes contratarlo por separado."
             },
+            { type: "heading", text: "¿Cuánto cuesta el traslado y cuánto tarda?" },
+            { type: "paragraph", text: "El costo depende del punto de salida, el vehículo y el servicio contratado. Solicita una cotización para tu grupo y consulta el tiempo estimado en el mapa el día de tu viaje. No confundas el precio del transporte terrestre con el del bote; confirma también cómo regresarás a Tumbes después del paseo." },
+            { type: "heading", text: "¿Qué puedes visitar desde Puerto Pizarro?" },
+            { type: "paragraph", text: "Desde Puerto Pizarro parten recorridos por los manglares, la Isla del Amor, la Isla de los Pájaros y el zoocriadero. Cada ruta incluye paradas distintas. Compara el itinerario y la duración antes de decidir cuál encaja con tu hora de llegada." },
+            { type: "link", href: "/blog/isla-del-amor-tumbes", text: "Cómo visitar la Isla del Amor desde Puerto Pizarro" },
+            { type: "link", href: "/packages", text: "Comparar tours en Puerto Pizarro, precios y duración" },
             {
                 type: "list",
                 items: [
@@ -729,7 +752,8 @@ export const blogPosts: BlogPost[] = [
     },
     {
         slug: "zoocriadero-cocodrilos-puerto-pizarro",
-        title: "Zoocriadero de cocodrilos de Puerto Pizarro: qué ver y cómo visitarlo",
+        title: "Zoocriadero de cocodrilos en Puerto Pizarro: visita",
+        updatedAt: "2026-10-05",
         excerpt: "Conoce el zoocriadero de cocodrilos de Puerto Pizarro, qué puedes encontrar durante la visita y cómo incluirlo en tu recorrido por los manglares de Tumbes.",
         category: "Naturaleza",
         location: "Puerto Pizarro, Tumbes",
@@ -745,8 +769,19 @@ export const blogPosts: BlogPost[] = [
         body: [
             {
                 type: "paragraph",
-                text: "El zoocriadero de cocodrilos de Puerto Pizarro es uno de los atractivos que puedes conocer durante una visita a esta zona turística de Tumbes. Para muchos viajeros, observar estos animales complementa perfectamente el recorrido por los manglares, las islas y los canales naturales que caracterizan a Puerto Pizarro.",
+                text: "El zoocriadero de cocodrilos se puede visitar durante un recorrido desde Puerto Pizarro, en Tumbes. Elige una ruta que incluya expresamente esta parada: no todos los paseos por los manglares o las islas visitan el zoocriadero.",
             },
+            { type: "heading", text: "Cómo organizar la visita al zoocriadero" },
+            { type: "list", items: [
+                "Confirma el punto de encuentro en Puerto Pizarro y la salida de la embarcación.",
+                "Revisa que el itinerario incluya la visita al zoocriadero.",
+                "Pregunta si la entrada está incluida en el precio del tour o se paga aparte.",
+                "Consulta el horario de acceso para tu fecha y la duración de la parada.",
+            ] },
+            { type: "heading", text: "Entradas y horarios: qué confirmar antes de reservar" },
+            { type: "paragraph", text: "La tarifa del bote y la entrada al zoocriadero pueden ser conceptos distintos. Antes de pagar, solicita el total para tu grupo, confirma cualquier cobro adicional y pregunta por las condiciones para niños. El horario de atención de Avis Tours no equivale al horario del zoocriadero; confirma el acceso para el día de tu visita." },
+            { type: "link", href: "/promociones/manglares-y-cocodrilos", text: "Ver el tour manglares y cocodrilos: precio, duración e inclusiones" },
+            { type: "link", href: "/blog/como-llegar-a-puerto-pizarro-desde-tumbes", text: "Cómo llegar al punto de salida en Puerto Pizarro" },
             {
                 type: "heading",
                 text: "¿Qué es el zoocriadero de cocodrilos de Puerto Pizarro?",
@@ -1014,6 +1049,12 @@ export const blogPosts: BlogPost[] = [
 ]
 
 const blogConnections: Record<string, BlogConnection> = {
+    "isla-del-amor-tumbes": {
+        primaryTourSlug: "solo-visita-a-la-isla",
+        relatedTourSlugs: ["solo-visita-a-la-isla", "isla-pajaros-manglares", "puerto-pizarro-completo"],
+        relatedPostSlugs: ["como-llegar-a-puerto-pizarro-desde-tumbes", "isla-de-los-pajaros-y-manglares", "mareas-en-puerto-pizarro"],
+        whatsappMessage: "Hola Avis Tours, quiero visitar la Isla del Amor desde Puerto Pizarro. ¿Qué recorrido y horario me recomiendan?",
+    },
     "mareas-en-puerto-pizarro": {
         primaryTourSlug: "isla-pajaros-manglares",
         relatedTourSlugs: ["puerto-pizarro-completo", "isla-pajaros-manglares"],
@@ -1029,7 +1070,7 @@ const blogConnections: Record<string, BlogConnection> = {
     "isla-de-los-pajaros-y-manglares": {
         primaryTourSlug: "isla-pajaros-manglares",
         relatedTourSlugs: ["isla-pajaros-manglares", "pajaros-y-manglares"],
-        relatedPostSlugs: ["como-llegar-a-puerto-pizarro-desde-tumbes", "ruta-completa-islas-manglares-cocodrilos", "manglares-de-puerto-pizarro"],
+        relatedPostSlugs: ["isla-del-amor-tumbes", "como-llegar-a-puerto-pizarro-desde-tumbes", "manglares-de-puerto-pizarro"],
         whatsappMessage: "Hola Avis Tours, vi su artículo sobre Isla de los Pájaros y quiero cotizar ese tour en Puerto Pizarro.",
     },
     "como-llegar-a-puerto-pizarro-desde-tumbes": {
@@ -1122,7 +1163,7 @@ export function getLocalizedBlogPost(post: BlogPost, locale: BlogLocale) {
 
     const translation = blogTranslations[translationLocale]?.[post.slug]
 
-    return translation ? { ...post, ...translation } : undefined
+    return translation ? { ...post, ...translation, updatedAt: translation.updatedAt } : undefined
 }
 
 export function getLocalizedBlogPosts(locale: BlogLocale) {

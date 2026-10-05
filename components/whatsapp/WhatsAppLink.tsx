@@ -2,6 +2,7 @@
 
 import type { MouseEvent, ReactNode } from "react"
 import { getWhatsAppFallbackHref, openWhatsApp } from "@/utils/whatsapp"
+import { trackWhatsAppClick } from "@/utils/analytics"
 
 type WhatsAppLinkProps = {
     number: string
@@ -19,6 +20,8 @@ export default function WhatsAppLink({
     ariaLabel,
 }: WhatsAppLinkProps) {
     function handleClick(event: MouseEvent<HTMLAnchorElement>) {
+        trackWhatsAppClick()
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
         event.preventDefault()
         openWhatsApp(number, message)
     }

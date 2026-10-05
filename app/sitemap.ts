@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next"
-import { blogPosts } from "@/data/blogs"
+import { blogPosts, getLocalizedBlogPost } from "@/data/blogs"
+import { getBlogPublicationDate } from "@/data/blog-dates"
 import { tours } from "@/data/promotions"
 import { absoluteUrl } from "@/data/site"
 import { appLocales, type AppLocale } from "@/i18n/locales"
@@ -7,56 +8,32 @@ import { getLocalizedPath } from "@/i18n/urls"
 
 const contentLastModified = "2026-08-03"
 type SitemapRoute = "/" | "/packages" | "/blog" | "/blog/[slug]" | "/contact" | "/promociones/[slug]"
-const blogMonthMap: Record<string, string> = {
-    Ene: "01",
-    Feb: "02",
-    Mar: "03",
-    Abr: "04",
-    May: "05",
-    Jun: "06",
-    Jul: "07",
-    Ago: "08",
-    Sep: "09",
-    Oct: "10",
-    Nov: "11",
-    Dic: "12",
-}
-
-function getBlogLastModified(date: string) {
-    const [day, month, year] = date.split(" ")
-    const monthNumber = blogMonthMap[month]
-
-    if (!day || !monthNumber || !year) {
-        return contentLastModified
-    }
-
-    return `${year}-${monthNumber}-${day.padStart(2, "0")}`
-}
-
+type SitemapOptions = Omit<MetadataRoute.Sitemap[number], "url" | "alternates">
 export default function sitemap(): MetadataRoute.Sitemap {
     const localizedRoute = (
         pathname: SitemapRoute,
-        options: Omit<MetadataRoute.Sitemap[number], "url" | "alternates">,
+        options: SitemapOptions | ((locale: AppLocale) => SitemapOptions),
         params?: { slug: string },
+        locales: AppLocale[] = appLocales,
     ): MetadataRoute.Sitemap => {
         const languages = Object.fromEntries(
-            appLocales.map((locale) => [
+            locales.map((locale) => [
                 locale,
                 absoluteUrl(getLocalizedPath(locale, pathname, params)),
             ]),
         )
 
-        return appLocales.map((locale: AppLocale) => ({
+        return locales.map((locale: AppLocale) => ({
             url: languages[locale],
             alternates: { languages },
-            ...options,
+            ...(typeof options === "function" ? options(locale) : options),
         }))
     }
 
     const staticRoutes = [
-        ...localizedRoute("/", { lastModified: contentLastModified, changeFrequency: "weekly", priority: 1 }),
+        ...localizedRoute("/", { lastModified: "2026-10-05", changeFrequency: "weekly", priority: 1 }),
         ...localizedRoute("/packages", { lastModified: contentLastModified, changeFrequency: "weekly", priority: 0.9 }),
-        ...localizedRoute("/blog", { lastModified: contentLastModified, changeFrequency: "weekly", priority: 0.8 }),
+        ...localizedRoute("/blog", { lastModified: "2026-10-05", changeFrequency: "weekly", priority: 0.8 }),
         ...localizedRoute("/contact", { lastModified: contentLastModified, changeFrequency: "monthly", priority: 0.7 }),
     ]
 
@@ -70,12 +47,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     )
 
     const blogRoutes = blogPosts.flatMap((post) =>
-        localizedRoute("/blog/[slug]", {
-            lastModified: getBlogLastModified(post.date),
+        localizedRoute("/blog/[slug]", (locale) => ({
+            lastModified: getLocalizedBlogPost(post, locale)?.updatedAt ?? getBlogPublicationDate(post.date),
             changeFrequency: "monthly",
             priority: post.featured ? 0.85 : 0.75,
             images: [absoluteUrl(post.image)],
-        }, { slug: post.slug }),
+        }), { slug: post.slug }, appLocales.filter((locale) => Boolean(getLocalizedBlogPost(post, locale)))),
     )
 
     return [...staticRoutes, ...tourRoutes, ...blogRoutes]
