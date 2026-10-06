@@ -1,37 +1,36 @@
 import { getTour, type Tour } from "./promotions"
 import { englishBlogTranslations, type BlogPostTranslation } from "./blog-translations"
 import { getTranslationLocale, type AppLocale } from "@/i18n/locales"
-import { islaDelAmorPost } from "./isla-del-amor"
 
 export type BlogContentBlock =
     | {
-        type: "link"
-        text: string
-        href: `https://${string}` | `/blog/${string}` | `/promociones/${string}` | "/packages"
-    }
+          type: "link"
+          text: string
+          href: `https://${string}` | `/blog/${string}` | `/promociones/${string}` | "/packages"
+      }
     | {
-        type: "heading"
-        text: string
-    }
+          type: "heading"
+          text: string
+      }
     | {
-        type: "paragraph"
-        text: string
-    }
+          type: "paragraph"
+          text: string
+      }
     | {
-        type: "image"
-        src: string
-        alt: string
-        caption?: string
-    }
+          type: "image"
+          src: string
+          alt: string
+          caption?: string
+      }
     | {
-        type: "quote"
-        text: string
-        author?: string
-    }
+          type: "quote"
+          text: string
+          author?: string
+      }
     | {
-        type: "list"
-        items: string[]
-    }
+          type: "list"
+          items: string[]
+      }
 
 export type BlogPost = {
     slug: string
@@ -57,11 +56,108 @@ type BlogConnection = {
 }
 
 export const blogPosts: BlogPost[] = [
-    islaDelAmorPost,
+    {
+        slug: "isla-del-amor-tumbes",
+        title: "Isla del Amor en Tumbes: dónde queda y cómo llegar",
+        excerpt:
+            "Visita la Isla del Amor desde Puerto Pizarro: cómo llegar en bote, qué hacer, cómo coordinar el regreso y qué tour elegir.",
+        category: "Islas",
+        location: "Puerto Pizarro, Tumbes",
+        readTime: "4 min",
+        date: "05 Oct 2026",
+        author: "Equipo Avis Tours",
+        image: "/images-optimized/galeria/solo_isla_galeria9.webp",
+        highlights: [
+            "El acceso es en bote desde Puerto Pizarro",
+            "Puedes elegir una visita a la isla o combinarla con aves y manglares",
+            "Coordina la salida y el regreso antes de embarcar",
+        ],
+        body: [
+            {
+                type: "paragraph",
+                text: "La Isla del Amor está en el entorno de la bahía de Puerto Pizarro, en Tumbes, al norte del Perú. Se llega en bote desde Puerto Pizarro. Puedes visitarla como destino principal o incluirla en un paseo por los manglares y la Isla de los Pájaros.",
+            },
+            { type: "heading", text: "¿Cómo llegar a la Isla del Amor?" },
+            {
+                type: "list",
+                items: [
+                    "Llega a Puerto Pizarro y confirma el punto de encuentro con el operador.",
+                    "Indica cuántas personas viajan y si quieres visitar solo la isla o hacer varias paradas.",
+                    "Acuerda el horario de salida, el tiempo en la isla y el regreso al muelle.",
+                    "Embarca con chaleco salvavidas. La salida se coordina según la marea y las condiciones del día.",
+                ],
+            },
+            {
+                type: "image",
+                src: "/images-optimized/galeria/solo_isla_galeria9.webp",
+                alt: "Tour en lancha por los manglares de Puerto Pizarro durante marea alta",
+                caption:
+                    "Los horarios de marea cambian diariamente, por eso siempre se recomienda confirmar antes de reservar tu tour.",
+            },
+            {
+                type: "link",
+                href: "/blog/como-llegar-a-puerto-pizarro-desde-tumbes",
+                text: "Cómo llegar a Puerto Pizarro desde Tumbes y el aeropuerto",
+            },
+            { type: "heading", text: "¿Qué hacer en la Isla del Amor?" },
+            {
+                type: "paragraph",
+                text: "La visita permite disfrutar del entorno de playa, tomar fotografías y pasar tiempo junto al mar. Si quieres conocer también los canales de manglar y observar aves, elige un recorrido que incluya esas paradas. Confirma con el guía qué actividades son posibles el día de tu visita.",
+            },
+            { type: "heading", text: "Isla del Amor e Isla de los Pájaros: ¿son lo mismo?" },
+            {
+                type: "paragraph",
+                text: "Son lugares distintos. La Isla del Amor es una parada para disfrutar del entorno de playa. La Isla de los Pájaros se visita para observar aves desde la embarcación, sin desembarcar. Un tour puede combinar ambas, pero debes revisar su itinerario antes de reservar.",
+            },
+            {
+                type: "link",
+                href: "/blog/isla-de-los-pajaros-y-manglares",
+                text: "Ubicación y visita a la Isla de los Pájaros en Tumbes",
+            },
+            { type: "heading", text: "¿Qué tour incluye la Isla del Amor?" },
+            {
+                type: "paragraph",
+                text: "En Avis Tours, la visita a la isla incluye bote de ida y regreso y tiene una duración publicada de 2 horas. La ruta Isla del Amor, pájaros y manglares tiene una duración publicada de 1 a 2 horas y añade observación de aves y navegación por los canales. Consulta el tiempo disponible en la isla para cada opción: la duración total del paseo no equivale al tiempo de estadía.",
+            },
+            {
+                type: "link",
+                href: "/promociones/solo-visita-a-la-isla",
+                text: "Ver la visita a la Isla del Amor: precio, duración e inclusiones",
+            },
+            {
+                type: "link",
+                href: "/promociones/isla-pajaros-manglares",
+                text: "Ver el tour Isla del Amor, pájaros y manglares",
+            },
+            { type: "heading", text: "¿Cuánto cuesta visitar la isla?" },
+            {
+                type: "paragraph",
+                text: "El precio depende del recorrido y del tamaño del grupo. En las fichas de Avis Tours puedes consultar la tarifa por grupo y su equivalente por persona. Confirma el total para tu número de viajeros, el regreso y los gastos personales antes de reservar.",
+            },
+            { type: "heading", text: "Qué llevar y qué confirmar antes de salir" },
+            {
+                type: "list",
+                items: [
+                    "Agua, protector solar, sombrero y una bolsa para proteger el teléfono.",
+                    "Efectivo para consumos personales.",
+                    "La hora de regreso y el punto donde te recogerá la embarcación.",
+                    "Las condiciones del mar antes de entrar al agua y las indicaciones del guía.",
+                    "Tu basura de vuelta al muelle para cuidar el entorno.",
+                ],
+            },
+            { type: "heading", text: "Información del destino" },
+            {
+                type: "link",
+                href: "https://www.peru.travel/es/atractivos/puerto-pizarro",
+                text: "Puerto Pizarro y sus islas en el portal oficial Perú Travel",
+            },
+        ],
+    },
     {
         slug: "mareas-en-puerto-pizarro",
         title: "Mareas en Puerto Pizarro: mejor hora para un tour en los manglares",
-        excerpt: "Descubre cómo influyen las mareas en Puerto Pizarro y cuál es el mejor horario para disfrutar un tour por los manglares de Tumbes.",
+        excerpt:
+            "Descubre cómo influyen las mareas en Puerto Pizarro y cuál es el mejor horario para disfrutar un tour por los manglares de Tumbes.",
         category: "Mareas",
         location: "Puerto Pizarro, Tumbes",
         readTime: "7 min",
@@ -72,59 +168,60 @@ export const blogPosts: BlogPost[] = [
         highlights: [
             "Las mareas determinan la navegación en los manglares",
             "El mejor horario depende del tipo de experiencia que buscas",
-            "Un operador local ajusta la salida según marea y clima"
+            "Un operador local ajusta la salida según marea y clima",
         ],
         body: [
             {
                 type: "paragraph",
-                text: "Las mareas en Puerto Pizarro son un factor clave al momento de realizar un tour por los manglares de Tumbes. No se trata solo de subir a una lancha, sino de elegir el momento adecuado para disfrutar mejor el paisaje, la navegación y la observación de fauna. En AvisTours, cada salida se coordina considerando la marea, el clima y las condiciones del estero para ofrecer una experiencia más completa."
+                text: "Las mareas en Puerto Pizarro son un factor clave al momento de realizar un tour por los manglares de Tumbes. No se trata solo de subir a una lancha, sino de elegir el momento adecuado para disfrutar mejor el paisaje, la navegación y la observación de fauna. En AvisTours, cada salida se coordina considerando la marea, el clima y las condiciones del estero para ofrecer una experiencia más completa.",
             },
             {
                 type: "heading",
-                text: "¿Por qué las mareas son importantes en Puerto Pizarro?"
+                text: "¿Por qué las mareas son importantes en Puerto Pizarro?",
             },
             {
                 type: "paragraph",
-                text: "El nivel del agua influye directamente en el acceso a los canales del manglar, la facilidad de navegación y lo que puedes observar durante el recorrido. En un tour en Puerto Pizarro, entender la marea puede marcar la diferencia entre un paseo promedio y una experiencia realmente memorable."
+                text: "El nivel del agua influye directamente en el acceso a los canales del manglar, la facilidad de navegación y lo que puedes observar durante el recorrido. En un tour en Puerto Pizarro, entender la marea puede marcar la diferencia entre un paseo promedio y una experiencia realmente memorable.",
             },
             {
                 type: "image",
                 src: "/images-optimized/galeria/galeria31.webp",
                 alt: "Tour en lancha por los manglares de Puerto Pizarro durante marea alta",
-                caption: "Los horarios de marea cambian diariamente, por eso siempre se recomienda confirmar antes de reservar tu tour."
+                caption:
+                    "Los horarios de marea cambian diariamente, por eso siempre se recomienda confirmar antes de reservar tu tour.",
             },
             {
                 type: "heading",
-                text: "Diferencia entre marea alta y marea baja"
+                text: "Diferencia entre marea alta y marea baja",
             },
             {
                 type: "paragraph",
-                text: "Durante la marea alta, los canales del manglar tienen mayor profundidad, lo que permite una navegación más fluida y cómoda. Es ideal para quienes buscan un paseo tranquilo en lancha. En cambio, con marea baja, el paisaje cambia completamente: se exponen raíces de manglar, zonas de alimentación de aves y detalles del ecosistema que normalmente permanecen ocultos."
+                text: "Durante la marea alta, los canales del manglar tienen mayor profundidad, lo que permite una navegación más fluida y cómoda. Es ideal para quienes buscan un paseo tranquilo en lancha. En cambio, con marea baja, el paisaje cambia completamente: se exponen raíces de manglar, zonas de alimentación de aves y detalles del ecosistema que normalmente permanecen ocultos.",
             },
             {
                 type: "list",
                 items: [
                     "Marea alta: navegación más suave y acceso amplio a canales.",
                     "Marea baja: mejor observación de aves y raíces del manglar.",
-                    "Ambas opciones ofrecen experiencias distintas y valiosas."
-                ]
+                    "Ambas opciones ofrecen experiencias distintas y valiosas.",
+                ],
             },
             {
                 type: "heading",
-                text: "¿Cuál es la mejor hora para hacer un tour en Puerto Pizarro?"
+                text: "¿Cuál es la mejor hora para hacer un tour en Puerto Pizarro?",
             },
             {
                 type: "paragraph",
-                text: "No existe una única mejor hora universal. El mejor horario para un tour en los manglares de Puerto Pizarro depende del tipo de experiencia que prefieras. Por eso, lo más recomendable es consultar con un operador local que pueda indicarte el momento ideal según la marea del día."
+                text: "No existe una única mejor hora universal. El mejor horario para un tour en los manglares de Puerto Pizarro depende del tipo de experiencia que prefieras. Por eso, lo más recomendable es consultar con un operador local que pueda indicarte el momento ideal según la marea del día.",
             },
             {
                 type: "quote",
                 text: "La mejor hora para un tour en Puerto Pizarro no siempre es la más temprana, sino la que coincide con la mejor marea.",
-                author: "Equipo Avis Tours"
+                author: "Equipo Avis Tours",
             },
             {
                 type: "heading",
-                text: "Recomendaciones antes de reservar tu tour"
+                text: "Recomendaciones antes de reservar tu tour",
             },
             {
                 type: "list",
@@ -132,27 +229,28 @@ export const blogPosts: BlogPost[] = [
                     "Consulta siempre el horario de marea antes de elegir tu tour.",
                     "Evita reservar sin validar condiciones climáticas.",
                     "Confirma disponibilidad de embarcaciones.",
-                    "Pregunta por la mejor experiencia según tu tipo de viaje."
-                ]
+                    "Pregunta por la mejor experiencia según tu tipo de viaje.",
+                ],
             },
             {
                 type: "heading",
-                text: "Reserva tu tour en el mejor horario"
+                text: "Reserva tu tour en el mejor horario",
             },
             {
                 type: "paragraph",
-                text: "En AvisTours coordinamos cada salida en función de la marea, el clima y las condiciones del día para que disfrutes al máximo tu experiencia en los manglares de Tumbes. Si es tu primera vez en Puerto Pizarro, te ayudamos a elegir el mejor horario para tu tour."
+                text: "En AvisTours coordinamos cada salida en función de la marea, el clima y las condiciones del día para que disfrutes al máximo tu experiencia en los manglares de Tumbes. Si es tu primera vez en Puerto Pizarro, te ayudamos a elegir el mejor horario para tu tour.",
             },
             {
                 type: "paragraph",
-                text: "¿Listo para vivir la experiencia? Contáctanos por WhatsApp y te recomendamos el mejor momento para tu paseo en lancha por Puerto Pizarro."
-            }
-        ]
+                text: "¿Listo para vivir la experiencia? Contáctanos por WhatsApp y te recomendamos el mejor momento para tu paseo en lancha por Puerto Pizarro.",
+            },
+        ],
     },
     {
         slug: "ruta-completa-islas-manglares-cocodrilos",
         title: "Tour completo en Puerto Pizarro: islas, manglares y cocodrilos",
-        excerpt: "Descubre el tour más completo en Puerto Pizarro: visita la Isla de los Pájaros, manglares, cocodrilos y la boca del mar en una sola experiencia.",
+        excerpt:
+            "Descubre el tour más completo en Puerto Pizarro: visita la Isla de los Pájaros, manglares, cocodrilos y la boca del mar en una sola experiencia.",
         category: "Tours",
         location: "Puerto Pizarro, Tumbes",
         readTime: "8 min",
@@ -162,20 +260,20 @@ export const blogPosts: BlogPost[] = [
         highlights: [
             "El tour más completo en Puerto Pizarro para conocer manglares e islas",
             "Incluye aves, cocodrilos y navegación por esteros",
-            "Ideal para quienes visitan Tumbes por primera vez"
+            "Ideal para quienes visitan Tumbes por primera vez",
         ],
         body: [
             {
                 type: "paragraph",
-                text: "Si estás buscando el mejor tour en Puerto Pizarro, la ruta completa por islas, manglares y cocodrilos es la opción más recomendada. Este recorrido reúne los principales atractivos turísticos de Tumbes en una sola experiencia, combinando naturaleza, fauna y navegación por los manglares."
+                text: "Si estás buscando el mejor tour en Puerto Pizarro, la ruta completa por islas, manglares y cocodrilos es la opción más recomendada. Este recorrido reúne los principales atractivos turísticos de Tumbes en una sola experiencia, combinando naturaleza, fauna y navegación por los manglares.",
             },
             {
                 type: "heading",
-                text: "¿Qué incluye el tour completo en Puerto Pizarro?"
+                text: "¿Qué incluye el tour completo en Puerto Pizarro?",
             },
             {
                 type: "paragraph",
-                text: "Este tour por los manglares de Tumbes está diseñado para ofrecer una experiencia variada y dinámica. A lo largo del recorrido podrás explorar diferentes puntos emblemáticos de Puerto Pizarro, cada uno con características únicas."
+                text: "Este tour por los manglares de Tumbes está diseñado para ofrecer una experiencia variada y dinámica. A lo largo del recorrido podrás explorar diferentes puntos emblemáticos de Puerto Pizarro, cada uno con características únicas.",
             },
             {
                 type: "list",
@@ -184,30 +282,30 @@ export const blogPosts: BlogPost[] = [
                     "Visita a la Isla de los Pájaros para observación de aves.",
                     "Ingreso al zoocriadero de cocodrilos.",
                     "Vista panorámica de la boca del mar.",
-                    "Paradas estratégicas para fotografías y descanso."
-                ]
+                    "Paradas estratégicas para fotografías y descanso.",
+                ],
             },
             {
                 type: "image",
                 src: "/images-optimized/galeria/completo_galeria8.webp",
                 alt: "Tour completo por manglares e islas en Puerto Pizarro",
-                caption: "La ruta puede ajustarse según marea, clima y condiciones del día para una mejor experiencia."
+                caption: "La ruta puede ajustarse según marea, clima y condiciones del día para una mejor experiencia.",
             },
             {
                 type: "heading",
-                text: "¿Por qué elegir este tour en Puerto Pizarro?"
+                text: "¿Por qué elegir este tour en Puerto Pizarro?",
             },
             {
                 type: "paragraph",
-                text: "A diferencia de otros recorridos más cortos, el tour completo permite conocer Puerto Pizarro de forma integral. Es ideal si visitas Tumbes por primera vez y quieres aprovechar al máximo tu tiempo, ya que combina varios atractivos en una sola salida."
+                text: "A diferencia de otros recorridos más cortos, el tour completo permite conocer Puerto Pizarro de forma integral. Es ideal si visitas Tumbes por primera vez y quieres aprovechar al máximo tu tiempo, ya que combina varios atractivos en una sola salida.",
             },
             {
                 type: "paragraph",
-                text: "Además, la navegación por los manglares ofrece una perspectiva única del ecosistema, mientras que la Isla de los Pájaros permite observar distintas especies en su hábitat natural."
+                text: "Además, la navegación por los manglares ofrece una perspectiva única del ecosistema, mientras que la Isla de los Pájaros permite observar distintas especies en su hábitat natural.",
             },
             {
                 type: "heading",
-                text: "¿Para quién es ideal este tour?"
+                text: "¿Para quién es ideal este tour?",
             },
             {
                 type: "list",
@@ -215,16 +313,16 @@ export const blogPosts: BlogPost[] = [
                     "Viajeros que visitan Tumbes por primera vez.",
                     "Familias que buscan una experiencia completa y variada.",
                     "Parejas que desean un recorrido tranquilo y natural.",
-                    "Turistas que quieren conocer lo mejor de Puerto Pizarro en un solo día."
-                ]
+                    "Turistas que quieren conocer lo mejor de Puerto Pizarro en un solo día.",
+                ],
             },
             {
                 type: "heading",
-                text: "Duración y recomendaciones"
+                text: "Duración y recomendaciones",
             },
             {
                 type: "paragraph",
-                text: "La duración del tour puede variar según la marea y las condiciones del clima. Por eso, siempre se recomienda coordinar previamente el horario de salida para asegurar la mejor experiencia posible en los manglares de Tumbes."
+                text: "La duración del tour puede variar según la marea y las condiciones del clima. Por eso, siempre se recomienda coordinar previamente el horario de salida para asegurar la mejor experiencia posible en los manglares de Tumbes.",
             },
             {
                 type: "list",
@@ -232,28 +330,29 @@ export const blogPosts: BlogPost[] = [
                     "Consulta el mejor horario según la marea.",
                     "Llega con anticipación al muelle turístico.",
                     "Lleva protector solar y agua.",
-                    "Ten tu celular listo para fotos del recorrido."
-                ]
+                    "Ten tu celular listo para fotos del recorrido.",
+                ],
             },
             {
                 type: "heading",
-                text: "Reserva tu tour en Puerto Pizarro"
+                text: "Reserva tu tour en Puerto Pizarro",
             },
             {
                 type: "paragraph",
-                text: "En AvisTours organizamos el tour completo en Puerto Pizarro ajustando cada detalle según la marea, el clima y la disponibilidad del día. Nuestro objetivo es que vivas una experiencia segura, organizada y memorable en los manglares de Tumbes."
+                text: "En AvisTours organizamos el tour completo en Puerto Pizarro ajustando cada detalle según la marea, el clima y la disponibilidad del día. Nuestro objetivo es que vivas una experiencia segura, organizada y memorable en los manglares de Tumbes.",
             },
             {
                 type: "paragraph",
-                text: "Contáctanos por WhatsApp para consultar disponibilidad y reservar tu paseo en lancha. Te ayudamos a elegir el mejor horario para disfrutar al máximo tu visita."
-            }
-        ]
+                text: "Contáctanos por WhatsApp para consultar disponibilidad y reservar tu paseo en lancha. Te ayudamos a elegir el mejor horario para disfrutar al máximo tu visita.",
+            },
+        ],
     },
     {
         slug: "isla-de-los-pajaros-y-manglares",
         title: "Isla de los Pájaros en Tumbes: ubicación y visita en bote",
         updatedAt: "2026-10-05",
-        excerpt: "Descubre la Isla de los Pájaros en Puerto Pizarro y disfruta un tour por los manglares de Tumbes con observación de aves y paisajes naturales.",
+        excerpt:
+            "Descubre la Isla de los Pájaros en Puerto Pizarro y disfruta un tour por los manglares de Tumbes con observación de aves y paisajes naturales.",
         category: "Naturaleza",
         location: "Manglares de Tumbes",
         readTime: "7 min",
@@ -263,42 +362,42 @@ export const blogPosts: BlogPost[] = [
         highlights: [
             "Ubicada en los manglares de Puerto Pizarro, cerca de Tumbes",
             "Ideal para observar aves en su hábitat natural",
-            "Perfecto para tours cortos en los manglares de Tumbes"
+            "Perfecto para tours cortos en los manglares de Tumbes",
         ],
         body: [
             {
                 type: "paragraph",
-                text: "La Isla de los Pájaros queda dentro de los manglares de Puerto Pizarro, cerca de la ciudad de Tumbes, en el norte del Perú. Es uno de los destinos más visitados para quienes buscan observar aves y disfrutar paisajes naturales durante un paseo en lancha."
+                text: "La Isla de los Pájaros queda dentro de los manglares de Puerto Pizarro, cerca de la ciudad de Tumbes, en el norte del Perú. Es uno de los destinos más visitados para quienes buscan observar aves y disfrutar paisajes naturales durante un paseo en lancha.",
             },
             {
                 type: "heading",
-                text: "¿Qué es la Isla de los Pájaros?"
+                text: "¿Qué es la Isla de los Pájaros?",
             },
             {
                 type: "paragraph",
-                text: "La Isla de los Pájaros es una zona dentro de los manglares de Puerto Pizarro donde se pueden observar diversas especies de aves en su entorno natural. Es una parada común en los tours en lancha y uno de los puntos más representativos del turismo en Tumbes."
+                text: "La Isla de los Pájaros es una zona dentro de los manglares de Puerto Pizarro donde se pueden observar diversas especies de aves en su entorno natural. Es una parada común en los tours en lancha y uno de los puntos más representativos del turismo en Tumbes.",
             },
             {
                 type: "heading",
-                text: "¿Dónde queda la Isla de los Pájaros en Tumbes?"
+                text: "¿Dónde queda la Isla de los Pájaros en Tumbes?",
             },
             {
                 type: "paragraph",
-                text: "La Isla de los Pájaros se visita desde Puerto Pizarro, una zona turística cercana a la ciudad de Tumbes. El recorrido comienza en el muelle turístico y continúa en lancha por los canales de manglar hasta las zonas de observación de aves."
+                text: "La Isla de los Pájaros se visita desde Puerto Pizarro, una zona turística cercana a la ciudad de Tumbes. El recorrido comienza en el muelle turístico y continúa en lancha por los canales de manglar hasta las zonas de observación de aves.",
             },
             {
                 type: "image",
                 src: "/images-optimized/galeria/pajaros_galeria3.webp",
                 alt: "Aves en la Isla de los Pájaros en Puerto Pizarro Tumbes",
-                caption: "La presencia de aves puede variar según la hora del día, la temporada y la marea."
+                caption: "La presencia de aves puede variar según la hora del día, la temporada y la marea.",
             },
             {
                 type: "heading",
-                text: "¿Qué ver durante el recorrido?"
+                text: "¿Qué ver durante el recorrido?",
             },
             {
                 type: "paragraph",
-                text: "Durante el tour por los manglares de Puerto Pizarro podrás observar aves marinas, recorrer canales naturales y disfrutar de un paisaje dominado por vegetación de manglar. Es una experiencia ideal para fotografía, relajación y contacto con la naturaleza."
+                text: "Durante el tour por los manglares de Puerto Pizarro podrás observar aves marinas, recorrer canales naturales y disfrutar de un paisaje dominado por vegetación de manglar. Es una experiencia ideal para fotografía, relajación y contacto con la naturaleza.",
             },
             {
                 type: "list",
@@ -306,26 +405,40 @@ export const blogPosts: BlogPost[] = [
                     "Observación de aves en la Isla de los Pájaros.",
                     "Navegación por canales de manglar.",
                     "Paisajes naturales únicos de Tumbes.",
-                    "Ambiente tranquilo ideal para desconectar."
-                ]
+                    "Ambiente tranquilo ideal para desconectar.",
+                ],
             },
             {
                 type: "heading",
-                text: "¿Cuánto dura el tour a la Isla de los Pájaros?"
+                text: "¿Cuánto dura el tour a la Isla de los Pájaros?",
             },
             {
                 type: "paragraph",
-                text: "La ruta de Avis Tours que combina Isla del Amor, Isla de los Pájaros y manglares tiene una duración publicada de 1 a 2 horas. Ese tiempo corresponde al recorrido completo, no solo a la observación de aves. Confirma la hora de salida según la marea y revisa la ficha del tour para conocer el itinerario."
+                text: "La ruta de Avis Tours que combina Isla del Amor, Isla de los Pájaros y manglares tiene una duración publicada de 1 a 2 horas. Ese tiempo corresponde al recorrido completo, no solo a la observación de aves. Confirma la hora de salida según la marea y revisa la ficha del tour para conocer el itinerario.",
             },
-            { type: "link", href: "/promociones/isla-pajaros-manglares", text: "Ver precio, duración e inclusiones del tour de islas y manglares" },
+            {
+                type: "link",
+                href: "/promociones/isla-pajaros-manglares",
+                text: "Ver precio, duración e inclusiones del tour de islas y manglares",
+            },
             { type: "heading", text: "¿Se puede desembarcar en la Isla de los Pájaros?" },
-            { type: "paragraph", text: "La observación se realiza desde la embarcación, sin desembarcar en la isla, para proteger el hábitat. Mantén distancia de las aves, evita hacer ruido y no las alimentes. Lleva una cámara con zoom o binoculares si quieres observarlas con más detalle." },
+            {
+                type: "paragraph",
+                text: "La observación se realiza desde la embarcación, sin desembarcar en la isla, para proteger el hábitat. Mantén distancia de las aves, evita hacer ruido y no las alimentes. Lleva una cámara con zoom o binoculares si quieres observarlas con más detalle.",
+            },
             { type: "heading", text: "¿Cuál es la mejor hora para observar aves?" },
-            { type: "paragraph", text: "Perú Travel recomienda la tarde, cuando las aves regresan a sus nidos. Coordina el horario con el operador: la navegación también depende de la marea y del clima. La cantidad de aves cambia y no se garantiza el avistamiento de una especie concreta." },
-            { type: "link", href: "https://www.peru.travel/es/atractivos/puerto-pizarro", text: "Información oficial de Perú Travel sobre las islas de Puerto Pizarro" },
+            {
+                type: "paragraph",
+                text: "Perú Travel recomienda la tarde, cuando las aves regresan a sus nidos. Coordina el horario con el operador: la navegación también depende de la marea y del clima. La cantidad de aves cambia y no se garantiza el avistamiento de una especie concreta.",
+            },
+            {
+                type: "link",
+                href: "https://www.peru.travel/es/atractivos/puerto-pizarro",
+                text: "Información oficial de Perú Travel sobre las islas de Puerto Pizarro",
+            },
             {
                 type: "heading",
-                text: "¿Para quién es ideal este recorrido?"
+                text: "¿Para quién es ideal este recorrido?",
             },
             {
                 type: "list",
@@ -333,12 +446,12 @@ export const blogPosts: BlogPost[] = [
                     "Viajeros con poco tiempo en Tumbes.",
                     "Personas interesadas en fotografía de naturaleza.",
                     "Familias que buscan un paseo tranquilo.",
-                    "Turistas que desean una primera experiencia en manglares."
-                ]
+                    "Turistas que desean una primera experiencia en manglares.",
+                ],
             },
             {
                 type: "heading",
-                text: "Recomendaciones para tu visita"
+                text: "Recomendaciones para tu visita",
             },
             {
                 type: "list",
@@ -346,33 +459,34 @@ export const blogPosts: BlogPost[] = [
                     "Consulta el horario según la marea para una mejor experiencia.",
                     "Lleva protector solar y lentes de sol.",
                     "Ten tu celular o cámara lista para capturar aves.",
-                    "Evita llevar equipaje innecesario."
-                ]
+                    "Evita llevar equipaje innecesario.",
+                ],
             },
             {
                 type: "quote",
                 text: "La Isla de los Pájaros es uno de esos lugares donde el silencio y la naturaleza hacen todo el trabajo.",
-                author: "Equipo Avis Tours"
+                author: "Equipo Avis Tours",
             },
             {
                 type: "heading",
-                text: "Reserva tu tour a la Isla de los Pájaros"
+                text: "Reserva tu tour a la Isla de los Pájaros",
             },
             {
                 type: "paragraph",
-                text: "En AvisTours organizamos tours en Puerto Pizarro adaptados a la marea y condiciones del día para que disfrutes al máximo tu visita a la Isla de los Pájaros y los manglares de Tumbes."
+                text: "En AvisTours organizamos tours en Puerto Pizarro adaptados a la marea y condiciones del día para que disfrutes al máximo tu visita a la Isla de los Pájaros y los manglares de Tumbes.",
             },
             {
                 type: "paragraph",
-                text: "Contáctanos por WhatsApp y te ayudamos a elegir el mejor horario para tu paseo en lancha. Vive una experiencia auténtica en uno de los destinos naturales más importantes de Tumbes."
-            }
-        ]
+                text: "Contáctanos por WhatsApp y te ayudamos a elegir el mejor horario para tu paseo en lancha. Vive una experiencia auténtica en uno de los destinos naturales más importantes de Tumbes.",
+            },
+        ],
     },
     {
         slug: "como-llegar-a-puerto-pizarro-desde-tumbes",
         title: "¿Dónde queda Puerto Pizarro? Cómo llegar desde Tumbes y el aeropuerto",
         updatedAt: "2026-10-05",
-        excerpt: "Puerto Pizarro queda cerca de la ciudad de Tumbes, en el norte del Perú. Conoce cómo llegar desde Tumbes o el aeropuerto y cómo ubicar el muelle turístico.",
+        excerpt:
+            "Puerto Pizarro queda cerca de la ciudad de Tumbes, en el norte del Perú. Conoce cómo llegar desde Tumbes o el aeropuerto y cómo ubicar el muelle turístico.",
         category: "Planificación",
         location: "Tumbes y Puerto Pizarro",
         readTime: "7 min",
@@ -382,58 +496,72 @@ export const blogPosts: BlogPost[] = [
         highlights: [
             "Ubicación de Puerto Pizarro y del muelle turístico",
             "Opciones desde el centro de Tumbes y el aeropuerto",
-            "Consejos para llegar a tiempo a tu tour"
+            "Consejos para llegar a tiempo a tu tour",
         ],
         body: [
             {
                 type: "paragraph",
-                text: "Puerto Pizarro queda cerca de la ciudad de Tumbes, en el norte del Perú. Es una zona turística y el punto de partida para recorrer los manglares, las islas y realizar paseos en lancha."
+                text: "Puerto Pizarro queda cerca de la ciudad de Tumbes, en el norte del Perú. Es una zona turística y el punto de partida para recorrer los manglares, las islas y realizar paseos en lancha.",
             },
             {
                 type: "heading",
-                text: "¿Dónde queda Puerto Pizarro?"
+                text: "¿Dónde queda Puerto Pizarro?",
             },
             {
                 type: "paragraph",
-                text: "Puerto Pizarro es una zona turística cercana a la ciudad de Tumbes, en el norte del Perú. Allí se encuentra el muelle turístico desde donde parten los tours hacia los manglares de Tumbes, la Isla de los Pájaros, el zoocriadero de cocodrilos y la boca del mar."
+                text: "Puerto Pizarro es una zona turística cercana a la ciudad de Tumbes, en el norte del Perú. Allí se encuentra el muelle turístico desde donde parten los tours hacia los manglares de Tumbes, la Isla de los Pájaros, el zoocriadero de cocodrilos y la boca del mar.",
             },
             {
                 type: "image",
                 src: "/images-optimized/galeria/galeria30.webp",
                 alt: "Acceso al muelle turístico de Puerto Pizarro en Tumbes",
-                caption: "El muelle turístico es el principal punto de salida para los tours en Puerto Pizarro."
+                caption: "El muelle turístico es el principal punto de salida para los tours en Puerto Pizarro.",
             },
             {
                 type: "heading",
-                text: "Cómo llegar desde el centro de Tumbes"
+                text: "Cómo llegar desde el centro de Tumbes",
             },
             {
                 type: "paragraph",
-                text: "Puedes llegar en taxi o transporte local. Indica como destino el muelle turístico de Puerto Pizarro y acuerda el costo del traslado antes de subir. Si eliges transporte local, confirma dónde se toma y dónde te deja: la última parte hasta el punto de encuentro puede requerir un traslado adicional."
+                text: "Puedes llegar en taxi o transporte local. Indica como destino el muelle turístico de Puerto Pizarro y acuerda el costo del traslado antes de subir. Si eliges transporte local, confirma dónde se toma y dónde te deja: la última parte hasta el punto de encuentro puede requerir un traslado adicional.",
             },
-            { type: "link", href: "https://www.google.com/maps/dir/?api=1&destination=Muelle+turistico+Puerto+Pizarro+Tumbes+Peru", text: "Ver la ruta al muelle turístico de Puerto Pizarro en Google Maps" },
+            {
+                type: "link",
+                href: "https://www.google.com/maps/dir/?api=1&destination=Muelle+turistico+Puerto+Pizarro+Tumbes+Peru",
+                text: "Ver la ruta al muelle turístico de Puerto Pizarro en Google Maps",
+            },
             {
                 type: "list",
                 items: [
                     "El trayecto es corto desde el centro de Tumbes.",
                     "Puedes usar taxi o transporte local.",
                     "Se recomienda salir con tiempo para evitar retrasos.",
-                    "Ubica previamente el muelle turístico."
-                ]
+                    "Ubica previamente el muelle turístico.",
+                ],
             },
             {
                 type: "heading",
-                text: "Cómo llegar desde el aeropuerto de Tumbes"
+                text: "Cómo llegar desde el aeropuerto de Tumbes",
             },
             {
                 type: "paragraph",
-                text: "Desde el aeropuerto de Tumbes puedes coordinar un taxi o traslado al muelle turístico de Puerto Pizarro. Comparte con el operador la hora de llegada del vuelo y considera la recogida del equipaje antes de fijar la salida del bote. El traslado terrestre y el tour son servicios distintos: confirma si tu reserva incluye transporte o si debes contratarlo por separado."
+                text: "Desde el aeropuerto de Tumbes puedes coordinar un taxi o traslado al muelle turístico de Puerto Pizarro. Comparte con el operador la hora de llegada del vuelo y considera la recogida del equipaje antes de fijar la salida del bote. El traslado terrestre y el tour son servicios distintos: confirma si tu reserva incluye transporte o si debes contratarlo por separado.",
             },
             { type: "heading", text: "¿Cuánto cuesta el traslado y cuánto tarda?" },
-            { type: "paragraph", text: "El costo depende del punto de salida, el vehículo y el servicio contratado. Solicita una cotización para tu grupo y consulta el tiempo estimado en el mapa el día de tu viaje. No confundas el precio del transporte terrestre con el del bote; confirma también cómo regresarás a Tumbes después del paseo." },
+            {
+                type: "paragraph",
+                text: "El costo depende del punto de salida, el vehículo y el servicio contratado. Solicita una cotización para tu grupo y consulta el tiempo estimado en el mapa el día de tu viaje. No confundas el precio del transporte terrestre con el del bote; confirma también cómo regresarás a Tumbes después del paseo.",
+            },
             { type: "heading", text: "¿Qué puedes visitar desde Puerto Pizarro?" },
-            { type: "paragraph", text: "Desde Puerto Pizarro parten recorridos por los manglares, la Isla del Amor, la Isla de los Pájaros y el zoocriadero. Cada ruta incluye paradas distintas. Compara el itinerario y la duración antes de decidir cuál encaja con tu hora de llegada." },
-            { type: "link", href: "/blog/isla-del-amor-tumbes", text: "Cómo visitar la Isla del Amor desde Puerto Pizarro" },
+            {
+                type: "paragraph",
+                text: "Desde Puerto Pizarro parten recorridos por los manglares, la Isla del Amor, la Isla de los Pájaros y el zoocriadero. Cada ruta incluye paradas distintas. Compara el itinerario y la duración antes de decidir cuál encaja con tu hora de llegada.",
+            },
+            {
+                type: "link",
+                href: "/blog/isla-del-amor-tumbes",
+                text: "Cómo visitar la Isla del Amor desde Puerto Pizarro",
+            },
             { type: "link", href: "/packages", text: "Comparar tours en Puerto Pizarro, precios y duración" },
             {
                 type: "list",
@@ -441,16 +569,16 @@ export const blogPosts: BlogPost[] = [
                     "Considera tiempo para recoger equipaje.",
                     "Coordina transporte desde el aeropuerto.",
                     "Evita horarios ajustados para tu tour.",
-                    "Consulta disponibilidad antes de salir."
-                ]
+                    "Consulta disponibilidad antes de salir.",
+                ],
             },
             {
                 type: "heading",
-                text: "Consejos para llegar sin problemas"
+                text: "Consejos para llegar sin problemas",
             },
             {
                 type: "paragraph",
-                text: "Planificar tu traslado con anticipación es clave para disfrutar tu experiencia en Puerto Pizarro sin estrés. Un buen margen de tiempo te permitirá ubicar el muelle, confirmar tu reserva y prepararte para el recorrido."
+                text: "Planificar tu traslado con anticipación es clave para disfrutar tu experiencia en Puerto Pizarro sin estrés. Un buen margen de tiempo te permitirá ubicar el muelle, confirmar tu reserva y prepararte para el recorrido.",
             },
             {
                 type: "list",
@@ -458,32 +586,33 @@ export const blogPosts: BlogPost[] = [
                     "Llega con al menos 20 a 30 minutos de anticipación.",
                     "Guarda la ubicación del muelle en tu celular.",
                     "Consulta el horario según la marea.",
-                    "Evita viajar con el tiempo justo."
-                ]
+                    "Evita viajar con el tiempo justo.",
+                ],
             },
             {
                 type: "quote",
                 text: "Llegar con tiempo a Puerto Pizarro no solo evita estrés, también mejora tu experiencia desde el inicio del tour.",
-                author: "Equipo Avis Tours"
+                author: "Equipo Avis Tours",
             },
             {
                 type: "heading",
-                text: "Planifica tu llegada y reserva tu tour"
+                text: "Planifica tu llegada y reserva tu tour",
             },
             {
                 type: "paragraph",
-                text: "En AvisTours te ayudamos a coordinar tu visita a Puerto Pizarro desde el momento en que llegas a Tumbes. Podemos orientarte sobre el mejor horario según la marea y ayudarte a organizar tu tour de manera eficiente."
+                text: "En AvisTours te ayudamos a coordinar tu visita a Puerto Pizarro desde el momento en que llegas a Tumbes. Podemos orientarte sobre el mejor horario según la marea y ayudarte a organizar tu tour de manera eficiente.",
             },
             {
                 type: "paragraph",
-                text: "Contáctanos por WhatsApp para consultar disponibilidad y recibir recomendaciones personalizadas para tu llegada y recorrido por los manglares de Tumbes."
-            }
-        ]
+                text: "Contáctanos por WhatsApp para consultar disponibilidad y recibir recomendaciones personalizadas para tu llegada y recorrido por los manglares de Tumbes.",
+            },
+        ],
     },
     {
         slug: "que-llevar-a-un-tour-por-los-manglares-de-puerto-pizarro",
         title: "Qué llevar a un tour en los manglares de Puerto Pizarro (guía completa)",
-        excerpt: "Descubre qué llevar a un tour en Puerto Pizarro: ropa, protección solar y recomendaciones para disfrutar al máximo los manglares de Tumbes.",
+        excerpt:
+            "Descubre qué llevar a un tour en Puerto Pizarro: ropa, protección solar y recomendaciones para disfrutar al máximo los manglares de Tumbes.",
         category: "Consejos",
         location: "Puerto Pizarro, Tumbes",
         readTime: "6 min",
@@ -493,30 +622,30 @@ export const blogPosts: BlogPost[] = [
         highlights: [
             "Lista práctica para tours en Puerto Pizarro",
             "Recomendaciones para el clima de Tumbes",
-            "Consejos para disfrutar mejor el paseo en lancha"
+            "Consejos para disfrutar mejor el paseo en lancha",
         ],
         body: [
             {
                 type: "paragraph",
-                text: "Si estás planeando un tour en Puerto Pizarro, es importante saber qué llevar para disfrutar al máximo tu experiencia en los manglares de Tumbes. El clima, la exposición al sol y el recorrido en lancha hacen que algunos elementos sean indispensables para un paseo cómodo y seguro."
+                text: "Si estás planeando un tour en Puerto Pizarro, es importante saber qué llevar para disfrutar al máximo tu experiencia en los manglares de Tumbes. El clima, la exposición al sol y el recorrido en lancha hacen que algunos elementos sean indispensables para un paseo cómodo y seguro.",
             },
             {
                 type: "heading",
-                text: "¿Por qué es importante prepararte bien?"
+                text: "¿Por qué es importante prepararte bien?",
             },
             {
                 type: "paragraph",
-                text: "Un tour por los manglares de Puerto Pizarro implica tiempo al aire libre, exposición al sol y desplazamiento en bote. Llevar lo adecuado te permitirá disfrutar mejor el recorrido, tomar fotografías cómodamente y evitar incomodidades durante la experiencia."
+                text: "Un tour por los manglares de Puerto Pizarro implica tiempo al aire libre, exposición al sol y desplazamiento en bote. Llevar lo adecuado te permitirá disfrutar mejor el recorrido, tomar fotografías cómodamente y evitar incomodidades durante la experiencia.",
             },
             {
                 type: "image",
                 src: "/images-optimized/galeria/galeria26.webp",
                 alt: "Turistas preparados para un tour en los manglares de Puerto Pizarro",
-                caption: "Viajar ligero pero preparado es clave para disfrutar un tour en los manglares de Tumbes."
+                caption: "Viajar ligero pero preparado es clave para disfrutar un tour en los manglares de Tumbes.",
             },
             {
                 type: "heading",
-                text: "Lista básica para tu tour en Puerto Pizarro"
+                text: "Lista básica para tu tour en Puerto Pizarro",
             },
             {
                 type: "list",
@@ -527,16 +656,16 @@ export const blogPosts: BlogPost[] = [
                     "Agua para mantenerte hidratado.",
                     "Celular o cámara con batería suficiente.",
                     "Ropa ligera y cómoda.",
-                    "Bolso pequeño o mochila práctica."
-                ]
+                    "Bolso pequeño o mochila práctica.",
+                ],
             },
             {
                 type: "heading",
-                text: "Recomendaciones adicionales"
+                text: "Recomendaciones adicionales",
             },
             {
                 type: "paragraph",
-                text: "Además de lo básico, hay algunos detalles que pueden mejorar tu experiencia durante el tour por los manglares de Tumbes. Prepararte con anticipación te permitirá enfocarte solo en disfrutar el paisaje y la navegación."
+                text: "Además de lo básico, hay algunos detalles que pueden mejorar tu experiencia durante el tour por los manglares de Tumbes. Prepararte con anticipación te permitirá enfocarte solo en disfrutar el paisaje y la navegación.",
             },
             {
                 type: "list",
@@ -544,12 +673,12 @@ export const blogPosts: BlogPost[] = [
                     "Evita llevar objetos innecesarios o pesados.",
                     "Protege tus dispositivos si llevas cámara o celular.",
                     "Usa ropa fresca adecuada para clima cálido.",
-                    "Consulta el clima antes de salir."
-                ]
+                    "Consulta el clima antes de salir.",
+                ],
             },
             {
                 type: "heading",
-                text: "¿Qué no deberías llevar?"
+                text: "¿Qué no deberías llevar?",
             },
             {
                 type: "list",
@@ -557,40 +686,41 @@ export const blogPosts: BlogPost[] = [
                     "Equipaje grande o incómodo.",
                     "Objetos de valor innecesarios.",
                     "Ropa pesada o poco transpirable.",
-                    "Accesorios que puedan caerse durante el recorrido."
-                ]
+                    "Accesorios que puedan caerse durante el recorrido.",
+                ],
             },
             {
                 type: "heading",
-                text: "Consejo clave para tu experiencia"
+                text: "Consejo clave para tu experiencia",
             },
             {
                 type: "paragraph",
-                text: "Mientras más ligero viajes, más cómodo será tu recorrido en lancha por Puerto Pizarro. La clave está en llevar solo lo necesario para disfrutar del entorno natural sin complicaciones."
+                text: "Mientras más ligero viajes, más cómodo será tu recorrido en lancha por Puerto Pizarro. La clave está en llevar solo lo necesario para disfrutar del entorno natural sin complicaciones.",
             },
             {
                 type: "quote",
                 text: "Para disfrutar un tour en los manglares de Puerto Pizarro no necesitas llevar mucho, solo lo correcto.",
-                author: "Equipo Avis Tours"
+                author: "Equipo Avis Tours",
             },
             {
                 type: "heading",
-                text: "Prepárate y reserva tu tour"
+                text: "Prepárate y reserva tu tour",
             },
             {
                 type: "paragraph",
-                text: "En AvisTours te ayudamos a organizar tu tour en Puerto Pizarro considerando la marea, el clima y las condiciones del día. Nuestro objetivo es que tengas una experiencia cómoda y bien planificada en los manglares de Tumbes."
+                text: "En AvisTours te ayudamos a organizar tu tour en Puerto Pizarro considerando la marea, el clima y las condiciones del día. Nuestro objetivo es que tengas una experiencia cómoda y bien planificada en los manglares de Tumbes.",
             },
             {
                 type: "paragraph",
-                text: "Contáctanos por WhatsApp para consultar disponibilidad y recibir recomendaciones personalizadas antes de tu paseo."
-            }
-        ]
+                text: "Contáctanos por WhatsApp para consultar disponibilidad y recibir recomendaciones personalizadas antes de tu paseo.",
+            },
+        ],
     },
     {
         slug: "que-hacer-en-tumbes-en-1-dia",
         title: "Qué hacer en Tumbes en 1 día: guía completa con Puerto Pizarro",
-        excerpt: "Descubre qué hacer en Tumbes en un día, incluyendo playas, manglares y tours en Puerto Pizarro para aprovechar al máximo tu visita.",
+        excerpt:
+            "Descubre qué hacer en Tumbes en un día, incluyendo playas, manglares y tours en Puerto Pizarro para aprovechar al máximo tu visita.",
         category: "Guía",
         location: "Tumbes, Perú",
         readTime: "8 min",
@@ -600,20 +730,20 @@ export const blogPosts: BlogPost[] = [
         highlights: [
             "Guía ideal para viajes cortos a Tumbes",
             "Incluye Puerto Pizarro y manglares",
-            "Perfecto para organizar tu itinerario en un día"
+            "Perfecto para organizar tu itinerario en un día",
         ],
         body: [
             {
                 type: "paragraph",
-                text: "Si tienes poco tiempo y te preguntas qué hacer en Tumbes en 1 día, la clave está en organizar bien tu recorrido. Este destino del norte del Perú combina playas, naturaleza y tours en Puerto Pizarro que puedes disfrutar en una sola jornada."
+                text: "Si tienes poco tiempo y te preguntas qué hacer en Tumbes en 1 día, la clave está en organizar bien tu recorrido. Este destino del norte del Perú combina playas, naturaleza y tours en Puerto Pizarro que puedes disfrutar en una sola jornada.",
             },
             {
                 type: "heading",
-                text: "Mañana: visita a Puerto Pizarro"
+                text: "Mañana: visita a Puerto Pizarro",
             },
             {
                 type: "paragraph",
-                text: "Empieza el día temprano visitando Puerto Pizarro, uno de los principales atractivos turísticos de Tumbes. Desde aquí podrás realizar un tour por los manglares, recorrer islas y disfrutar de un paseo en lancha."
+                text: "Empieza el día temprano visitando Puerto Pizarro, uno de los principales atractivos turísticos de Tumbes. Desde aquí podrás realizar un tour por los manglares, recorrer islas y disfrutar de un paseo en lancha.",
             },
             {
                 type: "list",
@@ -621,20 +751,20 @@ export const blogPosts: BlogPost[] = [
                     "Tour por manglares de Tumbes.",
                     "Visita a la Isla de los Pájaros.",
                     "Recorrido en lancha por canales naturales.",
-                    "Observación de fauna."
-                ]
+                    "Observación de fauna.",
+                ],
             },
             {
                 type: "heading",
-                text: "Tarde: playas y gastronomía"
+                text: "Tarde: playas y gastronomía",
             },
             {
                 type: "paragraph",
-                text: "Después del tour en Puerto Pizarro, puedes continuar tu recorrido visitando playas cercanas o disfrutar de la gastronomía local. Tumbes es conocido por sus mariscos frescos y platos típicos del norte."
+                text: "Después del tour en Puerto Pizarro, puedes continuar tu recorrido visitando playas cercanas o disfrutar de la gastronomía local. Tumbes es conocido por sus mariscos frescos y platos típicos del norte.",
             },
             {
                 type: "heading",
-                text: "Consejos para aprovechar tu día"
+                text: "Consejos para aprovechar tu día",
             },
             {
                 type: "list",
@@ -642,33 +772,34 @@ export const blogPosts: BlogPost[] = [
                     "Empieza temprano para aprovechar mejor el tiempo.",
                     "Coordina tu tour en Puerto Pizarro con anticipación.",
                     "Consulta horarios según la marea.",
-                    "Lleva ropa ligera y protector solar."
-                ]
+                    "Lleva ropa ligera y protector solar.",
+                ],
             },
             {
                 type: "image",
                 src: "/images-optimized/galeria/solo_isla_galeria4.webp",
                 alt: "Aves en la Isla de los Pájaros en Puerto Pizarro Tumbes",
-                caption: "La presencia de aves puede variar según la hora del día, la temporada y la marea."
+                caption: "La presencia de aves puede variar según la hora del día, la temporada y la marea.",
             },
             {
                 type: "heading",
-                text: "Reserva tu tour en Puerto Pizarro"
+                text: "Reserva tu tour en Puerto Pizarro",
             },
             {
                 type: "paragraph",
-                text: "En AvisTours te ayudamos a organizar tu visita a Tumbes para que aproveches al máximo tu día. Nuestros tours en Puerto Pizarro se adaptan a tu tiempo y condiciones del día."
+                text: "En AvisTours te ayudamos a organizar tu visita a Tumbes para que aproveches al máximo tu día. Nuestros tours en Puerto Pizarro se adaptan a tu tiempo y condiciones del día.",
             },
             {
                 type: "paragraph",
-                text: "Contáctanos por WhatsApp y planifica tu experiencia en los manglares de Tumbes."
-            }
-        ]
+                text: "Contáctanos por WhatsApp y planifica tu experiencia en los manglares de Tumbes.",
+            },
+        ],
     },
     {
         slug: "puerto-pizarro-o-mancora",
         title: "Puerto Pizarro o Máncora: cuál visitar en Tumbes",
-        excerpt: "Descubre si es mejor visitar Puerto Pizarro o Máncora según tu tipo de viaje, presupuesto y experiencia que buscas.",
+        excerpt:
+            "Descubre si es mejor visitar Puerto Pizarro o Máncora según tu tipo de viaje, presupuesto y experiencia que buscas.",
         category: "Comparativa",
         location: "Tumbes, Perú",
         readTime: "7 min",
@@ -678,83 +809,79 @@ export const blogPosts: BlogPost[] = [
         highlights: [
             "Comparativa clara entre dos destinos turísticos",
             "Ideal para planificar tu viaje a Tumbes",
-            "Te ayuda a elegir según tu estilo de viaje"
+            "Te ayuda a elegir según tu estilo de viaje",
         ],
         body: [
             {
                 type: "paragraph",
-                text: "Si estás planeando un viaje al norte del Perú, probablemente te preguntes si visitar Puerto Pizarro o Máncora. Ambos destinos ofrecen experiencias distintas, por lo que elegir depende del tipo de viaje que estés buscando."
+                text: "Si estás planeando un viaje al norte del Perú, probablemente te preguntes si visitar Puerto Pizarro o Máncora. Ambos destinos ofrecen experiencias distintas, por lo que elegir depende del tipo de viaje que estés buscando.",
             },
             {
                 type: "heading",
-                text: "Puerto Pizarro: naturaleza y manglares"
+                text: "Puerto Pizarro: naturaleza y manglares",
             },
             {
                 type: "paragraph",
-                text: "Puerto Pizarro es ideal para quienes buscan naturaleza, tranquilidad y tours organizados. Aquí puedes recorrer los manglares de Tumbes, visitar islas y disfrutar de paseos en lancha."
+                text: "Puerto Pizarro es ideal para quienes buscan naturaleza, tranquilidad y tours organizados. Aquí puedes recorrer los manglares de Tumbes, visitar islas y disfrutar de paseos en lancha.",
             },
             {
                 type: "list",
-                items: [
-                    "Tours en manglares.",
-                    "Observación de aves.",
-                    "Visita a islas.",
-                    "Ambiente tranquilo."
-                ]
+                items: ["Tours en manglares.", "Observación de aves.", "Visita a islas.", "Ambiente tranquilo."],
             },
             {
                 type: "heading",
-                text: "Máncora: playa y vida nocturna"
+                text: "Máncora: playa y vida nocturna",
             },
             {
                 type: "paragraph",
-                text: "Máncora es más conocido por sus playas, ambiente turístico y vida nocturna. Es ideal para quienes buscan diversión, surf y actividades en la playa."
+                text: "Máncora es más conocido por sus playas, ambiente turístico y vida nocturna. Es ideal para quienes buscan diversión, surf y actividades en la playa.",
             },
             {
                 type: "heading",
-                text: "¿Cuál elegir?"
+                text: "¿Cuál elegir?",
             },
             {
                 type: "list",
                 items: [
                     "Elige Puerto Pizarro si buscas naturaleza y tours.",
                     "Elige Máncora si prefieres playa y entretenimiento.",
-                    "Puedes combinar ambos si tienes más tiempo."
-                ]
+                    "Puedes combinar ambos si tienes más tiempo.",
+                ],
             },
             {
                 type: "heading",
-                text: "Recomendación final"
+                text: "Recomendación final",
             },
             {
                 type: "paragraph",
-                text: "Si es tu primera vez en Tumbes, visitar Puerto Pizarro es una excelente opción para conocer los manglares y vivir una experiencia única en contacto con la naturaleza."
+                text: "Si es tu primera vez en Tumbes, visitar Puerto Pizarro es una excelente opción para conocer los manglares y vivir una experiencia única en contacto con la naturaleza.",
             },
             {
                 type: "image",
                 src: "/images-optimized/galeria/galeria17.webp",
                 alt: "Aves en la Isla de los Pájaros en Puerto Pizarro Tumbes",
-                caption: "La presencia de aves puede variar según la hora del día, la temporada y la marea."
+                caption: "La presencia de aves puede variar según la hora del día, la temporada y la marea.",
             },
             {
                 type: "heading",
-                text: "Reserva tu experiencia en Puerto Pizarro"
+                text: "Reserva tu experiencia en Puerto Pizarro",
             },
             {
                 type: "paragraph",
-                text: "En AvisTours organizamos tours en Puerto Pizarro adaptados a tu tipo de viaje. Te ayudamos a elegir la mejor opción según tu tiempo y preferencias."
+                text: "En AvisTours organizamos tours en Puerto Pizarro adaptados a tu tipo de viaje. Te ayudamos a elegir la mejor opción según tu tiempo y preferencias.",
             },
             {
                 type: "paragraph",
-                text: "Escríbenos por WhatsApp y planifica tu visita a los manglares de Tumbes."
-            }
-        ]
+                text: "Escríbenos por WhatsApp y planifica tu visita a los manglares de Tumbes.",
+            },
+        ],
     },
     {
         slug: "zoocriadero-cocodrilos-puerto-pizarro",
         title: "Zoocriadero de cocodrilos en Puerto Pizarro: visita",
         updatedAt: "2026-10-05",
-        excerpt: "Conoce el zoocriadero de cocodrilos de Puerto Pizarro, qué puedes encontrar durante la visita y cómo incluirlo en tu recorrido por los manglares de Tumbes.",
+        excerpt:
+            "Conoce el zoocriadero de cocodrilos de Puerto Pizarro, qué puedes encontrar durante la visita y cómo incluirlo en tu recorrido por los manglares de Tumbes.",
         category: "Naturaleza",
         location: "Puerto Pizarro, Tumbes",
         readTime: "7 min",
@@ -772,16 +899,30 @@ export const blogPosts: BlogPost[] = [
                 text: "El zoocriadero de cocodrilos se puede visitar durante un recorrido desde Puerto Pizarro, en Tumbes. Elige una ruta que incluya expresamente esta parada: no todos los paseos por los manglares o las islas visitan el zoocriadero.",
             },
             { type: "heading", text: "Cómo organizar la visita al zoocriadero" },
-            { type: "list", items: [
-                "Confirma el punto de encuentro en Puerto Pizarro y la salida de la embarcación.",
-                "Revisa que el itinerario incluya la visita al zoocriadero.",
-                "Pregunta si la entrada está incluida en el precio del tour o se paga aparte.",
-                "Consulta el horario de acceso para tu fecha y la duración de la parada.",
-            ] },
+            {
+                type: "list",
+                items: [
+                    "Confirma el punto de encuentro en Puerto Pizarro y la salida de la embarcación.",
+                    "Revisa que el itinerario incluya la visita al zoocriadero.",
+                    "Pregunta si la entrada está incluida en el precio del tour o se paga aparte.",
+                    "Consulta el horario de acceso para tu fecha y la duración de la parada.",
+                ],
+            },
             { type: "heading", text: "Entradas y horarios: qué confirmar antes de reservar" },
-            { type: "paragraph", text: "La tarifa del bote y la entrada al zoocriadero pueden ser conceptos distintos. Antes de pagar, solicita el total para tu grupo, confirma cualquier cobro adicional y pregunta por las condiciones para niños. El horario de atención de Avis Tours no equivale al horario del zoocriadero; confirma el acceso para el día de tu visita." },
-            { type: "link", href: "/promociones/manglares-y-cocodrilos", text: "Ver el tour manglares y cocodrilos: precio, duración e inclusiones" },
-            { type: "link", href: "/blog/como-llegar-a-puerto-pizarro-desde-tumbes", text: "Cómo llegar al punto de salida en Puerto Pizarro" },
+            {
+                type: "paragraph",
+                text: "La tarifa del bote y la entrada al zoocriadero pueden ser conceptos distintos. Antes de pagar, solicita el total para tu grupo, confirma cualquier cobro adicional y pregunta por las condiciones para niños. El horario de atención de Avis Tours no equivale al horario del zoocriadero; confirma el acceso para el día de tu visita.",
+            },
+            {
+                type: "link",
+                href: "/promociones/manglares-y-cocodrilos",
+                text: "Ver el tour manglares y cocodrilos: precio, duración e inclusiones",
+            },
+            {
+                type: "link",
+                href: "/blog/como-llegar-a-puerto-pizarro-desde-tumbes",
+                text: "Cómo llegar al punto de salida en Puerto Pizarro",
+            },
             {
                 type: "heading",
                 text: "¿Qué es el zoocriadero de cocodrilos de Puerto Pizarro?",
@@ -819,7 +960,8 @@ export const blogPosts: BlogPost[] = [
                 type: "image",
                 src: "/images-optimized/galeria/manglares_cocodrilos_galeria2.webp",
                 alt: "Tour para visitar cocodrilos y manglares en Puerto Pizarro Tumbes",
-                caption: "La visita a los cocodrilos puede combinarse con un recorrido por los manglares de Puerto Pizarro.",
+                caption:
+                    "La visita a los cocodrilos puede combinarse con un recorrido por los manglares de Puerto Pizarro.",
             },
             {
                 type: "heading",
@@ -896,7 +1038,8 @@ export const blogPosts: BlogPost[] = [
     {
         slug: "manglares-de-puerto-pizarro",
         title: "Manglares de Puerto Pizarro: qué ver, cómo visitarlos y tours",
-        excerpt: "Descubre qué puedes ver en los manglares de Puerto Pizarro, cómo visitarlos y qué debes considerar antes de realizar un tour por esta zona de Tumbes.",
+        excerpt:
+            "Descubre qué puedes ver en los manglares de Puerto Pizarro, cómo visitarlos y qué debes considerar antes de realizar un tour por esta zona de Tumbes.",
         category: "Guía",
         location: "Puerto Pizarro, Tumbes",
         readTime: "9 min",
@@ -1051,92 +1194,105 @@ export const blogPosts: BlogPost[] = [
 const blogConnections: Record<string, BlogConnection> = {
     "isla-del-amor-tumbes": {
         primaryTourSlug: "solo-visita-a-la-isla",
-        relatedTourSlugs: ["solo-visita-a-la-isla", "isla-pajaros-manglares", "puerto-pizarro-completo"],
-        relatedPostSlugs: ["como-llegar-a-puerto-pizarro-desde-tumbes", "isla-de-los-pajaros-y-manglares", "mareas-en-puerto-pizarro"],
-        whatsappMessage: "Hola Avis Tours, quiero visitar la Isla del Amor desde Puerto Pizarro. ¿Qué recorrido y horario me recomiendan?",
+        relatedTourSlugs: ["solo-visita-a-la-isla", "puerto-pizarro-completo"],
+        relatedPostSlugs: [
+            "como-llegar-a-puerto-pizarro-desde-tumbes",
+            "isla-de-los-pajaros-y-manglares",
+            "mareas-en-puerto-pizarro",
+        ],
+        whatsappMessage:
+            "Hola Avis Tours, quiero visitar la Isla del Amor desde Puerto Pizarro. ¿Qué recorrido y horario me recomiendan?",
     },
     "mareas-en-puerto-pizarro": {
         primaryTourSlug: "isla-pajaros-manglares",
         relatedTourSlugs: ["puerto-pizarro-completo", "isla-pajaros-manglares"],
         relatedPostSlugs: ["ruta-completa-islas-manglares-cocodrilos", "como-llegar-a-puerto-pizarro-desde-tumbes"],
-        whatsappMessage: "Hola Avis Tours, leí su artículo sobre mareas en Puerto Pizarro y quiero que me recomienden el mejor horario para reservar un tour.",
+        whatsappMessage:
+            "Hola Avis Tours, leí su artículo sobre mareas en Puerto Pizarro y quiero que me recomienden el mejor horario para reservar un tour.",
     },
     "ruta-completa-islas-manglares-cocodrilos": {
         primaryTourSlug: "puerto-pizarro-completo",
         relatedTourSlugs: ["puerto-pizarro-completo", "islas-manglares-cocodrilos"],
-        relatedPostSlugs: ["isla-de-los-pajaros-y-manglares", "que-llevar-a-un-tour-por-los-manglares-de-puerto-pizarro"],
-        whatsappMessage: "Hola Avis Tours, vi su artículo sobre el tour completo en Puerto Pizarro y quiero consultar disponibilidad.",
+        relatedPostSlugs: [
+            "isla-de-los-pajaros-y-manglares",
+            "que-llevar-a-un-tour-por-los-manglares-de-puerto-pizarro",
+        ],
+        whatsappMessage:
+            "Hola Avis Tours, vi su artículo sobre el tour completo en Puerto Pizarro y quiero consultar disponibilidad.",
     },
     "isla-de-los-pajaros-y-manglares": {
         primaryTourSlug: "isla-pajaros-manglares",
         relatedTourSlugs: ["isla-pajaros-manglares", "pajaros-y-manglares"],
-        relatedPostSlugs: ["isla-del-amor-tumbes", "como-llegar-a-puerto-pizarro-desde-tumbes", "manglares-de-puerto-pizarro"],
-        whatsappMessage: "Hola Avis Tours, vi su artículo sobre Isla de los Pájaros y quiero cotizar ese tour en Puerto Pizarro.",
+        relatedPostSlugs: [
+            "isla-del-amor-tumbes",
+            "como-llegar-a-puerto-pizarro-desde-tumbes",
+            "manglares-de-puerto-pizarro",
+        ],
+        whatsappMessage:
+            "Hola Avis Tours, vi su artículo sobre Isla de los Pájaros y quiero cotizar ese tour en Puerto Pizarro.",
     },
     "como-llegar-a-puerto-pizarro-desde-tumbes": {
         primaryTourSlug: "solo-visita-a-la-isla",
         relatedTourSlugs: ["puerto-pizarro-completo", "solo-visita-a-la-isla"],
-        relatedPostSlugs: ["isla-de-los-pajaros-y-manglares", "manglares-de-puerto-pizarro", "mareas-en-puerto-pizarro"],
-        whatsappMessage: "Hola Avis Tours, voy a llegar a Tumbes y quiero ayuda para coordinar mi tour en Puerto Pizarro.",
+        relatedPostSlugs: [
+            "isla-de-los-pajaros-y-manglares",
+            "manglares-de-puerto-pizarro",
+            "mareas-en-puerto-pizarro",
+        ],
+        whatsappMessage:
+            "Hola Avis Tours, voy a llegar a Tumbes y quiero ayuda para coordinar mi tour en Puerto Pizarro.",
     },
     "que-llevar-a-un-tour-por-los-manglares-de-puerto-pizarro": {
         primaryTourSlug: "manglares-y-cocodrilos",
         relatedTourSlugs: ["puerto-pizarro-completo", "manglares-y-cocodrilos"],
         relatedPostSlugs: ["mareas-en-puerto-pizarro", "como-llegar-a-puerto-pizarro-desde-tumbes"],
-        whatsappMessage: "Hola Avis Tours, leí su guía sobre qué llevar a un tour y quiero consultar qué recorrido me recomiendan.",
+        whatsappMessage:
+            "Hola Avis Tours, leí su guía sobre qué llevar a un tour y quiero consultar qué recorrido me recomiendan.",
     },
     "que-hacer-en-tumbes-en-1-dia": {
         primaryTourSlug: "puerto-pizarro-completo",
-        relatedTourSlugs: [
-            "puerto-pizarro-completo",
-            "islas-manglares-cocodrilos",
-        ],
+        relatedTourSlugs: ["puerto-pizarro-completo", "islas-manglares-cocodrilos"],
         relatedPostSlugs: [
             "como-llegar-a-puerto-pizarro-desde-tumbes",
             "que-llevar-a-un-tour-por-los-manglares-de-puerto-pizarro",
-            "ruta-completa-islas-manglares-cocodrilos"
+            "ruta-completa-islas-manglares-cocodrilos",
         ],
-        whatsappMessage: "Hola Avis Tours, voy a visitar Tumbes por 1 día y quiero ayuda para organizar un tour en Puerto Pizarro."
+        whatsappMessage:
+            "Hola Avis Tours, voy a visitar Tumbes por 1 día y quiero ayuda para organizar un tour en Puerto Pizarro.",
     },
     "puerto-pizarro-o-mancora": {
         primaryTourSlug: "puerto-pizarro-completo",
-        relatedTourSlugs: [
-            "isla-pajaros-manglares",
-            "manglares-y-cocodrilos"
-        ],
+        relatedTourSlugs: ["isla-pajaros-manglares", "manglares-y-cocodrilos"],
         relatedPostSlugs: [
             "que-hacer-en-tumbes-en-1-dia",
             "isla-de-los-pajaros-y-manglares",
-            "mareas-en-puerto-pizarro"
+            "mareas-en-puerto-pizarro",
         ],
-        whatsappMessage: "Hola Avis Tours, estoy decidiendo entre Puerto Pizarro y Máncora y quiero información sobre sus tours."
+        whatsappMessage:
+            "Hola Avis Tours, estoy decidiendo entre Puerto Pizarro y Máncora y quiero información sobre sus tours.",
     },
     "zoocriadero-cocodrilos-puerto-pizarro": {
         primaryTourSlug: "islas-manglares-cocodrilos",
-        relatedTourSlugs: [
-            "islas-manglares-cocodrilos",
-            "puerto-pizarro-completo",
-        ],
+        relatedTourSlugs: ["islas-manglares-cocodrilos", "puerto-pizarro-completo"],
         relatedPostSlugs: [
             "mareas-en-puerto-pizarro",
             "que-llevar-a-un-tour-por-los-manglares-de-puerto-pizarro",
             "ruta-completa-islas-manglares-cocodrilos",
         ],
-        whatsappMessage: "Hola Avis Tours, quiero visitar el zoocriadero de cocodrilos y los manglares de Puerto Pizarro. ¿Qué tour me recomiendan?",
+        whatsappMessage:
+            "Hola Avis Tours, quiero visitar el zoocriadero de cocodrilos y los manglares de Puerto Pizarro. ¿Qué tour me recomiendan?",
     },
     "manglares-de-puerto-pizarro": {
         primaryTourSlug: "puerto-pizarro-completo",
-        relatedTourSlugs: [
-            "islas-manglares-cocodrilos",
-            "isla-pajaros-manglares",
-        ],
+        relatedTourSlugs: ["islas-manglares-cocodrilos", "isla-pajaros-manglares"],
         relatedPostSlugs: [
             "isla-de-los-pajaros-y-manglares",
             "mareas-en-puerto-pizarro",
             "que-llevar-a-un-tour-por-los-manglares-de-puerto-pizarro",
             "como-llegar-a-puerto-pizarro-desde-tumbes",
         ],
-        whatsappMessage: "Hola Avis Tours, quiero conocer los manglares de Puerto Pizarro. ¿Qué tour me recomiendan según los lugares que quiero visitar?",
+        whatsappMessage:
+            "Hola Avis Tours, quiero conocer los manglares de Puerto Pizarro. ¿Qué tour me recomiendan según los lugares que quiero visitar?",
     },
 }
 
@@ -1167,9 +1323,7 @@ export function getLocalizedBlogPost(post: BlogPost, locale: BlogLocale) {
 }
 
 export function getLocalizedBlogPosts(locale: BlogLocale) {
-    return blogPosts
-        .map((post) => getLocalizedBlogPost(post, locale))
-        .filter((post): post is BlogPost => Boolean(post))
+    return blogPosts.map((post) => getLocalizedBlogPost(post, locale)).filter((post): post is BlogPost => Boolean(post))
 }
 
 export function getBlogRelatedTours(post: BlogPost): Tour[] {
@@ -1198,11 +1352,15 @@ export function getBlogRelatedPosts(post: BlogPost): BlogPost[] {
     }
 
     return blogPosts
-        .filter((item) => item.slug !== post.slug && (item.category === post.category || item.location === post.location))
+        .filter(
+            (item) => item.slug !== post.slug && (item.category === post.category || item.location === post.location),
+        )
         .slice(0, 2)
 }
 
 export function getBlogWhatsAppMessage(post: BlogPost) {
-    return blogConnections[post.slug]?.whatsappMessage
-        ?? `Hola Avis Tours, leí su artículo "${post.title}" y quiero consultar un tour en Puerto Pizarro.`
+    return (
+        blogConnections[post.slug]?.whatsappMessage ??
+        `Hola Avis Tours, leí su artículo "${post.title}" y quiero consultar un tour en Puerto Pizarro.`
+    )
 }

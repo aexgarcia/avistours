@@ -1,207 +1,415 @@
 [
-    {
-        "id": 1,
-        "slug": "puerto-pizarro-completo",
-        "title": "Puerto Pizarro completo",
-        "location": "Puerto Pizarro, Tumbes",
-        "price": 15,
-        "groupPrice": 200,
-        "discountPrice": 150,
-        "minPeople": 1,
-        "maxPeople": 10,
-        "image": "/images-optimized/promotions/completo.webp",
-        "gallery": ["/images-optimized/galeria/completo_galeria1.webp", "/images-optimized/galeria/completo_galeria2.webp", "/images-optimized/galeria/completo_galeria3.webp", "/images-optimized/galeria/completo_galeria4.webp", "/images-optimized/galeria/completo_galeria6.webp", "/images-optimized/galeria/completo_galeria7.webp", "/images-optimized/galeria/completo_galeria8.webp", "/images-optimized/galeria/completo_galeria9.webp", "/images-optimized/galeria/completo_galeria10.webp"],
-        "rating": 4.9,
-        "reviews": 8,
-        "discount": "Más completo",
-        "duration": "2 - 3 horas",
-        "description": "Recorrido por manglares, Isla del Amor, Isla de los Pájaros, zoocriadero de cocodrilos y avistamiento de la boca del mar.",
-        "features": ["Isla del Amor", "Isla de los Pájaros", "Manglares", "Zoocriadero de cocodrilos", "Boca del mar"],
-        "featureIcons": {
-            "Isla del Amor": "island",
-            "Isla de los Pájaros": "bird",
-            "Manglares": "mangrove",
-            "Zoocriadero de cocodrilos": "crocodile",
-            "Boca del mar": "sea"
-        },
-        "activities": ["Navegación por esteros", "Observación de aves", "Visita al zoocriadero", "Avistamiento de la boca del mar", "Estadía en la isla del Amor", "Tomas fotográficas", "Disfrute playero", "Recreación acuatica"],
-        "activityIcons": {
-            "Navegación por esteros": "boat",
-            "Observación de aves": "bird",
-            "Visita al zoocriadero": "crocodile",
-            "Avistamiento de la boca del mar": "sea",
-            "Estadía en la isla del Amor": "island",
-            "Tomas fotográficas": "camera",
-            "Disfrute playero": "beach",
-            "Recreación acuatica": "kayak"
-        },
-        "includes": ["Chaleco salvavidas", "Bote turístico", "Intérprete local", "Paradas interpretativas", "Coordinación según marea"],
-        "recommendations": ["Llevar bloqueador", "Usar gorra o sombrero", "Portar efectivo para consumos personales", "Confirmar hora por marea", "Llevar repelente"],
-        "itinerary": ["Salida desde el muelle turístico de Puerto Pizarro", "Navegación por canales de manglar e islas cercanas", "Parada para observar aves en Isla de los Pájaros", "Visita al zoocriadero de cocodrilos", "Avistamiento de la entrada o boca del mar", "Desembarque en la isla del Amor", "Retorno al muelle turístico"]
+  {
+    "id": 1,
+    "slug": "puerto-pizarro-completo",
+    "title": "Puerto Pizarro completo",
+    "location": "Puerto Pizarro, Tumbes",
+    "price": 15,
+    "groupPrice": 200,
+    "discountPrice": 150,
+    "minPeople": 1,
+    "maxPeople": 10,
+    "image": "/images-optimized/promotions/completo.webp",
+    "gallery": [
+      "/images-optimized/galeria/completo_galeria1.webp",
+      "/images-optimized/galeria/completo_galeria2.webp",
+      "/images-optimized/galeria/completo_galeria3.webp",
+      "/images-optimized/galeria/completo_galeria4.webp",
+      "/images-optimized/galeria/completo_galeria6.webp",
+      "/images-optimized/galeria/completo_galeria7.webp",
+      "/images-optimized/galeria/completo_galeria8.webp",
+      "/images-optimized/galeria/completo_galeria9.webp",
+      "/images-optimized/galeria/completo_galeria10.webp"
+    ],
+    "rating": 4.9,
+    "reviews": 8,
+    "discount": "Más completo",
+    "duration": "2 - 3 horas",
+    "description": "Recorrido por manglares, Isla del Amor, Isla de los Pájaros, zoocriadero de cocodrilos y avistamiento de la boca del mar.",
+    "features": [
+      "Isla del Amor",
+      "Isla de los Pájaros",
+      "Manglares",
+      "Zoocriadero de cocodrilos",
+      "Boca del mar"
+    ],
+    "featureIcons": {
+      "Isla del Amor": "island",
+      "Isla de los Pájaros": "bird",
+      "Manglares": "mangrove",
+      "Zoocriadero de cocodrilos": "crocodile",
+      "Boca del mar": "sea"
     },
-    {
-        "id": 2,
-        "slug": "solo-visita-a-la-isla",
-        "title": "Solo visita a la isla",
-        "location": "Puerto Pizarro, Tumbes",
-        "price": 6,
-        "groupPrice": 60,
-        "minPeople": 1,
-        "maxPeople": 10,
-        "image": "/images-optimized/promotions/solo_ida_isla.webp",
-        "gallery": ["/images-optimized/galeria/solo_isla_galeria1.webp", "/images-optimized/galeria/solo_isla_galeria2.webp", "/images-optimized/galeria/solo_isla_galeria3.webp", "/images-optimized/galeria/solo_isla_galeria4.webp", "/images-optimized/galeria/solo_isla_galeria5.webp", "/images-optimized/galeria/solo_isla_galeria6.webp", "/images-optimized/galeria/solo_isla_galeria7.webp", "/images-optimized/galeria/solo_isla_galeria8.webp"],
-        "rating": 4.0,
-        "reviews": 12,
-        "duration": "2 horas",
-        "description": "Ideal para quienes desean llegar a la isla del Amor, disfrutar el entorno marino y organizar su tiempo con libertad.",
-        "features": ["Isla del Amor", "Vista al estero"],
-        "featureIcons": {
-            "Isla del Amor": "island",
-            "Vista al estero": "view"
-        },
-        "activities": ["Navegación por esteros", "Estadía en la isla del Amor", "Vista de manglares", "Tomas fotográficas", "Disfrute playero", "Recreación acuatica"],
-        "activityIcons": {
-            "Navegación por esteros": "boat",
-            "Estadía en la isla del Amor": "island",
-            "Vista de manglares": "mangrove",
-            "Tomas fotográficas": "camera",
-            "Disfrute playero": "beach",
-            "Recreación acuatica": "kayak"
-        },
-        "includes": ["Chaleco salvavidas", "Bote de ida y regreso", "Orientación de embarque", "Coordinación de horario"],
-        "recommendations": ["Coordinar retorno con anticipación", "Llevar agua", "Consultar condiciones de marea"],
-        "itinerary": ["Encuentro en el muelle turístico", "Embarque y traslado hacia la isla", "Estadía en la isla del Amor", "Retorno al muelle turístico"]
+    "activities": [
+      "Navegación por esteros",
+      "Observación de aves",
+      "Visita al zoocriadero",
+      "Avistamiento de la boca del mar",
+      "Estadía en la isla del Amor",
+      "Tomas fotográficas",
+      "Disfrute playero",
+      "Recreación acuatica"
+    ],
+    "activityIcons": {
+      "Navegación por esteros": "boat",
+      "Observación de aves": "bird",
+      "Visita al zoocriadero": "crocodile",
+      "Avistamiento de la boca del mar": "sea",
+      "Estadía en la isla del Amor": "island",
+      "Tomas fotográficas": "camera",
+      "Disfrute playero": "beach",
+      "Recreación acuatica": "kayak"
     },
-    {
-        "id": 3,
-        "slug": "isla-pajaros-manglares",
-        "title": "Isla del Amor, pájaros y manglares",
-        "location": "Puerto Pizarro, Tumbes",
-        "price": 10,
-        "groupPrice": 100,
-        "minPeople": 1,
-        "maxPeople": 10,
-        "image": "/images-optimized/promotions/manglares_pajaros.webp",
-        "gallery": ["/images-optimized/galeria/pajaros_manglares_galeria1.webp", "/images-optimized/galeria/pajaros_manglares_galeria2.webp", "/images-optimized/galeria/pajaros_manglares_galeria3.webp", "/images-optimized/galeria/pajaros_manglares_galeria4.webp", "/images-optimized/galeria/pajaros_manglares_galeria5.webp", "/images-optimized/galeria/pajaros_manglares_galeria6.webp", "/images-optimized/galeria/pajaros_manglares_galeria7.webp"],
-        "rating": 5,
-        "reviews": 2,
-        "duration": "1 a 2 horas",
-        "description": "Una ruta escénica para visitar la isla del Amor, observar aves en la Isla de los Pájaros y navegar por los manglares.",
-        "features": ["Isla del Amor", "Isla de los Pájaros", "Manglares"],
-        "featureIcons": {
-            "Isla del Amor": "island",
-            "Isla de los Pájaros": "bird",
-            "Manglares": "mangrove"
-        },
-        "activities": ["Navegación por esteros", "Observación de aves", "Vista de manglares", "Estadía en la isla del Amor", "Tomas fotográficas", "Disfrute playero", "Recreación acuatica"],
-        "activityIcons": {
-            "Navegación por esteros": "boat",
-            "Observación de aves": "bird",
-            "Vista de manglares": "mangrove",
-            "Estadía en la isla del Amor": "island",
-            "Tomas fotográficas": "camera",
-            "Disfrute playero": "beach",
-            "Recreación acuatica": "kayak"
-        },
-        "includes": ["Chaleco salvavidas", "Bote turístico", "Intérprete local", "Paradas interpretativas", "Coordinación según marea"],
-        "recommendations": ["Llevar cámara o celular cargado", "Usar ropa ligera", "Evitar alimentar aves con alimentos no permitidos"],
-        "itinerary": ["Salida desde el muelle turístico de Puerto Pizarro", "Navegación por canales de manglar e islas cercanas", "Parada para observar aves en Isla de los Pájaros", "Desembarque en la isla del Amor", "Retorno al muelle turístico"]
+    "includes": [
+      "Chaleco salvavidas",
+      "Bote turístico",
+      "Intérprete local",
+      "Paradas interpretativas",
+      "Coordinación según marea"
+    ],
+    "recommendations": [
+      "Llevar bloqueador",
+      "Usar gorra o sombrero",
+      "Portar efectivo para consumos personales",
+      "Confirmar hora por marea",
+      "Llevar repelente"
+    ],
+    "itinerary": [
+      "Salida desde el muelle turístico de Puerto Pizarro",
+      "Navegación por canales de manglar e islas cercanas",
+      "Parada para observar aves en Isla de los Pájaros",
+      "Visita al zoocriadero de cocodrilos",
+      "Avistamiento de la entrada o boca del mar",
+      "Desembarque en la isla del Amor",
+      "Retorno al muelle turístico"
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "solo-visita-a-la-isla",
+    "title": "Solo visita a la isla",
+    "location": "Puerto Pizarro, Tumbes",
+    "price": 6,
+    "groupPrice": 60,
+    "minPeople": 1,
+    "maxPeople": 10,
+    "image": "/images-optimized/promotions/solo_ida_isla.webp",
+    "gallery": [
+      "/images-optimized/galeria/solo_isla_galeria1.webp",
+      "/images-optimized/galeria/solo_isla_galeria2.webp",
+      "/images-optimized/galeria/solo_isla_galeria3.webp",
+      "/images-optimized/galeria/solo_isla_galeria4.webp",
+      "/images-optimized/galeria/solo_isla_galeria5.webp",
+      "/images-optimized/galeria/solo_isla_galeria6.webp",
+      "/images-optimized/galeria/solo_isla_galeria7.webp",
+      "/images-optimized/galeria/solo_isla_galeria8.webp",
+      "/images-optimized/galeria/solo_isla_galeria9.webp"
+    ],
+    "rating": 4.0,
+    "reviews": 12,
+    "duration": "2 horas",
+    "description": "Ideal para quienes desean llegar a la isla del Amor, disfrutar el entorno marino y organizar su tiempo con libertad.",
+    "features": ["Isla del Amor", "Vista al estero"],
+    "featureIcons": {
+      "Isla del Amor": "island",
+      "Vista al estero": "view"
     },
-    {
-        "id": 4,
-        "slug": "islas-manglares-cocodrilos",
-        "title": "Isla del Amor, manglares y cocodrilos",
-        "location": "Puerto Pizarro, Tumbes",
-        "price": 10,
-        "groupPrice": 100,
-        "minPeople": 1,
-        "maxPeople": 10,
-        "image": "/images-optimized/promotions/manglares_cocodrilos.webp",
-        "gallery": ["/images-optimized/galeria/manglares_cocodrilos_galeria1.webp", "/images-optimized/galeria/manglares_cocodrilos_galeria2.webp", "/images-optimized/galeria/manglares_cocodrilos_galeria3.webp", "/images-optimized/galeria/manglares_cocodrilos_galeria5.webp", "/images-optimized/galeria/manglares_cocodrilos_galeria6.webp", "/images-optimized/galeria/manglares_cocodrilos_galeria7.webp", "/images-optimized/galeria/manglares_cocodrilos_galeria8.webp", "/images-optimized/galeria/manglares_cocodrilos_galeria9.webp", "/images-optimized/galeria/manglares_cocodrilos_galeria10.webp"],
-        "rating": 4.9,
-        "reviews": 3,
-        "duration": "2 horas",
-        "description": "Tour para conocer la isla del Amor, navegar por los canales del manglar y visitar el zoocriadero de cocodrilos.",
-        "features": ["Isla del Amor", "Manglares", "Zoocriadero de cocodrilos"],
-        "featureIcons": {
-            "Isla del Amor": "island",
-            "Manglares": "mangrove",
-            "Zoocriadero de cocodrilos": "crocodile"
-        },
-        "activities": ["Navegación por esteros", "Vista de manglares", "Visita al zoocriadero", "Estadía en la isla del Amor", "Tomas fotográficas", "Disfrute playero", "Recreación acuatica"],
-        "activityIcons": {
-            "Navegación por esteros": "boat",
-            "Vista de manglares": "mangrove",
-            "Visita al zoocriadero": "crocodile",
-            "Estadía en la isla del Amor": "island",
-            "Tomas fotográficas": "camera",
-            "Disfrute playero": "beach",
-            "Recreación acuatica": "kayak"
-        },
-        "includes": ["Chaleco salvavidas", "Bote turístico", "Intérprete local", "Paradas interpretativas", "Coordinación según marea"],
-        "recommendations": ["Llevar repelente", "Usar calzado cómodo", "Confirmar salida según marea"],
-        "itinerary": ["Salida desde el muelle turístico de Puerto Pizarro", "Navegación por canales de manglar e islas cercanas", "Visita al zoocriadero de cocodrilos", "Desembarque en la isla del Amor", "Retorno al muelle turístico"]
+    "activities": [
+      "Navegación por esteros",
+      "Estadía en la isla del Amor",
+      "Vista de manglares",
+      "Tomas fotográficas",
+      "Disfrute playero",
+      "Recreación acuatica"
+    ],
+    "activityIcons": {
+      "Navegación por esteros": "boat",
+      "Estadía en la isla del Amor": "island",
+      "Vista de manglares": "mangrove",
+      "Tomas fotográficas": "camera",
+      "Disfrute playero": "beach",
+      "Recreación acuatica": "kayak"
     },
-    {
-        "id": 5,
-        "slug": "pajaros-y-manglares",
-        "title": "Pájaros y manglares",
-        "location": "Puerto Pizarro, Tumbes",
-        "price": 8,        
-        "groupPrice": 80,
-        "minPeople": 1,
-        "maxPeople": 10,
-        "image": "/images-optimized/promotions/pajaros.webp",
-        "gallery": ["/images-optimized/galeria/pajaros_galeria1.webp", "/images-optimized/galeria/pajaros_galeria2.webp", "/images-optimized/galeria/pajaros_galeria3.webp", "/images-optimized/galeria/pajaros_galeria4.webp", "/images-optimized/galeria/pajaros_galeria5.webp", "/images-optimized/galeria/pajaros_galeria6.webp", "/images-optimized/galeria/pajaros_galeria7.webp"],
-        "rating": 4.9,
-        "reviews": 3,
-        "duration": "1 hora",
-        "description": "Una salida accesible para observar aves y navegar por los canales de manglar de Puerto Pizarro.",
-        "features": ["Isla del Amor", "Isla de los Pájaros", "Manglares", "Zoocriadero de cocodrilos", "Boca del mar"],
-        "featureIcons": {
-            "Isla de los Pájaros": "bird",
-            "Manglares": "mangrove"
-        },
-        "activities": ["Navegación por esteros", "Observación de aves", "Vista de manglares", "Tomas fotográficas"],
-        "activityIcons": {
-            "Navegación por esteros": "boat",
-            "Observación de aves": "bird",
-            "Vista de manglares": "mangrove",
-            "Tomas fotográficas": "camera"
-        },
-        "includes": ["Chaleco salvavidas", "Intérprete local", "Paradas interpretativas", "Recorrido por zona de manglares", "Coordinación según marea"],
-        "recommendations": ["Llevar celular o cámara cargada", "Usar gorra", "Evitar hacer ruido cerca de las aves", "Confirmar horario antes de llegar"],
-        "itinerary": ["Salida desde el muelle turístico de Puerto Pizarro", "Navegación por canales de manglar e islas cercanas", "Parada para observar aves en Isla de los Pájaros", "Retorno al muelle turístico"]
+    "includes": [
+      "Chaleco salvavidas",
+      "Bote de ida y regreso",
+      "Orientación de embarque",
+      "Coordinación de horario"
+    ],
+    "recommendations": [
+      "Coordinar retorno con anticipación",
+      "Llevar agua",
+      "Consultar condiciones de marea"
+    ],
+    "itinerary": [
+      "Encuentro en el muelle turístico",
+      "Embarque y traslado hacia la isla",
+      "Estadía en la isla del Amor",
+      "Retorno al muelle turístico"
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "isla-pajaros-manglares",
+    "title": "Isla del Amor, pájaros y manglares",
+    "location": "Puerto Pizarro, Tumbes",
+    "price": 10,
+    "groupPrice": 100,
+    "minPeople": 1,
+    "maxPeople": 10,
+    "image": "/images-optimized/promotions/manglares_pajaros.webp",
+    "gallery": [
+      "/images-optimized/galeria/pajaros_manglares_galeria1.webp",
+      "/images-optimized/galeria/pajaros_manglares_galeria2.webp",
+      "/images-optimized/galeria/pajaros_manglares_galeria3.webp",
+      "/images-optimized/galeria/pajaros_manglares_galeria4.webp",
+      "/images-optimized/galeria/pajaros_manglares_galeria5.webp",
+      "/images-optimized/galeria/pajaros_manglares_galeria6.webp",
+      "/images-optimized/galeria/pajaros_manglares_galeria7.webp"
+    ],
+    "rating": 5,
+    "reviews": 2,
+    "duration": "1 a 2 horas",
+    "description": "Una ruta escénica para visitar la isla del Amor, observar aves en la Isla de los Pájaros y navegar por los manglares.",
+    "features": ["Isla del Amor", "Isla de los Pájaros", "Manglares"],
+    "featureIcons": {
+      "Isla del Amor": "island",
+      "Isla de los Pájaros": "bird",
+      "Manglares": "mangrove"
     },
-    {
-        "id": 6,
-        "slug": "manglares-y-cocodrilos",
-        "title": "Manglares y cocodrilos",
-        "location": "Puerto Pizarro, Tumbes",
-        "price": 8,
-        "groupPrice": 80,
-        "minPeople": 1,
-        "maxPeople": 10,
-        "image": "/images-optimized/promotions/cocodrilos.webp",
-        "gallery": ["/images-optimized/galeria/cocodrilos_galeria2.webp", "/images-optimized/galeria/cocodrilos_galeria2.webp", "/images-optimized/galeria/cocodrilos_galeria3.webp", "/images-optimized/galeria/cocodrilos_galeria4.webp", "/images-optimized/galeria/cocodrilos_galeria5.webp", "/images-optimized/galeria/cocodrilos_galeria6.webp", "/images-optimized/galeria/cocodrilos_galeria7.webp", "/images-optimized/galeria/cocodrilos_galeria8.webp", "/images-optimized/galeria/manglares_cocodrilos_galeria9.webp"],
-        "rating": 4.8,
-        "reviews": 4,
-        "duration": "1 hora",
-        "description": "Recorrido práctico por los manglares con visita al zoocriadero de cocodrilos, ideal para una primera experiencia.",
-        "features": ["Manglares", "Zoocriadero de cocodrilos"],
-        "featureIcons": {
-            "Manglares": "mangrove",
-            "Zoocriadero de cocodrilos": "crocodile"
-        },
-        "activities": ["Navegación por esteros", "Vista de manglares", "Visita al zoocriadero", "Tomas fotográficas"],
-        "activityIcons": {
-            "Navegación por esteros": "boat",
-            "Vista de manglares": "mangrove",
-            "Visita al zoocriadero": "crocodile",
-            "Tomas fotográficas": "camera"
-        },
-        "includes": ["Chaleco salvavidas", "Paradas interpretativas", "Intérprete local", "Parada en zoocriadero", "Coordinación según marea"],
-        "recommendations": ["Llevar repelente", "Usar ropa ligera", "Seguir las indicaciones del guía", "Consultar condiciones de marea"],
-        "itinerary": ["Salida desde el muelle turístico", "Navegación por canales de manglar", "Visita al zoocriadero de cocodrilos", "Retorno a Puerto Pizarro"]
-    }
+    "activities": [
+      "Navegación por esteros",
+      "Observación de aves",
+      "Vista de manglares",
+      "Estadía en la isla del Amor",
+      "Tomas fotográficas",
+      "Disfrute playero",
+      "Recreación acuatica"
+    ],
+    "activityIcons": {
+      "Navegación por esteros": "boat",
+      "Observación de aves": "bird",
+      "Vista de manglares": "mangrove",
+      "Estadía en la isla del Amor": "island",
+      "Tomas fotográficas": "camera",
+      "Disfrute playero": "beach",
+      "Recreación acuatica": "kayak"
+    },
+    "includes": [
+      "Chaleco salvavidas",
+      "Bote turístico",
+      "Intérprete local",
+      "Paradas interpretativas",
+      "Coordinación según marea"
+    ],
+    "recommendations": [
+      "Llevar cámara o celular cargado",
+      "Usar ropa ligera",
+      "Evitar alimentar aves con alimentos no permitidos"
+    ],
+    "itinerary": [
+      "Salida desde el muelle turístico de Puerto Pizarro",
+      "Navegación por canales de manglar e islas cercanas",
+      "Parada para observar aves en Isla de los Pájaros",
+      "Desembarque en la isla del Amor",
+      "Retorno al muelle turístico"
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "islas-manglares-cocodrilos",
+    "title": "Isla del Amor, manglares y cocodrilos",
+    "location": "Puerto Pizarro, Tumbes",
+    "price": 10,
+    "groupPrice": 100,
+    "minPeople": 1,
+    "maxPeople": 10,
+    "image": "/images-optimized/promotions/manglares_cocodrilos.webp",
+    "gallery": [
+      "/images-optimized/galeria/manglares_cocodrilos_galeria1.webp",
+      "/images-optimized/galeria/manglares_cocodrilos_galeria2.webp",
+      "/images-optimized/galeria/manglares_cocodrilos_galeria3.webp",
+      "/images-optimized/galeria/manglares_cocodrilos_galeria5.webp",
+      "/images-optimized/galeria/manglares_cocodrilos_galeria6.webp",
+      "/images-optimized/galeria/manglares_cocodrilos_galeria7.webp",
+      "/images-optimized/galeria/manglares_cocodrilos_galeria8.webp",
+      "/images-optimized/galeria/manglares_cocodrilos_galeria9.webp",
+      "/images-optimized/galeria/manglares_cocodrilos_galeria10.webp"
+    ],
+    "rating": 4.9,
+    "reviews": 3,
+    "duration": "2 horas",
+    "description": "Tour para conocer la isla del Amor, navegar por los canales del manglar y visitar el zoocriadero de cocodrilos.",
+    "features": ["Isla del Amor", "Manglares", "Zoocriadero de cocodrilos"],
+    "featureIcons": {
+      "Isla del Amor": "island",
+      "Manglares": "mangrove",
+      "Zoocriadero de cocodrilos": "crocodile"
+    },
+    "activities": [
+      "Navegación por esteros",
+      "Vista de manglares",
+      "Visita al zoocriadero",
+      "Estadía en la isla del Amor",
+      "Tomas fotográficas",
+      "Disfrute playero",
+      "Recreación acuatica"
+    ],
+    "activityIcons": {
+      "Navegación por esteros": "boat",
+      "Vista de manglares": "mangrove",
+      "Visita al zoocriadero": "crocodile",
+      "Estadía en la isla del Amor": "island",
+      "Tomas fotográficas": "camera",
+      "Disfrute playero": "beach",
+      "Recreación acuatica": "kayak"
+    },
+    "includes": [
+      "Chaleco salvavidas",
+      "Bote turístico",
+      "Intérprete local",
+      "Paradas interpretativas",
+      "Coordinación según marea"
+    ],
+    "recommendations": [
+      "Llevar repelente",
+      "Usar calzado cómodo",
+      "Confirmar salida según marea"
+    ],
+    "itinerary": [
+      "Salida desde el muelle turístico de Puerto Pizarro",
+      "Navegación por canales de manglar e islas cercanas",
+      "Visita al zoocriadero de cocodrilos",
+      "Desembarque en la isla del Amor",
+      "Retorno al muelle turístico"
+    ]
+  },
+  {
+    "id": 5,
+    "slug": "pajaros-y-manglares",
+    "title": "Pájaros y manglares",
+    "location": "Puerto Pizarro, Tumbes",
+    "price": 8,
+    "groupPrice": 80,
+    "minPeople": 1,
+    "maxPeople": 10,
+    "image": "/images-optimized/promotions/pajaros.webp",
+    "gallery": [
+      "/images-optimized/galeria/pajaros_galeria1.webp",
+      "/images-optimized/galeria/pajaros_galeria2.webp",
+      "/images-optimized/galeria/pajaros_galeria3.webp",
+      "/images-optimized/galeria/pajaros_galeria4.webp",
+      "/images-optimized/galeria/pajaros_galeria5.webp",
+      "/images-optimized/galeria/pajaros_galeria6.webp",
+      "/images-optimized/galeria/pajaros_galeria7.webp"
+    ],
+    "rating": 4.9,
+    "reviews": 3,
+    "duration": "1 hora",
+    "description": "Una salida accesible para observar aves y navegar por los canales de manglar de Puerto Pizarro.",
+    "features": [
+      "Isla del Amor",
+      "Isla de los Pájaros",
+      "Manglares",
+      "Zoocriadero de cocodrilos",
+      "Boca del mar"
+    ],
+    "featureIcons": {
+      "Isla de los Pájaros": "bird",
+      "Manglares": "mangrove"
+    },
+    "activities": [
+      "Navegación por esteros",
+      "Observación de aves",
+      "Vista de manglares",
+      "Tomas fotográficas"
+    ],
+    "activityIcons": {
+      "Navegación por esteros": "boat",
+      "Observación de aves": "bird",
+      "Vista de manglares": "mangrove",
+      "Tomas fotográficas": "camera"
+    },
+    "includes": [
+      "Chaleco salvavidas",
+      "Intérprete local",
+      "Paradas interpretativas",
+      "Recorrido por zona de manglares",
+      "Coordinación según marea"
+    ],
+    "recommendations": [
+      "Llevar celular o cámara cargada",
+      "Usar gorra",
+      "Evitar hacer ruido cerca de las aves",
+      "Confirmar horario antes de llegar"
+    ],
+    "itinerary": [
+      "Salida desde el muelle turístico de Puerto Pizarro",
+      "Navegación por canales de manglar e islas cercanas",
+      "Parada para observar aves en Isla de los Pájaros",
+      "Retorno al muelle turístico"
+    ]
+  },
+  {
+    "id": 6,
+    "slug": "manglares-y-cocodrilos",
+    "title": "Manglares y cocodrilos",
+    "location": "Puerto Pizarro, Tumbes",
+    "price": 8,
+    "groupPrice": 80,
+    "minPeople": 1,
+    "maxPeople": 10,
+    "image": "/images-optimized/promotions/cocodrilos.webp",
+    "gallery": [
+      "/images-optimized/galeria/cocodrilos_galeria2.webp",
+      "/images-optimized/galeria/cocodrilos_galeria2.webp",
+      "/images-optimized/galeria/cocodrilos_galeria3.webp",
+      "/images-optimized/galeria/cocodrilos_galeria4.webp",
+      "/images-optimized/galeria/cocodrilos_galeria5.webp",
+      "/images-optimized/galeria/cocodrilos_galeria6.webp",
+      "/images-optimized/galeria/cocodrilos_galeria7.webp",
+      "/images-optimized/galeria/cocodrilos_galeria8.webp",
+      "/images-optimized/galeria/manglares_cocodrilos_galeria9.webp"
+    ],
+    "rating": 4.8,
+    "reviews": 4,
+    "duration": "1 hora",
+    "description": "Recorrido práctico por los manglares con visita al zoocriadero de cocodrilos, ideal para una primera experiencia.",
+    "features": ["Manglares", "Zoocriadero de cocodrilos"],
+    "featureIcons": {
+      "Manglares": "mangrove",
+      "Zoocriadero de cocodrilos": "crocodile"
+    },
+    "activities": [
+      "Navegación por esteros",
+      "Vista de manglares",
+      "Visita al zoocriadero",
+      "Tomas fotográficas"
+    ],
+    "activityIcons": {
+      "Navegación por esteros": "boat",
+      "Vista de manglares": "mangrove",
+      "Visita al zoocriadero": "crocodile",
+      "Tomas fotográficas": "camera"
+    },
+    "includes": [
+      "Chaleco salvavidas",
+      "Paradas interpretativas",
+      "Intérprete local",
+      "Parada en zoocriadero",
+      "Coordinación según marea"
+    ],
+    "recommendations": [
+      "Llevar repelente",
+      "Usar ropa ligera",
+      "Seguir las indicaciones del guía",
+      "Consultar condiciones de marea"
+    ],
+    "itinerary": [
+      "Salida desde el muelle turístico",
+      "Navegación por canales de manglar",
+      "Visita al zoocriadero de cocodrilos",
+      "Retorno a Puerto Pizarro"
+    ]
+  }
 ]
